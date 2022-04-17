@@ -14385,7 +14385,8 @@ button.bg-conch:focus {
     align-items: flex-end !important;
   }
   .align-items-xl-center {
-    align-items: center !important;
+    justify-content: center;
+    align-items: center;
   }
   .align-items-xl-baseline {
     align-items: baseline !important;
