@@ -1,5 +1,5 @@
 # ODS PARA TODOS
-<img src="exemplo-image.png" alt="exemplo imagem">
+<img src="exemplo-readme.png" alt="exemplo imagem">
 
 # Nome Do Projeto
 
