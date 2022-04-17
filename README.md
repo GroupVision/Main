@@ -5,13 +5,12 @@
 
 Descrição curta do projeto. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
 
-## 🔧 Funçoes (opcional)
-
-### Função 01:
-- Descrição Da Função
-
-### Função 02:
-- Descrição Da Função
+### LINK - GOOGLE DRIVE 01:
+Drive: https://drive.google.com/drive/folders/1-Sgz9hMtfLWXF-kCgaRC52XU5acUWX6I?usp=sharing
+### LINK - TRELLO 02:
+Trello: https://trello.com/invite/b/lZdY9M0T/1b4f3cca2cdf8ff0e811625a9439ed31/fabrica-v-time-vision
+### LINK - MIRO 03:
+Miro: https://miro.com/welcome/SkxIV2FuUVc0Ykc0UTlwNHl6SkZHTjNKRGNHWk5ncWk2Zk5TbnZ2NEdMWmI1dlZZRUZGbzFob2V2NmxpbWV2bHwzNDU4NzY0NTIwNjQ2Nzg0Njkx?invite_link_id=762591818596
 
 ## Download
 
