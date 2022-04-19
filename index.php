@@ -101,15 +101,16 @@
                 <div class="or-devider">
                   <span class="font-size-3 line-height-reset ">LOGIN</span>
                 </div>
-                <form action="/">
-                  <div class="form-group">
+                <form action="testLogin.php" method="POST">
+                  <div class="form-group" >
+
                     <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email">
+                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email" name="email">
                   </div>
                   <div class="form-group">
                     <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Senha</label>
                     <div class="position-relative">
-                      <input type="password" class="form-control" id="password" placeholder="Inserir senha">
+                      <input type="password" class="form-control" id="password" placeholder="Inserir senha" name="senha">
                       <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
                     </div>
                   </div>
