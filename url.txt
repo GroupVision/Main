@@ -1,0 +1,9 @@
+url -> :@/?reconnect=true
+
+user -> b220b114472b51
+
+password -> a215c1d8
+
+host -> us-cdbr-east-05.cleardb.net
+
+banco-dados -> heroku_5491e5553e154f5

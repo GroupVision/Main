@@ -1,9 +1,9 @@
 <?php
 
-    $dbHost = 'Localhost';
+    $dbHost = 'localhost';
     $dbUsername = 'root';
     $dbPassword = '';
-    $dbName = 'ods_bd';
+    $dbName = 'ods_db';
     
     $conexao = new mysqli($dbHost,$dbUsername,$dbPassword,$dbName);
 
