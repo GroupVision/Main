@@ -101,15 +101,16 @@
                 <div class="or-devider">
                   <span class="font-size-3 line-height-reset ">LOGIN</span>
                 </div>
-                <form action="/">
-                  <div class="form-group">
+                <form action="testLogin.php" method="POST">
+                  <div class="form-group" >
+
                     <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email">
+                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email" name="email">
                   </div>
                   <div class="form-group">
                     <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Senha</label>
                     <div class="position-relative">
-                      <input type="password" class="form-control" id="password" placeholder="Inserir senha">
+                      <input type="password" class="form-control" id="password" placeholder="Inserir senha" name="senha">
                       <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
                     </div>
                   </div>
@@ -379,8 +380,6 @@
       <div class="pos-abs-tr w-50 z-index-n2">
         <!-- cta-content start -->
 
-
-        
         <!-- cta-content end -->
       </div>
       <div class="col-xl-5 col-lg-12" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
@@ -388,7 +387,6 @@
         <div class="btns d-flex justify-content-xl-end justify-content- align-items-xl-center flex-wrap h-100  mx-n4">
           <img src="Logo.svg" alt="" class="w-100 rounded-4" />
           <h1 class="text-black-2 font-size-8 mb-4">   Objetivos de Desenvolvimento Sustentável</h1>
-
           <p class="text-hit-gray font-size-5 mb-0">   Projeto fabrica de projetos V - Facens</p>
         
         </div>
@@ -474,7 +472,7 @@
               <div class="d-block mb-7">
                 <a href="#"><img src="./image/l1/png/linha-test.png" alt=""></a>
               </div>
-              <a href="#" class="font-size-3 d-block mb-0 text-gray">Shopify</a>
+              <a href="#" class="font-size-3 d-block mb-0 text-gray">Google .inc</a>
               <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="">Formigas de Embaúba</a></h2>
               <ul class="list-unstyled mb-1 card-tag-list">
                 <li><a href="" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
@@ -553,8 +551,8 @@
             <div class="col-xl-7 col-lg-12" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
               <!-- cta-content start -->
               <div class="pb-xl-0 pb-9 text-xl-left text-center">
-                <h2 class="text-white font-size-8 mb-4">Most comprehensive job portal</h2>
-                <p class="text-hit-gray font-size-5 mb-0">We must explain to you how all this mistaken idea of denouncing</p>
+                <h2 class="text-white font-size-8 mb-4"> Objetivos de Desenvolvimento Sustentável</h2>
+                <p class="text-hit-gray font-size-5 mb-0"> Objetivos de Desenvolvimento Sustentável - Facens</p>
               </div>
               <!-- cta-content end -->
             </div>
@@ -568,16 +566,16 @@
       </div>
       <div class="container  pt-12 pt-lg-19 pb-10 pb-lg-19">
         <div class="row">
-          <div class="col-lg-4 col-sm-6 mb-lg-0 mb-9">
+          <div class="col-lg-4 col-sm-6 mb-lg-0 mb-9"> 
             <!-- footer logo start -->
-            <img src="image/logo-main-white.png" alt="" class="footer-logo mb-14">
+            <img src="image/Novo Projeto (2).png" alt="" class="footer-logo mb-14">
             <!-- footer logo End -->
             <!-- media start -->
             <div class="media mb-11">
               <img src="image/l1/png/message.png" class="align-self-center mr-3" alt="">
               <div class="media-body pl-5">
                 <p class="mb-0 font-size-4 text-white">Contato</p>
-                <a class="mb-0 font-size-4 font-weight-bold" href="mailto:support@uxtheme.net">support@uxtheme.net</a>
+                <a class="mb-0 font-size-4 font-weight-bold" href="mailto:viinymafra@gmail.com">viinymafra@gmail.com</a>
               </div>
             </div>
             <!-- media start -->
