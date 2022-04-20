@@ -101,7 +101,7 @@
                 <div class="or-devider">
                   <span class="font-size-3 line-height-reset ">LOGIN</span>
                 </div>
-                <form action="testLogin.php" method="POST">
+                <form action="back/testLogin.php" method="POST">
                   <div class="form-group" >
 
                     <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
