@@ -1,12 +1,14 @@
 <?php
 
-    $dbHost = 'us-cdbr-east-05.cleardb.net';
-    $dbUsername = 'b220b114472b51';
-    $dbPassword = 'a215c1d8';
-    //$dbName = 'ods_db';
-    $database = 'heroku_5491e5553e154f5';
+    $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    $cleardb_server = $cleardb_url["host"];
+    $cleardb_username = $cleardb_url["user"];
+    $cleardb_password = $cleardb_url["pass"];
+    $cleardb_db = substr($cleardb_url["path"],1);
+    $active_group = 'default';
+    $query_builder = TRUE;
     
-    $conexao = new mysqli($dbHost,$dbUsername,$dbPassword,$database);
+    $conexao = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
     // if($conexao->connect_errno)
     // {
