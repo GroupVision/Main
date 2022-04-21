@@ -226,11 +226,10 @@
             <div class="or-devider">
               <span class="font-size-3 line-height-reset">CADASTRO EMPRESARIAL</span>
             </div>
-            <form action="/">
+            <form action="back/configlocal.php" method="POST">
 
               <div id="userActions" class="square-144 m-auto px-6 mb-7">
-                <label for="fileUpload" class="mb-0 font-size-4 text-smoke">Browse or
-                  Drag and Drop</label>
+                <label for="fileUpload" class="mb-0 font-size-4 text-smoke">Navege ou Arraste e Solte</label>
                 <input type="file" id="fileUpload" class="sr-only" />
               </div><br>
 
