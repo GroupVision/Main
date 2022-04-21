@@ -1,19 +1,22 @@
 <?php
     if(count($_POST) > 0) {
         //1. pegar os valores do form
-        $nome = $_POST["nome_projeto"];
-        $problema = $_POST["problema_projeto"];
-        $solucao = $_POST["solucao_projeto"];
+        $nome = $_POST["nome"];
+        $cnpj = $_POST["cnpj"];
+        $tel = $_POST["tel"];
+        $email = $_POST["email"];
+        $senha = $_POST["senha"];
+        $imagem = $_POST["imagem"];
         // TODO pegar o código do usuário logado (chave estrangeira)
       
         try {
             include("configlocal.php");
 
             //3. verificar se email e senha estão no BD
-            $sql = "INSERT INTO projeto_usuario (cod_usuario_pessoa, nome, problema, solucao) VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO usuario_empresa (codigo, nome, cnpj, tel, email, senha, imagem) VALUES (?, ?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
             // TODO pegar o código do usuário logado:
-            $stmt->execute([null, $nome, $problema, $solucao]);
+            $stmt->execute([null, $nome, $cnpj, $tel, $email, $senha, $imagem]);
 
             $resultado["msg"] = "Projeto Lançado";
             $resultado["cod"] = 1;

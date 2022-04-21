@@ -226,34 +226,34 @@
             <div class="or-devider">
               <span class="font-size-3 line-height-reset">CADASTRO EMPRESARIAL</span>
             </div>
-            <form action="back/configlocal.php" method="POST">
+            <form action="back/cadastrar_projeto.php" method="POST">
 
               <div id="userActions" class="square-144 m-auto px-6 mb-7">
                 <label for="fileUpload" class="mb-0 font-size-4 text-smoke">Navege ou Arraste e Solte</label>
-                <input type="file" id="fileUpload" class="sr-only" />
+                <input type="file" id="fileUpload" class="sr-only" name="imagem">
               </div><br>
 
               <div class="form-group">
                 <label for="nome-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Nome da Empresa</label><label class="text-red">ㅤ*</label>
-                <input type="nome-empresa" class="form-control" placeholder="Nome da empresa" id="inp-empresa">
+                <input type="nome-empresa" class="form-control" placeholder="Nome da empresa" id="inp-empresa" name="nome">
               </div>
               <div class="form-group">
                 <label for="cnpj-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">CNPJ</label><label class="text-red">ㅤ*</label>
-                <input type="cnpj-empresa" class="form-control" placeholder="CNPJ da empresa" id="inp-empresa">
+                <input type="cnpj-empresa" class="form-control" placeholder="CNPJ da empresa" id="inp-empresa" name="cnpj">
               </div>              
               <div class="form-group">
                 <label for="tell-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Telefone</label><label class="text-red">ㅤ*</label>
-                <input type="tel" class="form-control" placeholder="Telefone da empresa" id="inp-empresa">
+                <input type="tel" class="form-control" placeholder="Telefone da empresa" id="inp-empresa" name="tel">
               </div>
 
               <div class="form-group">
                 <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label><label class="text-red">ㅤ*</label>
-                <input type="email" class="form-control" placeholder="Email Comercial" id="email2">
+                <input type="email" class="form-control" placeholder="Email Comercial" id="email2" name="email">
               </div>
               <div class="form-group">
                 <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Senha</label><label class="text-red">ㅤ*</label>
                 <div class="position-relative">
-                  <input type="password" class="form-control" id="password2" placeholder="Inserir password">
+                  <input type="password" class="form-control" id="password2" placeholder="Inserir password" name="senha">
                   <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
                 </div>
               </div>
