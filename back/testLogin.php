@@ -3,7 +3,7 @@
     if(!empty($_POST['email']) && !empty($_POST['senha']))
     {
         // Acessa
-        include_once('config.php');
+        include_once('configlocal.php');
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
@@ -25,18 +25,18 @@
         {
             unset($_SESSION['email']);
             unset($_SESSION['senha']);
-            header('Location: index.php');
+            header('Location: ../index.php');
         }
         else
         {
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
-           header('Location: faq.php');
+           header('Location: ../faq.php');
         }
     }
     else
     {
         // Não acessa
-        header('Location: index.php');
+        header('Location: ../index.php');
     }
 ?>
