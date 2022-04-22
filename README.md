@@ -1,6 +1,5 @@
 # ODS PARA TODOS
 ![ods_para_todos](https://user-images.githubusercontent.com/64045021/164785894-2f6bf9a8-7e0d-4c68-a521-075276a5d0e8.jpg)
-<img src="2f6bf9a8-7e0d-4c68-a521-075276a5d0e8.jpg" alt="exemplo imagem">
 
 # Especificação Do Projeto
 
@@ -35,11 +34,11 @@ Para ver o desenvolvimento mais detalhado acesse o devlog:
 
 Projeto aberto para ajuda!
 
-Emails para contato:
-vilyn.rodrigues8901@gmail.com
-gustavo.binderalmeida@gmail.com
-viinymafra@gmail.com
-vitordidu@hotmail.com
+Emails para contato:<br />
+vilyn.rodrigues8901@gmail.com<br />
+gustavo.binderalmeida@gmail.com<br />
+viinymafra@gmail.com<br />
+vitordidu@hotmail.com<br />
 
 [![Manual](https://img.shields.io/badge/Manual-999999?style=for-the-badge&logo=BookStack&logoColor=white
 )](https://github.com/seu-usuario/seu-repositorio/manual.md)
