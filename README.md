@@ -4,7 +4,7 @@
 
 # Nome Do Projeto
 
-Descrição curta do projeto. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
+Uma plataforma web de divulgação de ideias de projetos referentes as ODS no Brasil.
 
 ### LINK - GOOGLE DRIVE 01:
 Drive: https://drive.google.com/drive/folders/1-Sgz9hMtfLWXF-kCgaRC52XU5acUWX6I?usp=sharing
