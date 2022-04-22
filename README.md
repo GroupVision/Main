@@ -2,7 +2,7 @@
 ![ods_para_todos](https://user-images.githubusercontent.com/64045021/164785894-2f6bf9a8-7e0d-4c68-a521-075276a5d0e8.jpg)
 <img src="2f6bf9a8-7e0d-4c68-a521-075276a5d0e8.jpg" alt="exemplo imagem">
 
-# Nome Do Projeto
+# Especificação Do Projeto
 
 Uma plataforma web de divulgação de ideias de projetos referentes as ODS no Brasil.
 
@@ -35,7 +35,11 @@ Para ver o desenvolvimento mais detalhado acesse o devlog:
 
 Projeto aberto para ajuda!
 
-lorem ipsum lorem ipsum...
+Emails para contato:
+vilyn.rodrigues8901@gmail.com
+gustavo.binderalmeida@gmail.com
+viinymafra@gmail.com
+vitordidu@hotmail.com
 
 [![Manual](https://img.shields.io/badge/Manual-999999?style=for-the-badge&logo=BookStack&logoColor=white
 )](https://github.com/seu-usuario/seu-repositorio/manual.md)
