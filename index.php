@@ -44,7 +44,7 @@
             <div class="navbar-nav-wrapper">
               <ul class="navbar-nav main-menu">
                 
-                  <a class="nav-link" href="#">Support</a>
+                  <a class="nav-link" href="#">SUPORTE VISION</a>
                 </li>
               </ul>
             </div>
@@ -69,6 +69,7 @@
       </div>
     </header>
     <!-- navbar- -->
+    
     <!-- Login Modal -->
     <div class="modal fade form-modal" id="login" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog max-width-px-840 position-relative">
@@ -79,10 +80,9 @@
               <div class="pt-10 pb-6 pl-11 pr-12 bg-gradient-1 h-100 d-flex flex-column dark-mode-texts">
                 <div class="pb-9">
                   <h3 class="font-size-8 text-black-2 line-height-reset pb-4 line-height-1p4">
-                    Welcome Back
+                  Bem vindo de volta
                   </h3>
-                  <p class="mb-0 font-size-4 text-black-2">Log in to continue your account
-                    and explore new jobs.</p>
+                  <p class="mb-0 font-size-4 text-black-2">Faça login para continuar sua conta</p>
                 </div>
                 <div class="border-top border-default-color-2 mt-auto">
                   <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
@@ -371,38 +371,53 @@
     </div>
     <!-- Header start end -->
       
-
-    <!-- Header start end -->
-    <!-- Hero Area -->
+    <!-- Hero Area correto -->
     <div class="bg-gradient-1 pt-26 pt-md-32 pt-lg-33 pt-xl-35 position-relative z-index-1 overflow-hidden">
       <!-- .Hero pattern -->
+      
       <div class="pos-abs-tr w-50 z-index-n2">
-        <!-- cta-content start -->
-
-        <!-- cta-content end -->
+      <br><br>
+        <img src="./image/patterns/hero-pattern.png" alt="" class="gr-opacity-1">
       </div>
-      <div class="col-xl-5 col-lg-12" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
-        <!-- cta-btns start -->
-        <div class="btns d-flex justify-content-xl-end justify-content- align-items-xl-center flex-wrap h-100  mx-n4">
-          <img src="Logo.svg" alt="" class="w-100 rounded-4" />
-          <h1 class="text-black-2 font-size-8 mb-4">   Objetivos de Desenvolvimento Sustentável</h1>
-          <p class="text-hit-gray font-size-5 mb-0">   Projeto fabrica de projetos V - Facens</p>
-        
-        </div>
-        <br>
-        <div class="row justify-content-center">
- 
-          <a class="btn btn-gray-home btn-h-60 btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#login">ENTRAR</a>
-          <a class="btn btn-gray-home btn-h-60 btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#signup1">REGISTRAR</a>
+      <!-- ./Hero pattern -->
+      <div class="container">
+        <div class="row position-relative align-items-center">
+          <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-12 pt-lg-13 pb-lg-33 pb-xl-34 pb-md-33 pb-10" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
+          <img src="Logo.svg" alt="" class="w-100">
+            <h1 class="font-size-11 ">Objetivos de Desenvolvimento Sustentável</h1>
+            <p class="font-size-5">Projeto fabrica de projetos V - Facens.</p>
+            <a class="btn btn-gray-home btn-h-40 text-uppercase" href="#" data-toggle="modal" data-target="#login">ENTRAR</a>
+            <a class="btn btn-gray-home btn-h-40 text-uppercase" href="#" data-toggle="modal" data-target="#signup1">REGISTRAR</a>
+            <div class="">
+              <!-- .search-form -->
+              <form action="/" class="search-form shadow-6">
+                <div class="filter-search-form-1 bg-white rounded-sm shadow-4">
+                  
 
-          <div>
-          <br>
+                </div>
+              </form>
+              <!-- ./search-form -->
+              
+            </div>
+          </div>
+          <!-- Hero Right Image -->
+          <div class="col-lg-6 col-md-4 col-sm-6 col-xs-6 col-8 pos-abs-br z-index-n1 position-static position-md-absolute mx-auto ml-md-auto" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
+            <div class=" ml-xxl-23 ml-xl-12 ml-md-7">
+              
+            </div>
+          </div>
+          <!-- ./Hero Right Image -->
         </div>
-        </div>
-        <!-- cta-btns end -->
       </div>
-      <br>
     </div>
+    <!-- Hero Area -->
+    <!-- Header start end -->
+    <!-- Hero Area -->
+
+
+
+
+
 
     <div class="pt-11 pt-lg-27 pb-7 pb-lg-26 bg-black-2 dark-mode-texts">
       <div class="container">

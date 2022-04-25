@@ -7780,6 +7780,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape, .light-mod
 }
 
 .rounded-4 {
+  align-items:center;
   border-radius: 10px;
 }
 
@@ -8448,6 +8449,7 @@ a.hover-text-hitgray:hover {
 ------------------------------------*/
 .bg-gradient-1 {
   background-image: linear-gradient(to right, rgba(0, 176, 116, 0.1) 0%, rgba(88, 88, 0, 0.05) 100%);
+  margin-bottom: 0px;
 }
 
 .bg-gradient-2 {
@@ -8465,6 +8467,7 @@ a.hover-text-hitgray:hover {
   flex-direction: column;
   justify-content: center;
 }
+
 
 .table-responsive {
   padding-left: 1px;

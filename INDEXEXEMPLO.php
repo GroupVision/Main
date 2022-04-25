@@ -414,52 +414,34 @@
     <!-- Hero Area -->
     <div class="bg-gradient-1 pt-26 pt-md-32 pt-lg-33 pt-xl-35 position-relative z-index-1 overflow-hidden">
       <!-- .Hero pattern -->
+      
       <div class="pos-abs-tr w-50 z-index-n2">
+      <br><br>
         <img src="./image/patterns/hero-pattern.png" alt="" class="gr-opacity-1">
       </div>
       <!-- ./Hero pattern -->
       <div class="container">
         <div class="row position-relative align-items-center">
           <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-12 pt-lg-13 pb-lg-33 pb-xl-34 pb-md-33 pb-10" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
-            <h1 class="font-size-11 mb-12 pr-md-30 pr-lg-0">Find the perfect job
-              that you deserve.</h1>
+          <img src="Logo.svg" alt="" class="w-100">
+            <h1 class="font-size-11 mb-12 pr-md-30 pr-lg-0">lorm import_reques t_variables.</h1>
+            <p class="font-size-5">lorm import_reques t_variables.</p>
             <div class="">
               <!-- .search-form -->
               <form action="/" class="search-form shadow-6">
                 <div class="filter-search-form-1 bg-white rounded-sm shadow-4">
-                  <div class="filter-inputs">
-                    <div class="form-group position-relative">
-                      <input class="form-control focus-reset pl-13" type="text" id="keyword" placeholder="Job title">
-                      <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6"><i class="icon icon-zoom-2 text-primary font-weight-bold"></i></span>
-                    </div>
-                    <!-- .select-city starts -->
-                    <div class="form-group position-relative">
-                      <select name="country" id="country" class="nice-select pl-13 h-100 arrow-3 font-size-4">
-                        <option value="" data-display="Location" class="text-uppercase">Location</option>
-                        <option value="">United States of America</option>
-                        <option value="">United Arab Emirates</option>
-                        <option value="">Bangladesh</option>
-                        <option value="">Pakistan</option>
-                      </select>
-                      <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6"><i class="icon icon-pin-3 text-primary font-weight-bold"></i></span>
-                    </div>
-                    <!-- ./select-city ends -->
-                  </div>
-                  <!-- .Hero Button -->
-                  <div class="button-block">
-                    <button class="btn btn-primary line-height-reset h-100 btn-submit w-100 text-uppercase">Search</button>
-                  </div>
-                  <!-- ./Hero Button -->
+                  
+
                 </div>
               </form>
               <!-- ./search-form -->
-              <p class="heading-default-color font-size-3 pt-7"><span class="text-smoke">Search keywords e.g.</span> Product Designer</p>
+              
             </div>
           </div>
           <!-- Hero Right Image -->
           <div class="col-lg-6 col-md-4 col-sm-6 col-xs-6 col-8 pos-abs-br z-index-n1 position-static position-md-absolute mx-auto ml-md-auto" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
             <div class=" ml-xxl-23 ml-xl-12 ml-md-7">
-              <img src="./image/l1/png/hero-image-man.png" alt="" class="w-100">
+              
             </div>
           </div>
           <!-- ./Hero Right Image -->
