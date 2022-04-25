@@ -387,8 +387,8 @@
             <p class="font-size-5">Projeto fabrica de projetos V - Facens.</p>
             <br>
             <center>
-            <a class="btn btn-gray-home btn-h-40 text-uppercase" href="#" data-toggle="modal" data-target="#login">ENTRAR</a>
-            <a class="btn btn-gray-home btn-h-40 text-uppercase" href="#" data-toggle="modal" data-target="#signup1">REGISTRAR</a>
+            <a class="btn btn-gray-home btn-h-60 text-uppercase" href="#" data-toggle="modal" data-target="#login">ENTRAR</a><br>
+            <a class="btn btn-gray-home btn-h-60 text-uppercase" href="#" data-toggle="modal" data-target="#signup1">REGISTRAR</a>
 </center>
             <div class="">
               <!-- .search-form -->
