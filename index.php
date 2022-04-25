@@ -376,7 +376,6 @@
       <!-- .Hero pattern -->
       
       <div class="pos-abs-tr w-50 z-index-n2">
-      <br><br>
         <img src="./image/patterns/hero-pattern.png" alt="" class="gr-opacity-1">
       </div>
       <!-- ./Hero pattern -->
@@ -386,8 +385,11 @@
           <img src="Logo.svg" alt="" class="w-100">
             <h1 class="font-size-11 ">Objetivos de Desenvolvimento Sustentável</h1>
             <p class="font-size-5">Projeto fabrica de projetos V - Facens.</p>
+            <br>
+            <center>
             <a class="btn btn-gray-home btn-h-40 text-uppercase" href="#" data-toggle="modal" data-target="#login">ENTRAR</a>
             <a class="btn btn-gray-home btn-h-40 text-uppercase" href="#" data-toggle="modal" data-target="#signup1">REGISTRAR</a>
+</center>
             <div class="">
               <!-- .search-form -->
               <form action="/" class="search-form shadow-6">
@@ -415,24 +417,24 @@
     <!-- Hero Area -->
 
 
-
-
+    <div>
+  <!-- corte 
 
 
     <div class="pt-11 pt-lg-27 pb-7 pb-lg-26 bg-black-2 dark-mode-texts">
       <div class="container">
-        <!-- Section Top -->
+      
         <div class="row align-items-center pb-14">
-          <!-- Section Title -->
+          <!-- Section Title 
 
-          <!-- Section Button -->
+          <!-- Section Button 
 
-          <!-- Section Button End -->
+          <!-- Section Button End 
         </div>
-        <!-- End Section Top -->
+        <!-- End Section Top 
         <div class="row justify-content-center">
           <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-            <!-- Start Feature One -->
+            <!-- Start Feature One 
             <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
               <div class="d-block mb-7">
                 <a href="#"><img src="./image/l1/png/linha-test.png" alt=""></a>
@@ -453,10 +455,10 @@
 
               </div>
             </div>
-            <!-- End Feature One -->
+            <!-- End Feature One 
           </div>
           <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-            <!-- Start Feature One -->
+            <!-- Start Feature One 
             <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
               <div class="d-block mb-7">
                 <a href="#"><img src="./image/l1/png/linha-test.png" alt=""></a>
@@ -478,10 +480,10 @@
 
               </div>
             </div>
-            <!-- End Feature One -->
+            <!-- End Feature One 
           </div>
           <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-            <!-- Start Feature One -->
+            <!-- Start Feature One 
             <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
               <div class="d-block mb-7">
                 <a href="#"><img src="./image/l1/png/linha-test.png" alt=""></a>
@@ -501,7 +503,7 @@
 
               </div>
             </div>
-            <!-- End Feature One -->
+            <!-- End Feature One 
           </div>
           <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
             
@@ -515,26 +517,26 @@
         </div>
       </div>
     </div>
-    <!-- featuredJobOne Area -->
-    <!-- ContentTwo Area -->
-    <!-- content-2 section -->
+    <!-- featuredJobOne Area 
+    <!-- ContentTwo Area 
+    <!-- content-2 section 
     <section class="py-13 py-lg-30">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-xl-6 col-lg-5 col-md-10 col-sm-11" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
             <div class="position-relative pr-lg-20 pr-md-15 pr-9">
-              <!-- content img start -->
+              <!-- content img start 
               <img src="Logo.svg" alt="" class="w-100 rounded-4" />
-              <!-- content img end -->
-              <!-- abs-content start -->
+              <!-- content img end 
+              <!-- abs-content start 
               
-              <!-- abs-content end -->
+              <!-- abs-content end 
             </div>
           </div>
           <div class="col-lg-6 col-md-9 col-xs-10" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
-            <!-- content-2 start -->
+            <!-- content-2 start 
             <div class="content-2 pl-lg-10 pl-0 d-flex flex-column justify-content-center h-100 pt-lg-0 pt-11 pr-md-13 pr-xl-15 pr-xxl-25 pr-0">
-              <!-- content-2 section title start -->
+              <!-- content-2 section title start 
               <p class="text-dodger font-size-4 font-weight-semibold mb-8">
                 Publicado em 17/07/2020 por michelinebatista 2 Comentários
               </p>
@@ -544,20 +546,19 @@
               <p class="text-default-color font-size-5 mb-12">
                 Grupo de Trabalho da Sociedade Civil para a Agenda 2030 (GT Agenda 2030) e o Instituto Democracia e Sustentabilidade (IDS), em parceria com a Agência São Paulo de Desenvolvimento (ADE Sampa), divulgam a lista dos 10 projetos brasileiros considerados as soluções mais inovadoras de 2020 e que contribuem para a produção de importante impacto socioambiental positivo no país. As ideias foram selecionadas a partir de uma chamada pública que recebeu cerca de 100 inscrições e permaneceu aberta entre os dias 4 de maio e 4 de junho. As soluções escolhidas serão apresentadas no II Seminário Soluções Inovadoras, que acontece dia 6 de agosto, e representam as cinco regiões do país.
               </p>
-              <!-- content-2 section title end -->
+              content-2 section title end 
              
             </div>
-            <!-- content-2 end -->
+             content-2 end
           </div>
         </div>
       </div>
     </section>
-    <!-- ContentTwo Area -->
+     ContentTwo Area -->
 
+</div>
 
-    <!-- footer area function start -->
-    <!-- cta section -->
-    <footer class="footer bg-ebony-clay dark-mode-texts">
+<footer class="footer bg-ebony-clay dark-mode-texts">
       <div class="container">
         <!-- Cta section -->
         <div class="pt-11 pt-lg-20 pb-13 pb-lg-20 border-bottom border-width-1 border-default-color-2">
@@ -582,26 +583,19 @@
         <div class="row">
           <div class="col-lg-4 col-sm-6 mb-lg-0 mb-9"> 
             <!-- footer logo start -->
-            <img src="image/Novo Projeto (2).png" alt="" class="footer-logo mb-14">
+
             <!-- footer logo End -->
             <!-- media start -->
             <div class="media mb-11">
               <img src="image/l1/png/message.png" class="align-self-center mr-3" alt="">
               <div class="media-body pl-5">
                 <p class="mb-0 font-size-4 text-white">Contato</p>
-                <a class="mb-0 font-size-4 font-weight-bold" href="mailto:viinymafra@gmail.com">viinymafra@gmail.com</a>
+                <a class="mb-0 font-size-4 font-weight-bold" href="https://github.com/GroupVision/ODS-PARA-TODOS">GroupVision</a>
               </div>
             </div>
             <!-- media start -->
             <!-- widget social icon start -->
-            <div class="social-icons">
-              <ul class="pl-0 list-unstyled d-flex align-items-end ">
-                <li class="d-flex flex-column justify-content-center px-3 mr-3 font-size-4 heading-default-color">Follow us on:</li>
-                <li class="d-flex flex-column justify-content-center px-3 mr-3"><a href="#" class="hover-color-primary heading-default-color"><i class="fab fa-facebook-f font-size-3 pt-2"></i></a></li>
-                <li class="d-flex flex-column justify-content-center px-3 mr-3"><a href="#" class="hover-color-primary heading-default-color"><i class="fab fa-twitter font-size-3 pt-2"></i></a></li>
-                <li class="d-flex flex-column justify-content-center px-3 mr-3"><a href="#" class="hover-color-primary heading-default-color"><i class="fab fa-linkedin-in font-size-3 pt-2"></i></a></li>
-              </ul>
-            </div>
+
             <!-- widget social icon end -->
           </div>
 
@@ -610,6 +604,10 @@
         </div>
       </div>
     </footer>
+
+    <!-- footer area function start -->
+    <!-- cta section -->
+
     <!-- footer area function end -->
   
   <!-- Vendor Scripts -->
