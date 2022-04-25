@@ -101,16 +101,15 @@
                 <div class="or-devider">
                   <span class="font-size-3 line-height-reset ">LOGIN</span>
                 </div>
-                <form action="back/testLogin.php" method="POST">
+                <form action="back/loginPessoa.php" method="POST">
                   <div class="form-group" >
-
                     <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email" name="email">
+                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email" name="emailPessoaLogin">
                   </div>
                   <div class="form-group">
                     <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Senha</label>
                     <div class="position-relative">
-                      <input type="password" class="form-control" id="password" placeholder="Inserir senha" name="senha">
+                      <input type="password" class="form-control" id="password" placeholder="Inserir senha" name="senhaPessoaLogin">
                       <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
                     </div>
                   </div>
@@ -123,7 +122,7 @@
                     
                   </div>
                   <div class="form-group mb-8">
-                    <button class="btn btn-green btn-medium w-100 rounded-5 text-uppercase">ENTRAR </button>
+                    <input class="btn btn-green btn-medium w-100 rounded-5 text-uppercase" type="submit" name="loginPessoa" value="Enviar">
                   </div>
                 </form>
               </div>
@@ -225,34 +224,34 @@
             <div class="or-devider">
               <span class="font-size-3 line-height-reset">CADASTRO EMPRESARIAL</span>
             </div>
-            <form action="back/cadastrar_projeto.php" method="POST">
+            <form enctype="multipart/form-data" action="back/cadastroEmpresa.php" method="POST">
 
-              <div id="userActions" class="square-144 m-auto px-6 mb-7">
+              <div>
                 <label for="fileUpload" class="mb-0 font-size-4 text-smoke">Navege ou Arraste e Solte</label>
-                <input type="file" id="fileUpload" class="sr-only" name="imagem">
+                <input type="file" name="imagemEmpresaCadastro">
               </div><br>
 
               <div class="form-group">
                 <label for="nome-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Nome da Empresa</label><label class="text-red">ㅤ*</label>
-                <input type="nome-empresa" class="form-control" placeholder="Nome da empresa" id="inp-empresa" name="nome">
+                <input type="nome-empresa" class="form-control" placeholder="Nome da empresa" id="inp-empresa" name="nomeEmpresaCadastro">
               </div>
               <div class="form-group">
                 <label for="cnpj-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">CNPJ</label><label class="text-red">ㅤ*</label>
-                <input type="cnpj-empresa" class="form-control" placeholder="CNPJ da empresa" id="inp-empresa" name="cnpj">
+                <input type="cnpj-empresa" class="form-control" placeholder="CNPJ da empresa" id="inp-empresa" name="cnpjCadastro">
               </div>              
               <div class="form-group">
                 <label for="tell-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Telefone</label><label class="text-red">ㅤ*</label>
-                <input type="tel" class="form-control" placeholder="Telefone da empresa" id="inp-empresa" name="tel">
+                <input type="tel" class="form-control" placeholder="Telefone da empresa" id="inp-empresa" name="telEmpresaCadastro">
               </div>
 
               <div class="form-group">
                 <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label><label class="text-red">ㅤ*</label>
-                <input type="email" class="form-control" placeholder="Email Comercial" id="email2" name="email">
+                <input type="email" class="form-control" placeholder="Email Comercial" id="email2" name="emailEmpresaCadastro">
               </div>
               <div class="form-group">
                 <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Senha</label><label class="text-red">ㅤ*</label>
                 <div class="position-relative">
-                  <input type="password" class="form-control" id="password2" placeholder="Inserir password" name="senha">
+                  <input type="password" class="form-control" id="password2" placeholder="Inserir password" name="senhaEmpresaCadastro">
                   <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
                 </div>
               </div>
@@ -312,35 +311,34 @@
                 <div class="or-devider">
                   <span class="font-size-3 line-height-reset">CADASTRO PESSOAL</span>
                 </div>
-                <form action="/">
+                <form enctype="multipart/form-data" action="back/cadastroPessoa.php" method="POST">
 
-                  <div id="userActions" class="square-144 m-auto px-6 mb-7">
-                    <label for="fileUpload" class="mb-0 font-size-4 text-smoke">Browse or
-                      Drag and Drop</label>
-                    <input type="file" id="fileUpload" class="sr-only" />
+                  <div align="center">
+                    <label>Selecione sua imagem de perfil</label>
+                    <input type="file" name="imagemPessoaCadastro">
                   </div><br>
 
                   <div class="form-group">
                     <label for="nome-user" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Nome Completo</label><label class="text-red">ㅤ*</label>
-                    <input type="nome-empresa" class="form-control" placeholder="Nome da empresa" id="inp-user">
+                    <input type="nome-empresa" class="form-control" placeholder="Nome da empresa" id="inp-user" name="nomePessoaCadastro">
                   </div>
                   <div class="form-group">
                     <label for="cnpj-user" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">CPF</label><label class="text-red">ㅤ*</label>
-                    <input type="cnpj-empresa" class="form-control" placeholder="CPF" id="inp-user">
+                    <input type="cnpj-empresa" class="form-control" placeholder="CPF" id="inp-user" name="cpfCadastro">
                   </div>              
                   <div class="form-group">
                     <label for="tell-user" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Telefone</label><label class="text-red">ㅤ*</label>
-                    <input type="tel" class="form-control" placeholder="Telefone " id="inp-user">
+                    <input type="tel" class="form-control" placeholder="Telefone " id="inp-user" name="telPessoaCadastro">
                   </div>
     
                   <div class="form-group">
                     <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label><label class="text-red">ㅤ*</label>
-                    <input type="email" class="form-control" placeholder="Email" id="email2">
+                    <input type="email" class="form-control" placeholder="Email" id="email2" name="emailPessoaCadastro">
                   </div>
                   <div class="form-group">
                     <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Senha</label><label class="text-red">ㅤ*</label>
                     <div class="position-relative">
-                      <input type="password" class="form-control" id="password2" placeholder="Inserir password">
+                      <input type="password" class="form-control" id="password2" placeholder="Inserir password" name="senhaPessoaCadastro">
                       <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
                     </div>
                   </div>
@@ -358,7 +356,7 @@
                     </label>
                   </div>
                   <div class="form-group mb-8">
-                    <button class="btn btn-gray-home btn-medium w-100 rounded-5 text-uppercase">CADASTRAR </button>
+                    <input class="btn btn-gray-home btn-medium w-100 rounded-5 text-uppercase" type="submit" name="cadastrarPessoa" value="CADASTRAR">
                   </div>
     
                 </form>
