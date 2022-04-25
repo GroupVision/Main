@@ -1,3 +1,26 @@
+<?php
+    session_start();
+    include_once('back/configlocal.php');
+    // print_r($_SESSION);
+    if(isset($_POST['loginEmpresa']) && (!isset($_SESSION['emailEmpresaLogin']) == true) and (!isset($_SESSION['senhaEmpresaLogin']) == true))
+    {
+        unset($_SESSION['emailEmpresaLogin']);
+        unset($_SESSION['senhaEmpresaLogin']);
+        header('Location: index.php');
+    }
+    $logado = $_SESSION['emailEmpresaLogin'];
+    if(!empty($_GET['search']))
+    {
+        $data = $_GET['search'];
+        $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id DESC";
+    }
+    else
+    {
+        $sql = "SELECT * FROM usuarios ORDER BY id DESC";
+    }
+    $result = $conexao->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,306 +92,6 @@
       </div>
     </header>
     <!-- navbar- -->
-    <!-- Login Modal -->
-    <div class="modal fade form-modal" id="login" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog max-width-px-840 position-relative">
-        <button type="button" class="circle-32 btn-reset bg-black-2 pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper" data-dismiss="modal"><i class="fas fa-times"></i></button>
-        <div class="login-modal-main bg-white rounded-8 overflow-hidden">
-          <div class="row no-gutters">
-            <div class="col-lg-5 col-md-6">
-              <div class="pt-10 pb-6 pl-11 pr-12 bg-gradient-1 h-100 d-flex flex-column dark-mode-texts">
-                <div class="pb-9">
-                  <h3 class="font-size-8 text-black-2 line-height-reset pb-4 line-height-1p4">
-                    Welcome Back
-                  </h3>
-                  <p class="mb-0 font-size-4 text-black-2">Log in to continue your account
-                    and explore new jobs.</p>
-                </div>
-                <div class="border-top border-default-color-2 mt-auto">
-                  <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
-                    <div class="pt-5 px-9">
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-7 col-md-6">
-              <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
-                <div class="row">
-
-                </div>
-                <div class="or-devider">
-                  <span class="font-size-3 line-height-reset ">LOGIN</span>
-                </div>
-                <form action="back/loginPessoa.php" method="POST">
-                  <div class="form-group" >
-                    <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email" name="emailPessoaLogin">
-                  </div>
-                  <div class="form-group">
-                    <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Senha</label>
-                    <div class="position-relative">
-                      <input type="password" class="form-control" id="password" placeholder="Inserir senha" name="senhaPessoaLogin">
-                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
-                    </div>
-                  </div>
-                  <div class="form-group d-flex flex-wrap justify-content-between">
-                    <label for="terms-check" class="gr-check-input d-flex  mr-3">
-                      <input class="d-none" type="checkbox" id="terms-check">
-                      <span class="checkbox mr-5"></span>
-                      <span class="font-size-3 mb-0 line-height-reset mb-1 d-block">Lembrar senha</span>
-                    </label>
-                    
-                  </div>
-                  <div class="form-group mb-8">
-                    <input class="btn btn-green btn-medium w-100 rounded-5 text-uppercase" type="submit" name="loginPessoa" value="Enviar">
-                  </div>
-                  <p class="font-size-4 text-center heading-default-color">Não tem conta? <a href="" class="text-primary">Criar uma conta gratuita</a></p>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-<!-- Sign Up1 Modal -->
-<div class="modal fade form-modal" id="signup1" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog max-width-px-840 position-relative">
-    <button type="button" class="circle-32 btn-reset bg-black-2 pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper" data-dismiss="modal"><i class="fas fa-times"></i></button>
-    <div class="login-modal-main bg-white rounded-8 overflow-hidden">
-      <div class="row no-gutters">
-        <div class="col-lg-5 col-md-6">
-          <div class="pt-10 pb-6 pl-11 pr-12 bg-bg-white-2 h-100 d-flex flex-column dark-mode-texts">
-            <div class="pb-2">
-              <h3 class="font-size-8 text-black-2 line-height-reset pb-4 line-height-1p4">
-                Crie uma conta gratuita hoje
-              </h3>
-              <p class="mb-0 font-size-4 text-black-2">
-                Crie sua conta para continuar e explorar projetos de Objetivos de Desenvolvimento Sustentável.</p>
-            </div>
-            <div class="border-top border-default-color-2 mt-auto">
-              <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-7 col-md-6">
-          <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
-            
-            <div class="or-devider">
-              <span class="font-size-3 line-height-reset">ESCOLHA O TIPO DE USUARIO</span>
-            </div>
-            <form action="/">
-              <div class="form-group">
-
-
-              </div>
-              <div class="form-group">
-
-
-              </div>
-              <div class="form-group">
-
-
-              </div>
-              <div class="form-group d-flex flex-wrap justify-content-between mb-1">
-                <label for="terms-check2" class="gr-check-input d-flex  mr-3"></label>
-              </div>
-              <div class="form-group mb-8">
-                <img class="img-cadastro" src="image/img-emp.png" alt=""><br>
-                <a class="btn btn-gray-home btn-h-60 btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#signup-emp">Cadastre-se como empresa</a><br>
-                <img class="img-cadastro" src="image/imp-user.png" alt=""><br>
-                <a class="btn btn-gray-home btn-h-60 btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#signup-user">Cadastre-se como pessoa</a><br>
-
-              </div>
-
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Sing up 1 -->
-
-
-<!-- Sign Up empresa Modal -->
-<div class="modal fade form-modal" id="signup-emp" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog max-width-px-840 position-relative">
-    <button type="button" class="circle-32 btn-reset bg-black-2 pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper" data-dismiss="modal"><i class="fas fa-times"></i></button>
-    <div class="login-modal-main bg-white rounded-8 overflow-hidden">
-      <div class="row no-gutters">
-        <div class="col-lg-5 col-md-6">
-          <div class="pt-10 pb-6 pl-11 pr-12 bg-bg-white-2 h-100 d-flex flex-column dark-mode-texts">
-            <div class="pb-2">
-              <h3 class="font-size-8 text-black-2 line-height-reset pb-4 line-height-1p4">
-                Cadastre-se como empresa
-              </h3>
-              <p class="mb-0 font-size-4 text-black-2">
-                Cadastre-se como empresa.</p>
-            </div>
-            <div class="border-top border-default-color-2 mt-auto">
-              <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-7 col-md-6">
-          <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
-            
-            <div class="or-devider">
-              <span class="font-size-3 line-height-reset">CADASTRO EMPRESARIAL</span>
-            </div>
-            <form enctype="multipart/form-data" action="back/cadastroEmpresa.php" method="POST">
-
-              <div>
-                <label for="fileUpload" class="mb-0 font-size-4 text-smoke">Navege ou Arraste e Solte</label>
-                <input type="file" name="imagemEmpresaCadastro">
-              </div><br>
-
-              <div class="form-group">
-                <label for="nome-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Nome da Empresa</label><label class="text-red">ㅤ*</label>
-                <input type="nome-empresa" class="form-control" placeholder="Nome da empresa" id="inp-empresa" name="nomeEmpresaCadastro">
-              </div>
-              <div class="form-group">
-                <label for="cnpj-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">CNPJ</label><label class="text-red">ㅤ*</label>
-                <input type="cnpj-empresa" class="form-control" placeholder="CNPJ da empresa" id="inp-empresa" name="cnpjCadastro">
-              </div>              
-              <div class="form-group">
-                <label for="tell-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Telefone</label><label class="text-red">ㅤ*</label>
-                <input type="tel" class="form-control" placeholder="Telefone da empresa" id="inp-empresa" name="telEmpresaCadastro">
-              </div>
-
-              <div class="form-group">
-                <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label><label class="text-red">ㅤ*</label>
-                <input type="email" class="form-control" placeholder="Email Comercial" id="email2" name="emailEmpresaCadastro">
-              </div>
-              <div class="form-group">
-                <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Senha</label><label class="text-red">ㅤ*</label>
-                <div class="position-relative">
-                  <input type="password" class="form-control" id="password2" placeholder="Inserir password" name="senhaEmpresaCadastro">
-                  <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
-                </div>
-              </div>
-              <div class="form-group">
-                
-                <div class="position-relative">
-
-                </div>
-              </div>
-              <div class="form-group d-flex flex-wrap justify-content-between mb-1">
-                <label for="terms-check2" class="gr-check-input d-flex  mr-3">
-                  <input class="d-none" type="checkbox" id="terms-check2">
-                  <span class="checkbox mr-5"></span>
-                  <span class="font-size-3 mb-0 line-height-reset d-block">Concordo com o <a href="" class="text-black-2">termos & Condições</a></span>
-                </label>
-              </div>
-              <div class="form-group mb-8">
-                <button class="btn btn-gray-home btn-medium w-100 rounded-5 text-uppercase">CADASTRAR </button>
-              </div>
-
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Header start end -->
-
-
-
-    <!-- Sign Up user Modal -->
-    <div class="modal fade form-modal" id="signup-user" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog max-width-px-840 position-relative">
-        <button type="button" class="circle-32 btn-reset bg-black-2 pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper" data-dismiss="modal"><i class="fas fa-times"></i></button>
-        <div class="login-modal-main bg-white rounded-8 overflow-hidden">
-          <div class="row no-gutters">
-            <div class="col-lg-5 col-md-6">
-              <div class="pt-10 pb-6 pl-11 pr-12 bg-bg-white-2 h-100 d-flex flex-column dark-mode-texts">
-                <div class="pb-2">
-                  <h3 class="font-size-8 text-black-2 line-height-reset pb-4 line-height-1p4">
-                    Cadastre-se como pessoa
-                  </h3>
-                  <p class="mb-0 font-size-4 text-black-2">
-                    Cadastre-se como pessoa.</p>
-                </div>
-                <div class="border-top border-default-color-2 mt-auto">
-                  <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
-    
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-7 col-md-6">
-              <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
-                
-                <div class="or-devider">
-                  <span class="font-size-3 line-height-reset">CADASTRO PESSOAL</span>
-                </div>
-                <form enctype="multipart/form-data" action="back/cadastroPessoa.php" method="POST">
-
-                  <div align="center">
-                    <label>Selecione sua imagem de perfil</label>
-                    <input type="file" name="imagemPessoaCadastro">
-                  </div><br>
-
-                  <div class="form-group">
-                    <label for="nome-user" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Nome Completo</label><label class="text-red">ㅤ*</label>
-                    <input type="nome-empresa" class="form-control" placeholder="Nome da empresa" id="inp-user" name="nomePessoaCadastro">
-                  </div>
-                  <div class="form-group">
-                    <label for="cnpj-user" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">CPF</label><label class="text-red">ㅤ*</label>
-                    <input type="cnpj-empresa" class="form-control" placeholder="CPF" id="inp-user" name="cpfCadastro">
-                  </div>              
-                  <div class="form-group">
-                    <label for="tell-user" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Telefone</label><label class="text-red">ㅤ*</label>
-                    <input type="tel" class="form-control" placeholder="Telefone " id="inp-user" name="telPessoaCadastro">
-                  </div>
-    
-                  <div class="form-group">
-                    <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label><label class="text-red">ㅤ*</label>
-                    <input type="email" class="form-control" placeholder="Email" id="email2" name="emailPessoaCadastro">
-                  </div>
-                  <div class="form-group">
-                    <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Senha</label><label class="text-red">ㅤ*</label>
-                    <div class="position-relative">
-                      <input type="password" class="form-control" id="password2" placeholder="Inserir password" name="senhaPessoaCadastro">
-                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    
-                    <div class="position-relative">
-    
-                    </div>
-                  </div>
-                  <div class="form-group d-flex flex-wrap justify-content-between mb-1">
-                    <label for="terms-check2" class="gr-check-input d-flex  mr-3">
-                      <input class="d-none" type="checkbox" id="terms-check2">
-                      <span class="checkbox mr-5"></span>
-                      <span class="font-size-3 mb-0 line-height-reset d-block">Concordo com o <a href="" class="text-black-2">termos & Condições</a></span>
-                    </label>
-                  </div>
-                  <div class="form-group mb-8">
-                    <input class="btn btn-gray-home btn-medium w-100 rounded-5 text-uppercase" type="submit" name="cadastrarPessoa" value="CADASTRAR">
-                  </div>
-    
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Header start end -->
-      
 
     <!-- Header start end -->
     <!-- Hero Area -->
@@ -384,18 +107,11 @@
         <div class="btns d-flex justify-content-xl-end justify-content- align-items-xl-center flex-wrap h-100  mx-n4">
           <img src="Logo.svg" alt="" class="w-100 rounded-4" />
           <h1 class="text-black-2 font-size-8 mb-4">   Objetivos de Desenvolvimento Sustentável</h1>
+          <?php
+            echo "<h1>Bem vindo(a) <u>$logado</u></h1>";
+          ?>
           <p class="text-hit-gray font-size-5 mb-0">   Projeto fabrica de projetos V - Facens</p>
         
-        </div>
-        <br>
-        <div class="row justify-content-center">
- 
-          <a class="btn btn-gray-home btn-h-60 btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#login">ENTRAR</a>
-          <a class="btn btn-gray-home btn-h-60 btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#signup1">REGISTRAR</a>
-
-          <div>
-          <br>
-        </div>
         </div>
         <!-- cta-btns end -->
       </div>
