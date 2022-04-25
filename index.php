@@ -224,7 +224,7 @@
             <div class="or-devider">
               <span class="font-size-3 line-height-reset">CADASTRO EMPRESARIAL</span>
             </div>
-            <form enctype="multipart/form-data" action="back/cadastroEmpresa.php" method="POST">
+            <form enctype="multipart/form-data" action="back/cadastroPessoa.php" method="POST">
 
               <div>
                 <label for="fileUpload" class="mb-0 font-size-4 text-smoke">Navege ou Arraste e Solte</label>
@@ -237,7 +237,7 @@
               </div>
               <div class="form-group">
                 <label for="cnpj-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">CNPJ</label><label class="text-red">ㅤ*</label>
-                <input type="cnpj-empresa" class="form-control" placeholder="CNPJ da empresa" id="inp-empresa" name="cnpjCadastro">
+                <input type="cnpj-empresa" class="form-control" placeholder="CNPJ da empresa" id="inp-empresa" name="cpfCadastro">
               </div>              
               <div class="form-group">
                 <label for="tell-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Telefone</label><label class="text-red">ㅤ*</label>

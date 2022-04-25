@@ -29,8 +29,7 @@
         }
         else
         {
-            $_SESSION['emailPessoaLogin'] = $email;
-            $_SESSION['senhaPessoaLogin'] = $senha;
+            
            header('Location: ../logadoPessoa.php');
         }
     }

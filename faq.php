@@ -2,13 +2,13 @@
     session_start();
     include_once('back/configlocal.php');
     // print_r($_SESSION);
-    if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
+    if((!isset($_SESSION['emailPessoaLogin']) == true) and (!isset($_SESSION['senhaPessoaLogin']) == true))
     {
-        unset($_SESSION['email']);
-        unset($_SESSION['senha']);
+        unset($_SESSION['emailPessoaLogin']);
+        unset($_SESSION['senhaPessoaLogin']);
         header('Location: index.php');
     }
-    $logado = $_SESSION['email'];
+    $logado = $_SESSION['emailPessoaLogin'];
     if(!empty($_GET['search']))
     {
         $data = $_GET['search'];

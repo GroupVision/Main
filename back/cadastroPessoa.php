@@ -1,5 +1,6 @@
 <?php
 //isset($_POST['cadastrarPessoa']) && 
+    session_start();
     if(isset($_FILES['imagemPessoaCadastro'])){
         //print_r('Nome: ' . $_POST['nomePessoaCadastro']);
         //print_r('<br>');
@@ -28,7 +29,7 @@
         if($imagem['size'] > 2097152)
             die("Imagem muito grande. Tamanho máximo de 2MB");
         
-        $pasta = "../upload/imagens/pessoa/";
+        $pasta = "../upload/imagens/";
         $nomeDaImagem = $imagem['name'];    
         $novoNomeDaImagem = uniqid();
         $extensao = strtolower(pathinfo($nomeDaImagem, PATHINFO_EXTENSION));
@@ -45,7 +46,11 @@
             //$cad_usuario->execute([$nome, $email, $senha, $cpf, $telefone]);
             //$conexao->query("INSERT INTO usuario_pessoa (nome, email, senha, cpf, tel) VALUES ('$nome', '$email', '$senha', '$cpf','$telefone')") or die($conexao->error);
             $cod_usuario = $conexao->insert_id;
-            $conexao->query("INSERT INTO imagens_pessoa (nome, path, cod_usuario) VALUES ('$nomeDaImagem', '$path', '$cod_usuario')") or die($conexao->error);
+            $conexao->query("INSERT INTO imagens_pessoa (nome, path, cod_pessoa) VALUES ('$nomeDaImagem', '$path', '$cod_usuario')") or die($conexao->error);
+            header('Location: ../index.php');
+            $_SESSION['emailPessoaLogin'] = $email;
+            $_SESSION['senhaPessoaLogin'] = $senha;
+            $_SESSION['nomePessoaLogin'] = $nome;
             //echo "<p>Enviado com sucesso!</p>";
         }
         else

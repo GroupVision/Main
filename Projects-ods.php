@@ -1,3 +1,25 @@
+<?php
+    session_start();
+    include_once('back/configlocal.php');
+    // print_r($_SESSION);
+    if((!isset($_SESSION['emailPessoaLogin']) == true) and (!isset($_SESSION['senhaPessoaLogin']) == true))
+    {
+        unset($_SESSION['emailPessoaLogin']);
+        unset($_SESSION['senhaPessoaLogin']);
+        header('Location: index.php');
+    }
+    $logado = $_SESSION['nomePessoaLogin'];
+    if(!empty($_GET['search']))
+    {
+        $data = $_GET['search'];
+        $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id DESC";
+    }
+    else
+    {
+        $sql = "SELECT * FROM usuarios ORDER BY id DESC";
+    }
+    $result = $conexao->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,14 +94,21 @@
               <div class="dropdown show-gr-dropdown py-5">
                 <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <div class="circle-40">
-                    <img src="./image/header-profile.png" alt="">
+                    
+                    <?php
+                    echo "<p><u>$logado</u></p>";
+                  ?>
+
+
                   </div>
                   <i class="fas fa-chevron-down heading-default-color ml-6"></i>
                 </a>
                 <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
                   <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>
                   <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>
-                  <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">Log Out</a>
+                  <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="back/sair.php">Log Out</a>
+                    
+
                 </div>
               </div>
             </div>
@@ -98,180 +127,7 @@
       </div>
     </header>
     <!-- navbar- -->
-    <!-- Login Modal -->
-    <div class="modal fade form-modal" id="login" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog max-width-px-840 position-relative">
-        <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper" data-dismiss="modal"><i class="fas fa-times"></i></button>
-        <div class="login-modal-main bg-white rounded-8 overflow-hidden">
-          <div class="row no-gutters">
-            <div class="col-lg-5 col-md-6">
-              <div class="pt-10 pb-6 pl-11 pr-12 bg-black-2 h-100 d-flex flex-column dark-mode-texts">
-                <div class="pb-9">
-                  <h3 class="font-size-8 text-white line-height-reset pb-4 line-height-1p4">
-                    Welcome Back
-                  </h3>
-                  <p class="mb-0 font-size-4 text-white">Log in to continue your account
-                    and explore new jobs.</p>
-                </div>
-                <div class="border-top border-default-color-2 mt-auto">
-                  <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
-                    <div class="pt-5 px-9">
-                      <h3 class="font-size-7 text-white">
-                        295
-                      </h3>
-                      <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New jobs
-                        posted today</p>
-                    </div>
-                    <div class="pt-5 px-9">
-                      <h3 class="font-size-7 text-white">
-                        14
-                      </h3>
-                      <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New companies
-                        registered</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-7 col-md-6">
-              <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
-                <div class="row">
-                  <div class="col-4 col-xs-12">
-                    <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Log in with LinkedIn</span></a>
-                  </div>
-                  <div class="col-4 col-xs-12">
-                    <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Log in with Google</span></a>
-                  </div>
-                  <div class="col-4 col-xs-12">
-                    <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Log in with Facebook</span></a>
-                  </div>
-                </div>
-                <div class="or-devider">
-                  <span class="font-size-3 line-height-reset ">Or</span>
-                </div>
-                <form action="/">
-                  <div class="form-group">
-                    <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email">
-                  </div>
-                  <div class="form-group">
-                    <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Password</label>
-                    <div class="position-relative">
-                      <input type="password" class="form-control" id="password" placeholder="Enter password">
-                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
-                    </div>
-                  </div>
-                  <div class="form-group d-flex flex-wrap justify-content-between">
-                    <label for="terms-check" class="gr-check-input d-flex  mr-3">
-                      <input class="d-none" type="checkbox" id="terms-check">
-                      <span class="checkbox mr-5"></span>
-                      <span class="font-size-3 mb-0 line-height-reset mb-1 d-block">Remember password</span>
-                    </label>
-                    <a href="" class="font-size-3 text-dodger line-height-reset">Forget Password</a>
-                  </div>
-                  <div class="form-group mb-8">
-                    <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Log in </button>
-                  </div>
-                  <p class="font-size-4 text-center heading-default-color">Don’t have an account? <a href="" class="text-primary">Create a free account</a></p>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Sign Up Modal -->
-    <div class="modal fade form-modal" id="signup" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog max-width-px-840 position-relative">
-        <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-n6 mr-lg-n6 focus-reset shadow-10" data-dismiss="modal"><i class="fas fa-times"></i></button>
-        <div class="login-modal-main bg-white rounded-8 overflow-hidden">
-          <div class="row no-gutters">
-            <div class="col-lg-5 col-md-6">
-              <div class="pt-10 pb-6 pl-11 pr-12 bg-black-2 h-100 d-flex flex-column dark-mode-texts">
-                <div class="pb-9">
-                  <h3 class="font-size-8 text-white line-height-reset pb-4 line-height-1p4">
-                    Create a free account today
-                  </h3>
-                  <p class="mb-0 font-size-4 text-white">Create your account to continue
-                    and explore new jobs.</p>
-                </div>
-                <div class="border-top border-default-color-2 mt-auto">
-                  <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
-                    <div class="pt-5 px-9">
-                      <h3 class="font-size-7 text-white">
-                        295
-                      </h3>
-                      <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New jobs
-                        posted today</p>
-                    </div>
-                    <div class="pt-5 px-9">
-                      <h3 class="font-size-7 text-white">
-                        14
-                      </h3>
-                      <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New companies
-                        registered</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-7 col-md-6">
-              <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
-                <div class="row">
-                  <div class="col-4 col-xs-12">
-                    <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Import from LinkedIn</span></a>
-                  </div>
-                  <div class="col-4 col-xs-12">
-                    <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Import from Google</span></a>
-                  </div>
-                  <div class="col-4 col-xs-12">
-                    <a href="" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Import from Facebook</span></a>
-                  </div>
-                </div>
-                <div class="or-devider">
-                  <span class="font-size-3 line-height-reset">Or</span>
-                </div>
-                <form action="/">
-                  <div class="form-group">
-                    <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email2">
-                  </div>
-                  <div class="form-group">
-                    <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Password</label>
-                    <div class="position-relative">
-                      <input type="password" class="form-control" id="password2" placeholder="Enter password">
-                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="password23" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Confirm Password</label>
-                    <div class="position-relative">
-                      <input type="password" class="form-control" id="password23" placeholder="Enter password">
-                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password23"></a>
-                    </div>
-                  </div>
-                  <div class="form-group d-flex flex-wrap justify-content-between mb-1">
-                    <label for="terms-check2" class="gr-check-input d-flex  mr-3">
-                      <input class="d-none" type="checkbox" id="terms-check2">
-                      <span class="checkbox mr-5"></span>
-                      <span class="font-size-3 mb-0 line-height-reset d-block">Agree to the <a href="" class="text-primary">Terms & Conditions</a></span>
-                    </label>
-                    <a href="" class="font-size-3 text-dodger line-height-reset">Forget Password</a>
-                  </div>
-                  <div class="form-group mb-8">
-                    <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Sign Up </button>
-                  </div>
-                  <p class="font-size-4 text-center heading-default-color">Don’t have an account? <a href="" class="text-primary">Create a free account</a></p>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Header start end -->
-    <!-- Hero Area -->
-    
+
  
     <!-- Brand1Section Area -->
     <!-- category Area -->
