@@ -125,7 +125,6 @@
                   <div class="form-group mb-8">
                     <button class="btn btn-green btn-medium w-100 rounded-5 text-uppercase">ENTRAR </button>
                   </div>
-                  <p class="font-size-4 text-center heading-default-color">Não tem conta? <a href="" class="text-primary">Criar uma conta gratuita</a></p>
                 </form>
               </div>
             </div>
@@ -570,7 +569,7 @@
                 <p class="text-hit-gray font-size-5 mb-0"> Objetivos de Desenvolvimento Sustentável - Facens</p>
 
                 <br>
-            <a class="" href="list-projects.html" >Tela 1</a><br>
+            <a class="" href="projects-ods.html" >Tela 1</a><br>
             <a class="" href="#" >Tela 2</a><br>
             <a class="" href="#" >Tela 3</a><br>
             <a class="" href="#" >Tela 4</a><br>
