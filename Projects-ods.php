@@ -1,24 +1,14 @@
 <?php
-    session_start();
+    if (!isset($_SESSION)) session_start();
     include_once('back/configlocal.php');
     // print_r($_SESSION);
-    if((!isset($_SESSION['emailPessoaLogin']) == true) and (!isset($_SESSION['senhaPessoaLogin']) == true))
-    {
-        unset($_SESSION['emailPessoaLogin']);
-        unset($_SESSION['senhaPessoaLogin']);
-        header('Location: index.php');
-    }
-    $logado = $_SESSION['nomePessoaLogin'];
-    if(!empty($_GET['search']))
-    {
-        $data = $_GET['search'];
-        $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id DESC";
-    }
-    else
-    {
-        $sql = "SELECT * FROM usuarios ORDER BY id DESC";
-    }
-    $result = $conexao->query($sql);
+    if (!isset($_SESSION['codigo'])) {
+      // Destrói a sessão por segurança
+      session_destroy();
+      // Redireciona o visitante de volta pro login
+      header("Location: index.php"); exit;
+  }
+    $logado = $_SESSION['nome'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

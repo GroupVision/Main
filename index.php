@@ -1,3 +1,12 @@
+<?php
+  session_start();
+
+  if(isset($_SESSION["codigo"]) || isset($_SESSION["nome"])){
+    header("Location: logadoPessoa.php");
+    exit;
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -104,12 +113,12 @@
                 <form action="back/loginPessoa.php" method="POST">
                   <div class="form-group" >
                     <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email" name="emailPessoaLogin">
+                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email" name="email">
                   </div>
                   <div class="form-group">
                     <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Senha</label>
                     <div class="position-relative">
-                      <input type="password" class="form-control" id="password" placeholder="Inserir senha" name="senhaPessoaLogin">
+                      <input type="password" class="form-control" id="password" placeholder="Inserir senha" name="senha">
                       <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
                     </div>
                   </div>
@@ -122,7 +131,7 @@
                     
                   </div>
                   <div class="form-group mb-8">
-                    <input class="btn btn-green btn-medium w-100 rounded-5 text-uppercase" type="submit" name="loginPessoa" value="Enviar">
+                    <input class="btn btn-green btn-medium w-100 rounded-5 text-uppercase" type="submit" name="login" value="Enviar">
                   </div>
                 </form>
               </div>
@@ -228,30 +237,30 @@
 
               <div>
                 <label for="fileUpload" class="mb-0 font-size-4 text-smoke">Navege ou Arraste e Solte</label>
-                <input type="file" name="imagemEmpresaCadastro">
+                <input type="file" name="imagem">
               </div><br>
 
               <div class="form-group">
                 <label for="nome-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Nome da Empresa</label><label class="text-red">ㅤ*</label>
-                <input type="nome-empresa" class="form-control" placeholder="Nome da empresa" id="inp-empresa" name="nomeEmpresaCadastro">
+                <input type="nome-empresa" class="form-control" placeholder="Nome da empresa" id="inp-empresa" name="nome">
               </div>
               <div class="form-group">
                 <label for="cnpj-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">CNPJ</label><label class="text-red">ㅤ*</label>
-                <input type="cnpj-empresa" class="form-control" placeholder="CNPJ da empresa" id="inp-empresa" name="cpfCadastro">
+                <input type="cnpj-empresa" class="form-control" placeholder="CNPJ da empresa" id="inp-empresa" name="cpf">
               </div>              
               <div class="form-group">
                 <label for="tell-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Telefone</label><label class="text-red">ㅤ*</label>
-                <input type="tel" class="form-control" placeholder="Telefone da empresa" id="inp-empresa" name="telEmpresaCadastro">
+                <input type="tel" class="form-control" placeholder="Telefone da empresa" id="inp-empresa" name="tel">
               </div>
 
               <div class="form-group">
                 <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label><label class="text-red">ㅤ*</label>
-                <input type="email" class="form-control" placeholder="Email Comercial" id="email2" name="emailEmpresaCadastro">
+                <input type="email" class="form-control" placeholder="Email Comercial" id="email2" name="email">
               </div>
               <div class="form-group">
                 <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Senha</label><label class="text-red">ㅤ*</label>
                 <div class="position-relative">
-                  <input type="password" class="form-control" id="password2" placeholder="Inserir password" name="senhaEmpresaCadastro">
+                  <input type="password" class="form-control" id="password2" placeholder="Inserir password" name="senha">
                   <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
                 </div>
               </div>
@@ -269,7 +278,7 @@
                 </label>
               </div>
               <div class="form-group mb-8">
-                <button class="btn btn-gray-home btn-medium w-100 rounded-5 text-uppercase">CADASTRAR </button>
+                <input class="btn btn-gray-home btn-medium w-100 rounded-5 text-uppercase" name="cadastrar" value="CADASTRAR">
               </div>
 
             </form>
@@ -315,30 +324,30 @@
 
                   <div align="center">
                     <label>Selecione sua imagem de perfil</label>
-                    <input type="file" name="imagemPessoaCadastro">
+                    <input type="file" name="imagem">
                   </div><br>
 
                   <div class="form-group">
                     <label for="nome-user" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Nome Completo</label><label class="text-red">ㅤ*</label>
-                    <input type="nome-empresa" class="form-control" placeholder="Nome da empresa" id="inp-user" name="nomePessoaCadastro">
+                    <input type="nome-empresa" class="form-control" placeholder="Nome da empresa" id="inp-user" name="nome">
                   </div>
                   <div class="form-group">
                     <label for="cnpj-user" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">CPF</label><label class="text-red">ㅤ*</label>
-                    <input type="cnpj-empresa" class="form-control" placeholder="CPF" id="inp-user" name="cpfCadastro">
+                    <input type="cnpj-empresa" class="form-control" placeholder="CPF" id="inp-user" name="cpf">
                   </div>              
                   <div class="form-group">
                     <label for="tell-user" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Telefone</label><label class="text-red">ㅤ*</label>
-                    <input type="tel" class="form-control" placeholder="Telefone " id="inp-user" name="telPessoaCadastro">
+                    <input type="tel" class="form-control" placeholder="Telefone " id="inp-user" name="tel>
                   </div>
     
                   <div class="form-group">
                     <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label><label class="text-red">ㅤ*</label>
-                    <input type="email" class="form-control" placeholder="Email" id="email2" name="emailPessoaCadastro">
+                    <input type="email" class="form-control" placeholder="Email" id="email2" name="email">
                   </div>
                   <div class="form-group">
                     <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Senha</label><label class="text-red">ㅤ*</label>
                     <div class="position-relative">
-                      <input type="password" class="form-control" id="password2" placeholder="Inserir password" name="senhaPessoaCadastro">
+                      <input type="password" class="form-control" id="password2" placeholder="Inserir password" name="senha">
                       <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
                     </div>
                   </div>
@@ -356,7 +365,7 @@
                     </label>
                   </div>
                   <div class="form-group mb-8">
-                    <input class="btn btn-gray-home btn-medium w-100 rounded-5 text-uppercase" type="submit" name="cadastrarPessoa" value="CADASTRAR">
+                    <input class="btn btn-gray-home btn-medium w-100 rounded-5 text-uppercase" type="submit" name="cadastrar" value="CADASTRAR">
                   </div>
     
                 </form>
