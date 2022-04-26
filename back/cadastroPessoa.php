@@ -13,7 +13,10 @@
         //print_r('Cpf: ' . $_POST['cpfCadastro']);
         //print_r('<br>');
         //print_r('Imagem: ' . $_POST['imagemPessoaCadastro']);
-        include_once('configlocal.php');
+        
+        
+        //include_once('configlocal.php');
+        include_once('configheroku.php');
 
         $nome = $_POST['nomePessoaCadastro'];
         $email = $_POST['emailPessoaCadastro'];

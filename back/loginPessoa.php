@@ -3,7 +3,9 @@
     if(isset($_POST['loginPessoa']) && !empty($_POST['emailPessoaLogin']) && !empty($_POST['senhaPessoaLogin']))
     {
         // Acessa
-        include_once('configlocal.php');
+        include_once('configheroku.php');
+        //include_once('configlocal.php');
+        
         $email = $_POST['emailPessoaLogin'];
         $senha = $_POST['senhaPessoaLogin'];
 
