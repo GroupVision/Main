@@ -1,43 +1,47 @@
 <?php
     session_start();
-    if(isset($_POST['loginPessoa']) && !empty($_POST['emailPessoaLogin']) && !empty($_POST['senhaPessoaLogin']))
+    if(isset($_POST['login']) && !empty($_POST['email']) && !empty($_POST['senha']))
     {
         // Acessa
-        include_once('configheroku.php');
-        //include_once('configlocal.php');
-        
-        $email = $_POST['emailPessoaLogin'];
-        $senha = $_POST['senhaPessoaLogin'];
+        include_once('configlocal.php');
+        //include_once('configheroku.php');
 
-        // print_r('Email: ' . $email);
-        // print_r('<br>');
-        // print_r('Senha: ' . $senha);
+        $usuario = mysqli_real_escape_string($conexao, $_POST['email']);
+        $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
 
-        //$stmt = $conn->prepare("SELECT * FROM usuario_pessoa WHERE email = ? and senha = ?");
-        //$stmt->bind_param("sss", $email, $senha);
+        $query = ("SELECT codigo, cpf, nome, tel  FROM usuario_pessoa WHERE email = '$usuario' AND senha = '$senha'");
 
-        $sql = "SELECT * FROM usuario_pessoa WHERE email = '$email' and senha = '$senha'";
+        $result = mysqli_query($conexao, $query);
+        $row = mysqli_num_rows($result);
+        $usuario = $result->fetch_assoc();
 
-        $result = $conexao->query($sql);
-
-        //print_r($sql);
-        //print_r($result);
-
-        if(mysqli_num_rows($result) < 1)
+        if($row == 1)
         {
-            unset($_SESSION['emailPessoaLogin']);
-            unset($_SESSION['senhaPessoaLogin']);
-            header('Location: ../index.php');
+            $_SESSION['codigo'] = $usuario['codigo'];
+            $_SESSION['nome'] = $usuario['nome'];
+            header('Location: ../logadoPessoa.php');
+            exit;
+            
+
+            //unset($_SESSION['email']);
+            //unset($_SESSION['senha']);
+            //header('Location: ../index.php');
         }
         else
         {
-            
-           header('Location: ../logadoPessoa.php');
+            $_SESSION['nao_autenticado'] = true;
+            header('Location: ../index.php');
+            exit;
+            //$_SESSION['UsuarioID'] = $result['codigo'];
+            //$_SESSION['UsuarioNome'] = $result['nome'];
+            //$_SESSION['UsuarioNivel'] = $result['email'];
+            //header('Location: ../logadoPessoa.php');
         }
     }
     else
     {
         // Não acessa
-        header('Location: ../index.php');
+        echo "Email ou senha inválidos!";
+        exit;
     }
 ?>
