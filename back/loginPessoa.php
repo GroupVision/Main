@@ -19,7 +19,7 @@
         {
             $_SESSION['codigo'] = $usuario['codigo'];
             $_SESSION['nome'] = $usuario['nome'];
-            header('Location: ../logadoPessoa.php');
+            header('Location: ../projects-ods.php');
             exit;
             
 

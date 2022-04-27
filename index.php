@@ -1,4 +1,5 @@
 <?php
+  ob_start();
   session_start();
 
   if(isset($_SESSION["codigo"]) || isset($_SESSION["nome"])){
@@ -278,7 +279,7 @@
                 </label>
               </div>
               <div class="form-group mb-8">
-                <input class="btn btn-gray-home btn-medium w-100 rounded-5 text-uppercase" name="cadastrar" value="CADASTRAR">
+                <input class="btn btn-gray-home btn-medium w-100 rounded-5 text-uppercase"  type="submit" name="cadastrar" value="CADASTRAR">
               </div>
 
             </form>
@@ -320,6 +321,7 @@
                 <div class="or-devider">
                   <span class="font-size-3 line-height-reset">CADASTRO PESSOAL</span>
                 </div>
+
                 <form enctype="multipart/form-data" action="back/cadastroPessoa.php" method="POST">
 
                   <div align="center">
@@ -329,7 +331,7 @@
 
                   <div class="form-group">
                     <label for="nome-user" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Nome Completo</label><label class="text-red">ㅤ*</label>
-                    <input type="nome-empresa" class="form-control" placeholder="Nome da empresa" id="inp-user" name="nome">
+                    <input type="nome-empresa" class="form-control" placeholder="Nome da pessoa" id="inp-user" name="nome">
                   </div>
                   <div class="form-group">
                     <label for="cnpj-user" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">CPF</label><label class="text-red">ㅤ*</label>
@@ -337,7 +339,7 @@
                   </div>              
                   <div class="form-group">
                     <label for="tell-user" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Telefone</label><label class="text-red">ㅤ*</label>
-                    <input type="tel" class="form-control" placeholder="Telefone " id="inp-user" name="tel>
+                    <input type="tel" class="form-control" placeholder="Telefone " id="inp-user" name="tel">
                   </div>
     
                   <div class="form-group">
@@ -366,8 +368,7 @@
                   </div>
                   <div class="form-group mb-8">
                     <input class="btn btn-gray-home btn-medium w-100 rounded-5 text-uppercase" type="submit" name="cadastrar" value="CADASTRAR">
-                  </div>
-    
+                  </div>    
                 </form>
               </div>
             </div>
@@ -393,8 +394,23 @@
             <p class="font-size-5">Projeto fabrica de projetos V - Facens.</p>
             <br>
             <center>
+            <?php
+                  if(isset($_SESSION['mensagem'])){
+                    $message = $_SESSION['mensagem']['0'];
+                    $bs_class=$_SESSION['mensagem']['1']; 
+                    ?>
+                    <div class="alert alert-dismissible <?= $bs_class ?>">
+                      <?= $message ?>
+                      <butto type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                    <?php
+                    unset($_SESSION['mensagem']);
+                  }
+            ?>
+            <br>
             <a class="btn btn-gray-home btn-h-60 text-uppercase" href="#" data-toggle="modal" data-target="#login">ENTRAR</a><br>
             <a class="btn btn-gray-home btn-h-60 text-uppercase" href="#" data-toggle="modal" data-target="#signup1">REGISTRAR</a>
+
 </center>
             <div class="">
               <!-- .search-form -->
