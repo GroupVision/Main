@@ -19,11 +19,17 @@
         //include_once('configheroku.php');
 
         $nome = $_POST['nome'];
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        $telefone = $_POST['tel'];
-        $cpf = $_POST['cpf'];
-
+        $problema = $_POST['problema'];
+        $solucao = $_POST['solucao'];
+        $objetivo = $_POST['objetivo'];
+        $expectativa = $_POST['expectativa'];
+        $publico_alvo = $_POST['publico_alvo'];
+        $recursos = $_POST['recursos'];
+        $tipo_parceria = $_POST['tipo_parceria'];
+        $descricao_parceria = $_POST['descricao_parceria'];
+        $links = $_POST['links'];
+        $status = $_POST['status'];
+        $codigo = $_SESSION['codigo'];
         $imagem = $_FILES['imagem'];
 
         if($imagem['error']){
@@ -41,7 +47,7 @@
             exit();
         }
         
-        $pasta = "../upload/imagens/usuario/";
+        $pasta = "../upload/imagens/projeto/";
         $nomeDaImagem = $imagem['name'];    
         $novoNomeDaImagem = uniqid();
         $extensao = strtolower(pathinfo($nomeDaImagem, PATHINFO_EXTENSION));
@@ -55,25 +61,21 @@
 
         $path = $pasta . $novoNomeDaImagem . "." . $extensao;
 
-        $deu_certo = move_uploaded_file($imagem["tmp_name"], $path);
-        if($deu_certo){
-            $conexao->query("INSERT INTO usuario_pessoa (nome, email, senha, cpf, tel) VALUES ('$nome', '$email', '$senha', '$cpf', '$telefone')");
-            //$cad_usuario = $conexao->prepare($query_usuario);
-            //$cad_usuario->execute([$nome, $email, $senha, $cpf, $telefone]);
-            //$conexao->query("INSERT INTO usuario_pessoa (nome, email, senha, cpf, tel) VALUES ('$nome', '$email', '$senha', '$cpf','$telefone')") or die($conexao->error);
-            $cod_usuario = $conexao->insert_id;
-            if($conexao->error){
-                $mensagem = ["Falha no cadastro! Cadastrar todo os campos." , "alert-danger"];
-                $_SESSION['mensagem'] = $mensagem;
-                header("location: ../index.php");
-                exit();
-            } else {
-                $conexao->query("INSERT INTO imagens_pessoa (nome, path, cod_pessoa) VALUES ('$nomeDaImagem', '$path', '$cod_usuario')");
-                $mensagem = ["Cadastro realizado com sucesso!" , "alert-success"];
-                $_SESSION['mensagem'] = $mensagem;
-                header("location: ../index.php");
-                exit();
-            }
+        $conexao->query("INSERT INTO projetos (nome, email, senha, cpf, tel) VALUES ('$nome', '$email', '$senha', '$cpf', '$telefone')");
+        $cod_proj = $conexao->insert_id;
+
+        if($conexao->error){
+            $mensagem = ["Falha no cadastro de projeto!" , "alert-danger"];
+            $_SESSION['mensagem'] = $mensagem;
+            header("location: ../projects-ods.php");
+            exit();
+        } else {
+            $deu_certo = move_uploaded_file($imagem["tmp_name"], $path);
+            $conexao->query("INSERT INTO imagens_projetos (nome, cod_pessoa, path) VALUES ('$nomeDaImagem', '$cod_proj', '$path')");
+            $mensagem = ["Cadastro realizado com sucesso!" , "alert-success"];
+            $_SESSION['mensagem'] = $mensagem;
+            header("location: ../index.php");
+            exit();
         }
     }
     $mensagem = ["Falha no cadastro! Campos faltando." , "alert-danger"];
