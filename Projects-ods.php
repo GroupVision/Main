@@ -155,6 +155,7 @@
           <div class="col-12 col-lg-6">
             <div class="text-center text-lg-left mb-13 mb-lg-0">
               <h2 class="font-size-9 font-weight-bold">Confira os projetos de cada Objetivo de desenvolvimento sustentável</h2>
+              <a class="btn btn-gray-home btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#signup-emp">Cadastre-se como empresa</a>
             </div>
           </div>
           <!-- Section Button -->
