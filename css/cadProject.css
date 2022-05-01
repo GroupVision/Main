@@ -16,7 +16,11 @@
   input[type="checkbox"][id^="cb"] {
     display: none;
   }
-  
+  .red-input {
+    accent-color: #9d3039;
+    height: 20px; /* not needed */
+    width: 20px; /* not needed */
+}
   label {
     border: 1px solid #fff;
     padding: 10px;

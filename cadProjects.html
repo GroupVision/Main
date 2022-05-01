@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Landing Page Template</title>
+  <title>Cadastro de Projetos</title>
   <link rel="shortcut icon" href="image/Logo.svg" type="image/x-icon">
   <!-- Bootstrap , fonts & icons  -->
   <link rel="stylesheet" href="css/bootstrap.css">
@@ -49,7 +49,19 @@
           <div class="collapse navbar-collapse" id="mobile-menu">
             <div class="navbar-nav-wrapper">
               <ul class="navbar-nav main-menu">
+
+                <!--Imagem header-->
+
+                <li class="brand-logo" >
+                  <a href="./index.html">
+                    <!-- light version logo (logo must be black)-->
+                    <img src="image/Novo Projeto (2).png" alt="" class="light-version-logo default-logo">
+                    <!-- Dark version logo (logo must be White)-->
+                    <img src="image/Novo Projeto (2).png" alt="" class="dark-version-logo">
+                  </a>
+                </li>
                 <li class="nav-item dropdown active">
+                  
                   <a class="nav-link"  href="#features" role="button" aria-haspopup="true" aria-expanded="false">• Projetos ODS </a>
                   
                 </li>
@@ -164,9 +176,13 @@
                   <div class="pr-xl-11 p-5 pl-xs-12 pt-9 pb-11">
                     <form action="/">
                       <div class="row">
-                        <div class="col-lg-6 mb-7">
+                        <!--<div class="col-lg-6 mb-7">
                           <label for="fileUpload" class="mb-0 font-size-4 text-smoke">Navege ou Arraste e Solte</label>
                           <input type="file" name="imagem">
+                        </div> -->
+                        <div id="userActions" class="square-144 m-auto px-6 mb-7">
+                          <label for="fileUpload" class="mb-0 font-size-4 text-smoke">Navege ou Arraste e Solte</label>
+                          <input type="file" name="imagem" id="fileUpload" class="sr-only" />
                         </div>
                         <div class="col-lg-6 mb-7">
                           <label for="subject3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Nome do Projeto</label>
@@ -174,11 +190,10 @@
                         </div>                          
                         
                         <div class="col-12 mb-7">
-                          https://pt.stackoverflow.com/questions/387441/efeito-css-ao-clicar-com-mouse
-                          https://pt.stackoverflow.com/questions/387441/efeito-css-ao-clicar-com-mouse
                       </div>
-
-                      <ul>
+<br><br>
+                      <b>1 - Qual ou quais ODS's o seu projeto melhor se encaixa? *</b>
+                      <ul>                        
                         <li><input type="checkbox" id="cb1" />
                           <label for="cb1"><img src="ODS/1.png" /></label>
                         </li>
@@ -202,28 +217,127 @@
                         </li>
                         <li><input type="checkbox" id="cb8" />
                           <label for="cb8"><img src="ODS/8.png" /></label>
+                        </li>                        </li>
+                        <li><input type="checkbox" id="cb9" />
+                          <label for="cb9"><img src="ODS/9.png" /></label>
                         </li>
+                        <li><input type="checkbox" id="cb10" />
+                          <label for="cb10"><img src="ODS/10.png" /></label>
+                        </li>
+                        <li><input type="checkbox" id="cb11" />
+                          <label for="cb11"><img src="ODS/11.png" /></label>
+                        </li>
+                        <li><input type="checkbox" id="cb12" />
+                          <label for="cb12"><img src="ODS/12.png" /></label>
+                        </li>
+                        <li><input type="checkbox" id="cb13" />
+                          <label for="cb13"><img src="ODS/13.png" /></label>
+                        </li>                        </li>
+                        <li><input type="checkbox" id="cb14" />
+                          <label for="cb14"><img src="ODS/14.png" /></label>
+                        </li>
+                        <li><input type="checkbox" id="cb15" />
+                          <label for="cb15"><img src="ODS/15.png" /></label>
+                        </li>
+                        <li><input type="checkbox" id="cb16" />
+                          <label for="cb16"><img src="ODS/16.png" /></label>
+                        </li>
+                        <li><input type="checkbox" id="cb17" />
+                          <label for="cb17"><img src="ODS/17.png" /></label>
+                        </li>
+                        
                       </ul>
                       
                         
                         <div class="col-12 mb-7">
-                          <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Your Name</label>
-                          <input id="name3" type="text" class="form-control" placeholder="Jhon Doe">
+                          <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">2 - Qual o problema encontrado? *</label>
+                          <input id="name3" type="text" class="form-control" placeholder="">
+                        </div>
+                        <div class="col-12 mb-7">
+                          <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">3 - Qual o objetivo do seu projeto? *</label>
+                          <input id="name3" type="text" class="form-control" placeholder="">
+                        </div>
+                        <div class="col-12 mb-7">
+                          <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">4 - Qual o resultado esperado na conclusão do projeto? *</label>
+                          <input id="name3" type="text" class="form-control" placeholder="">
+                        </div>
+                        <div class="col-12 mb-7">
+                          <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">5 - Qual é o seu públicos alvos? *</label>
+                          <input id="name3" type="text" class="form-control" placeholder="">
+                        </div>
+                        <div class="col-12 mb-7">
+                          <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">6 - Quais são os recursos necessário para fazer esse projeto?</label>
+                          <input id="name3" type="text" class="form-control" placeholder="">
                         </div>
                         <div class="col-lg-6 mb-7">
-                          <label for="email3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">E-mail</label>
+                          <label for="email3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">7 - Você tem colaboradores no projeto? *</label>
+                          <center>
+                          <form action="">
+                              <input type="radio" name="radio" />
+                              Sim      
+                          
+                              <input type="radio" name="radio" checked />
+                              Não
+                          </form>
+                          </center>
+                          <br>
+
                           <input id="email3" type="email" class="form-control" placeholder="example@gmail.com">
+
                         </div>
                         <div class="col-lg-6 mb-7">
-                          <label for="subject3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Subject</label>
-                          <input id="subject3" type="text" class="form-control" placeholder="Special contract">
+                          <label for="subject3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">8 - Você precisa de parceria para dar andamento ao projeto? *</label>
+                          <center>
+                            <form action="">
+                                <input type="radio" name="radio" />
+                                Sim      
+                            
+                                <input type="radio" name="radio" checked />
+                                Não
+                            </form>
+                            </center>
+                            <br>
+                          <input id="subject3" type="text" class="form-control" placeholder=" Tipo de parceria *">
                         </div>
+
                         <div class="col-lg-12 mb-7">
-                          <label for="message3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Message</label>
-                          <textarea name="message" id="message3" placeholder="Type your message" class="form-control h-px-144"></textarea>
+                          <label for="message3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset"> 9 - Descreva do porque você precisa desse tipo de parceria para seu projeto *</label>
+                          <textarea name="message" id="message3" placeholder="" class="form-control h-px-144"></textarea>
                         </div>
+                        <div class="col-12 mb-7">
+                          <label for="select2" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4"> 10 - Status do projeto *</label>
+                          <select id="select2" class="form-control nice-select pl-6 arrow-3 h-px-48 w-100 font-size-4">
+                            <option>Andamento</option>
+                            <option>Concluído</option>
+                            <option>Inicio</option>
+                          </select>
+                        </div>
+                        <!-- O segundo valor estará selecionado inicialmente -->
+
+
+                        <div class="col-lg-12 mb-7">
+                          <label for="message3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">11 - Faça uma descrição do seu projeto *</label>
+                          <textarea name="message" id="message3" placeholder="" class="form-control h-px-144"></textarea>
+                        </div>
+                        <div class="col-12 mb-7"> 
+                          <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset"> 12 - Adicionar arquivos</label>
+                          <input id="name3" type="text" class="form-control" placeholder="">
+                        </div>                         
+                        <div class="col-12 mb-7">
+                          <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset"> Adicionar links relevantes do seu projeto</label>
+                          <input id="name3" type="text" class="form-control" placeholder="">
+                        </div>
+
+
+
+
+
+
+
+
+
                         <div class="col-lg-12 pt-4">
-                          <button class="btn btn-primary text-uppercase w-100 h-px-48">Send Now</button>
+                          <button class="btn btn-primary text-uppercase w-100 h-px-48">Criar</button>
                         </div>
                       </div>
                     </form>
