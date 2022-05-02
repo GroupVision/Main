@@ -31,6 +31,9 @@
         {
             $_SESSION['nao_autenticado'] = true;
             header('Location: ../index.php');
+            $mensagem = ["Email ou senha inválidos" , "alert-danger"];
+            $_SESSION['mensagem'] = $mensagem;
+            header("location: ../index.php");
             exit;
             //$_SESSION['UsuarioID'] = $result['codigo'];
             //$_SESSION['UsuarioNome'] = $result['nome'];

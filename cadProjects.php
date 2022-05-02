@@ -75,7 +75,7 @@
                   <a class="nav-link" href="#">Agenda 2030</a>
                 </li>
 
-                <li class=""nav-item dropdown active">
+                <li class="nav-item dropdown active">
                   <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <?php
                     echo "<p><u>$logado</u></p>";
@@ -174,19 +174,33 @@
   
                   <!-- Excerpt Start -->
                   <div class="pr-xl-11 p-5 pl-xs-12 pt-9 pb-11">
-                    <form action="/">
+                    <form enctype="multipart/form-data" action="back/cadastroProjeto.php" method="POST">
+                    <?php
+                          if(isset($_SESSION['mensagem'])){
+                            $message = $_SESSION['mensagem']['0'];
+                            $bs_class=$_SESSION['mensagem']['1']; 
+                            ?>
+                            <div class="alert alert-dismissible <?= $bs_class ?>">
+                              <?= $message ?>
+                              <butto type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                            <?php
+                            unset($_SESSION['mensagem']);
+                          }
+                        ?>
                       <div class="row">
                         <!--<div class="col-lg-6 mb-7">
                           <label for="fileUpload" class="mb-0 font-size-4 text-smoke">Navege ou Arraste e Solte</label>
                           <input type="file" name="imagem">
                         </div> -->
-                        <div id="userActions" class="square-144 m-auto px-6 mb-7">
-                          <label for="fileUpload" class="mb-0 font-size-4 text-smoke">Navege ou Arraste e Solte</label>
-                          <input type="file" name="imagem" id="fileUpload" class="sr-only" />
+                        
+                        <div align="center">
+                          <label>Selecione sua imagem de perfil</label>
+                          <input type="file" name="imagemProjeto">
                         </div>
                         <div class="col-lg-6 mb-7">
                           <label for="subject3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Nome do Projeto</label>
-                          <input id="subject3" type="text" class="form-control" placeholder="Nome do Projeto">
+                          <input id="subject3" type="text" class="form-control" name="nome" placeholder="Nome do Projeto">
                         </div>                          
                         
                         <div class="col-12 mb-7">
@@ -195,55 +209,55 @@
                       <b>1 - Qual ou quais ODS's o seu projeto melhor se encaixa? *</b>
                       <ul>                        
                         <li><input type="checkbox" id="cb1" />
-                          <label for="cb1"><img src="ODS/1.png" /></label>
+                          <label for="cb1" name="ckOds[]" value="1"><img src="ODS/1.png"  /></label>
                         </li>
                         <li><input type="checkbox" id="cb2" />
-                          <label for="cb2"><img src="ODS/2.png" /></label>
+                          <label for="cb2" name="ckOds[]" value="2"><img src="ODS/2.png"  /></label>
                         </li>
                         <li><input type="checkbox" id="cb3" />
-                          <label for="cb3"><img src="ODS/3.png" /></label>
+                          <label for="cb3" name="ckOds[]" value="3"><img src="ODS/3.png"  /></label>
                         </li>
                         <li><input type="checkbox" id="cb4" />
-                          <label for="cb4"><img src="ODS/4.png" /></label>
+                          <label for="cb4" name="ckOds[]" value="4"><img src="ODS/4.png"  /></label>
                         </li>
                         <li><input type="checkbox" id="cb5" />
-                          <label for="cb5"><img src="ODS/5.png" /></label>
+                          <label for="cb5" name="ckOds[]" value="5"><img src="ODS/5.png"  /></label>
                         </li>
                         <li><input type="checkbox" id="cb6" />
-                          <label for="cb6"><img src="ODS/6.png" /></label>
+                          <label for="cb6" name="ckOds[]" value="6"><img src="ODS/6.png"  /></label>
                         </li>
                         <li><input type="checkbox" id="cb7" />
-                          <label for="cb7"><img src="ODS/7.png" /></label>
+                          <label for="cb7" name="ckOds[]" value="7"><img src="ODS/7.png"  /></label>
                         </li>
                         <li><input type="checkbox" id="cb8" />
-                          <label for="cb8"><img src="ODS/8.png" /></label>
+                          <label for="cb8" name="ckOds[]" value="8"><img src="ODS/8.png"  /></label>
                         </li>                        </li>
                         <li><input type="checkbox" id="cb9" />
-                          <label for="cb9"><img src="ODS/9.png" /></label>
+                          <label for="cb9" name="ckOds[]" value="9"><img src="ODS/9.png"  /></label>
                         </li>
                         <li><input type="checkbox" id="cb10" />
-                          <label for="cb10"><img src="ODS/10.png" /></label>
+                          <label for="cb10" name="ckOds[]" value="10"><img src="ODS/10.png"  /></label>
                         </li>
                         <li><input type="checkbox" id="cb11" />
-                          <label for="cb11"><img src="ODS/11.png" /></label>
+                          <label for="cb11" name="ckOds[]" value="11"><img src="ODS/11.png"  /></label>
                         </li>
                         <li><input type="checkbox" id="cb12" />
-                          <label for="cb12"><img src="ODS/12.png" /></label>
+                          <label for="cb12" name="ckOds[]" value="12"><img src="ODS/12.png"  /></label>
                         </li>
                         <li><input type="checkbox" id="cb13" />
-                          <label for="cb13"><img src="ODS/13.png" /></label>
+                          <label for="cb13" name="ckOds[]" value="13"><img src="ODS/13.png"  /></label>
                         </li>                        </li>
                         <li><input type="checkbox" id="cb14" />
-                          <label for="cb14"><img src="ODS/14.png" /></label>
+                          <label for="cb14" name="ckOds[]" value="14"><img src="ODS/14.png"  /></label>
                         </li>
                         <li><input type="checkbox" id="cb15" />
-                          <label for="cb15"><img src="ODS/15.png" /></label>
+                          <label for="cb15" name="ckOds[]" value="15"><img src="ODS/15.png"  /></label>
                         </li>
                         <li><input type="checkbox" id="cb16" />
-                          <label for="cb16"><img src="ODS/16.png" /></label>
+                          <label for="cb16" name="ckOds[]" value="16"><img src="ODS/16.png"  /></label>
                         </li>
                         <li><input type="checkbox" id="cb17" />
-                          <label for="cb17"><img src="ODS/17.png" /></label>
+                          <label for="cb17" name="ckOds[]" value="17"><img src="ODS/17.png"  /></label>
                         </li>
                         
                       </ul>
@@ -251,65 +265,69 @@
                         
                         <div class="col-12 mb-7">
                           <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">2 - Qual o problema encontrado? *</label>
-                          <input id="name3" type="text" class="form-control" placeholder="">
+                          <input id="name3" type="text" class="form-control" placeholder="" name="problema">
                         </div>
                         <div class="col-12 mb-7">
                           <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">3 - Qual o objetivo do seu projeto? *</label>
-                          <input id="name3" type="text" class="form-control" placeholder="">
+                          <input id="name3" type="text" class="form-control" placeholder="" name="objetivo">
                         </div>
                         <div class="col-12 mb-7">
                           <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">4 - Qual o resultado esperado na conclusão do projeto? *</label>
-                          <input id="name3" type="text" class="form-control" placeholder="">
+                          <input id="name3" type="text" class="form-control" placeholder="" name="expectativa">
                         </div>
                         <div class="col-12 mb-7">
                           <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">5 - Qual é o seu públicos alvos? *</label>
-                          <input id="name3" type="text" class="form-control" placeholder="">
+                          <input id="name3" type="text" class="form-control" placeholder="" name="publico_alvo">
                         </div>
                         <div class="col-12 mb-7">
                           <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">6 - Quais são os recursos necessário para fazer esse projeto?</label>
-                          <input id="name3" type="text" class="form-control" placeholder="">
+                          <input id="name3" type="text" class="form-control" placeholder="" name="recursos">
                         </div>
                         <div class="col-lg-6 mb-7">
                           <label for="email3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">7 - Você tem colaboradores no projeto? *</label>
                           <center>
-                          <form action="">
-                              <input type="radio" name="radio" />
-                              Sim      
-                          
-                              <input type="radio" name="radio" checked />
+                              <input type="radio" name="radio1" onclick="text(0)" >
+                              Sim
+
+                              <input type="radio" name="radio1"  onclick="text(1)" checked>
                               Não
-                          </form>
                           </center>
                           <br>
-
-                          <input id="email3" type="email" class="form-control" placeholder="example@gmail.com">
-
+                          <div id="col_mais">
+                            <input id="email_colaborador" type="email" class="form-control" placeholder="example@gmail.com" name="ckColaboradores[]" style="display: none;">
+                          </div>
+                          <input type="button" id="add_mais" class="btn btn-dark float-right mt-2" onclick="add_mais()" value="Adicione mais" style="display: none;">
                         </div>
                         <div class="col-lg-6 mb-7">
                           <label for="subject3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">8 - Você precisa de parceria para dar andamento ao projeto? *</label>
                           <center>
-                            <form action="">
-                                <input type="radio" name="radio" />
-                                Sim      
+                                <input id="sel" type="radio" name="radio2" onclick="text2(0)" >
+                                Sim
                             
-                                <input type="radio" name="radio" checked />
+                                <input id="sel" type="radio" name="radio2"  onclick="text2(1)" checked>
                                 Não
-                            </form>
                             </center>
                             <br>
-                          <input id="subject3" type="text" class="form-control" placeholder=" Tipo de parceria *">
+                            <div id="select_parceria" style="display: none;"> 
+                          <select id="select2" name="tipo_parceria" class="form-control nice-select pl-6 arrow-3 h-px-48 w-100 font-size-4" >
+                            <option value="Aprendizagem">Aprendizagem</option>
+                            <option value="Financeira">Financeira</option>
+                            <option value="Material">Material</option>
+                            <option value="Outros">Outros</option>
+                          </select>
+                          </div >
                         </div>
 
                         <div class="col-lg-12 mb-7">
                           <label for="message3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset"> 9 - Descreva do porque você precisa desse tipo de parceria para seu projeto *</label>
-                          <textarea name="message" id="message3" placeholder="" class="form-control h-px-144"></textarea>
+                          <textarea name="message" id="message3" name="descricao_parceria" class="form-control h-px-144"></textarea>
                         </div>
                         <div class="col-12 mb-7">
                           <label for="select2" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4"> 10 - Status do projeto *</label>
-                          <select id="select2" class="form-control nice-select pl-6 arrow-3 h-px-48 w-100 font-size-4">
-                            <option>Andamento</option>
-                            <option>Concluído</option>
-                            <option>Inicio</option>
+                          <select id="select2" name="status" class="form-control nice-select pl-6 arrow-3 h-px-48 w-100 font-size-4">
+                            <option value="Andamento">Andamento</option>
+                            <option value="Concluído">Concluído</option>
+                            <option value="Em criação">Em criação</option>
                           </select>
                         </div>
                         <!-- O segundo valor estará selecionado inicialmente -->
@@ -317,27 +335,26 @@
 
                         <div class="col-lg-12 mb-7">
                           <label for="message3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">11 - Faça uma descrição do seu projeto *</label>
-                          <textarea name="message" id="message3" placeholder="" class="form-control h-px-144"></textarea>
+                          <textarea name="message" id="message3" placeholder="" class="form-control h-px-144" name="descricao_parceria"></textarea>
                         </div>
                         <div class="col-12 mb-7"> 
                           <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset"> 12 - Adicionar arquivos</label>
-                          <input id="name3" type="text" class="form-control" placeholder="">
+                          <div id="col_mais2">
+                            <input type="file" class="form-control" style="line-height: normal;" name="ckArquivos[]">
+                          </div>
+                          <br>
+                          <input type="button" id="add_mais2" class="btn btn-dark" onclick="add_mais2()" value="Adicione mais">
                         </div>                         
                         <div class="col-12 mb-7">
                           <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset"> Adicionar links relevantes do seu projeto</label>
-                          <input id="name3" type="text" class="form-control" placeholder="">
+                          <div id="col_mais3">
+                            <input name="ckLinks[]" type="text" class="form-control">
+                          </div>
+                          <br>
+                          <input type="button" id="add_mais3" class="btn btn-dark" onclick="add_mais3()" value="Adicione mais">
                         </div>
-
-
-
-
-
-
-
-
-
                         <div class="col-lg-12 pt-4">
-                          <button class="btn btn-primary text-uppercase w-100 h-px-48">Criar</button>
+                          <input class="btn btn-primary text-uppercase w-100 h-px-48" type="submit" name="submit" value="Criar">
                         </div>
                       </div>
                     </form>
@@ -359,6 +376,7 @@
   <!-- Activation Script -->
   <!-- <script src="js/drag-n-drop.js"></script> -->
   <script src="js/custom.js"></script>
+  <script src="js/projeto.js"></script>
 </body>
 
 </html>

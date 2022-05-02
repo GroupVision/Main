@@ -1,7 +1,7 @@
 <?php
 //isset($_POST['cadastrarPessoa']) && 
     session_start();
-    if(isset($_FILES['imagem']) && isset($_POST['cadastrar']) || !empty($_POST['nome']) || !empty($_POST['email']) || !empty($_POST['tel']) || !empty($_POST['cpf'])){
+    if(isset($_FILES['imagem']) && isset($_POST['cadastrar']) && (!empty($_POST['nome']) || !empty($_POST['email']) || !empty($_POST['tel']) || !empty($_POST['cpf']))){
         //print_r('Nome: ' . $_POST['nomePessoaCadastro']);
         //print_r('<br>');
         //print_r('Email: ' . $_POST['emailPessoaCadastro']);

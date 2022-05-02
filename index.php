@@ -3,7 +3,7 @@
   session_start();
 
   if(isset($_SESSION["codigo"]) || isset($_SESSION["nome"])){
-    header("Location: logadoPessoa.php");
+    header("Location: projects-ods.php");
     exit;
   }
 ?>
