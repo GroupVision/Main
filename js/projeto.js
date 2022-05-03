@@ -28,8 +28,13 @@ function text(x){
 }
 
 function text2(x){
-    if(x == 0) document.getElementById('select_parceria').style.display = "block";
-    else document.getElementById('select_parceria').style.display = "none";
+    if(x == 0) {
+        document.getElementById('select_parceria').style.display = "block";
+        document.getElementById('select_descricao').style.display = "block";
+    } else {
+        document.getElementById('select_parceria').style.display = "none";
+        document.getElementById('select_descricao').style.display = "none";
+    }
     return;
 }
 

@@ -208,56 +208,56 @@
 <br><br>
                       <b>1 - Qual ou quais ODS's o seu projeto melhor se encaixa? *</b>
                       <ul>                        
-                        <li><input type="checkbox" id="cb1" />
-                          <label for="cb1" name="ckOds[]" value="1"><img src="ODS/1.png"  /></label>
+                        <li><input type="checkbox" id="cb1" name="ckOds[]" value="1"/>
+                          <label for="cb1" ><img src="ODS/1.png"  /></label>
                         </li>
-                        <li><input type="checkbox" id="cb2" />
-                          <label for="cb2" name="ckOds[]" value="2"><img src="ODS/2.png"  /></label>
+                        <li><input type="checkbox" id="cb2" name="ckOds[]" value="2"/>
+                          <label for="cb2" ><img src="ODS/2.png"  /></label>
                         </li>
-                        <li><input type="checkbox" id="cb3" />
-                          <label for="cb3" name="ckOds[]" value="3"><img src="ODS/3.png"  /></label>
+                        <li><input type="checkbox" id="cb3" name="ckOds[]" value="3"/>
+                          <label for="cb3" ><img src="ODS/3.png"  /></label>
                         </li>
-                        <li><input type="checkbox" id="cb4" />
-                          <label for="cb4" name="ckOds[]" value="4"><img src="ODS/4.png"  /></label>
+                        <li><input type="checkbox" id="cb4" name="ckOds[]" value="4"/>
+                          <label for="cb4" ><img src="ODS/4.png"  /></label>
                         </li>
-                        <li><input type="checkbox" id="cb5" />
-                          <label for="cb5" name="ckOds[]" value="5"><img src="ODS/5.png"  /></label>
+                        <li><input type="checkbox" id="cb5"name="ckOds[]" value="5" />
+                          <label for="cb5" ><img src="ODS/5.png"  /></label>
                         </li>
-                        <li><input type="checkbox" id="cb6" />
-                          <label for="cb6" name="ckOds[]" value="6"><img src="ODS/6.png"  /></label>
+                        <li><input type="checkbox" id="cb6" name="ckOds[]" value="6"/>
+                          <label for="cb6" ><img src="ODS/6.png"  /></label>
                         </li>
-                        <li><input type="checkbox" id="cb7" />
-                          <label for="cb7" name="ckOds[]" value="7"><img src="ODS/7.png"  /></label>
+                        <li><input type="checkbox" id="cb7"name="ckOds[]" value="7" />
+                          <label for="cb7" ><img src="ODS/7.png"  /></label>
                         </li>
-                        <li><input type="checkbox" id="cb8" />
-                          <label for="cb8" name="ckOds[]" value="8"><img src="ODS/8.png"  /></label>
+                        <li><input type="checkbox" id="cb8" name="ckOds[]" value="8"/>
+                          <label for="cb8" ><img src="ODS/8.png"  /></label>
                         </li>                        </li>
-                        <li><input type="checkbox" id="cb9" />
-                          <label for="cb9" name="ckOds[]" value="9"><img src="ODS/9.png"  /></label>
+                        <li><input type="checkbox" id="cb9" name="ckOds[]" value="9"/>
+                          <label for="cb9" ><img src="ODS/9.png"  /></label>
                         </li>
-                        <li><input type="checkbox" id="cb10" />
-                          <label for="cb10" name="ckOds[]" value="10"><img src="ODS/10.png"  /></label>
+                        <li><input type="checkbox" id="cb10" name="ckOds[]" value="10"/>
+                          <label for="cb10" ><img src="ODS/10.png"  /></label>
                         </li>
-                        <li><input type="checkbox" id="cb11" />
-                          <label for="cb11" name="ckOds[]" value="11"><img src="ODS/11.png"  /></label>
+                        <li><input type="checkbox" id="cb11" name="ckOds[]" value="11"/>
+                          <label for="cb11" ><img src="ODS/11.png"  /></label>
                         </li>
-                        <li><input type="checkbox" id="cb12" />
-                          <label for="cb12" name="ckOds[]" value="12"><img src="ODS/12.png"  /></label>
+                        <li><input type="checkbox" id="cb12" name="ckOds[]" value="12"/>
+                          <label for="cb12" ><img src="ODS/12.png"  /></label>
                         </li>
-                        <li><input type="checkbox" id="cb13" />
-                          <label for="cb13" name="ckOds[]" value="13"><img src="ODS/13.png"  /></label>
+                        <li><input type="checkbox" id="cb13" name="ckOds[]" value="13"/>
+                          <label for="cb13" ><img src="ODS/13.png"  /></label>
                         </li>                        </li>
-                        <li><input type="checkbox" id="cb14" />
-                          <label for="cb14" name="ckOds[]" value="14"><img src="ODS/14.png"  /></label>
+                        <li><input type="checkbox" id="cb14" name="ckOds[]" value="14"/>
+                          <label for="cb14" ><img src="ODS/14.png"  /></label>
                         </li>
-                        <li><input type="checkbox" id="cb15" />
-                          <label for="cb15" name="ckOds[]" value="15"><img src="ODS/15.png"  /></label>
+                        <li><input type="checkbox" id="cb15" name="ckOds[]" value="15"/>
+                          <label for="cb15" ><img src="ODS/15.png"  /></label>
                         </li>
-                        <li><input type="checkbox" id="cb16" />
-                          <label for="cb16" name="ckOds[]" value="16"><img src="ODS/16.png"  /></label>
+                        <li><input type="checkbox" id="cb16" name="ckOds[]" value="16"/>
+                          <label for="cb16" ><img src="ODS/16.png"  /></label>
                         </li>
-                        <li><input type="checkbox" id="cb17" />
-                          <label for="cb17" name="ckOds[]" value="17"><img src="ODS/17.png"  /></label>
+                        <li><input type="checkbox" id="cb17" name="ckOds[]" value="17"/>
+                          <label for="cb17" ><img src="ODS/17.png"  /></label>
                         </li>
                         
                       </ul>
@@ -280,7 +280,7 @@
                           <input id="name3" type="text" class="form-control" placeholder="" name="publico_alvo">
                         </div>
                         <div class="col-12 mb-7">
-                          <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">6 - Quais são os recursos necessário para fazer esse projeto?</label>
+                          <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">6 - Quais são os recursos necessários para fazer esse projeto?</label>
                           <input id="name3" type="text" class="form-control" placeholder="" name="recursos">
                         </div>
                         <div class="col-lg-6 mb-7">
@@ -310,6 +310,7 @@
                             <br>
                             <div id="select_parceria" style="display: none;"> 
                           <select id="select2" name="tipo_parceria" class="form-control nice-select pl-6 arrow-3 h-px-48 w-100 font-size-4" >
+                            <option value="">Selecionar opção</option>
                             <option value="Aprendizagem">Aprendizagem</option>
                             <option value="Financeira">Financeira</option>
                             <option value="Material">Material</option>
@@ -318,27 +319,28 @@
                           </div >
                         </div>
 
-                        <div class="col-lg-12 mb-7">
-                          <label for="message3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset"> 9 - Descreva do porque você precisa desse tipo de parceria para seu projeto *</label>
+                        <div class="col-lg-12 mb-7" id="select_descricao" style="display: none;">
+                          <label for="message3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset"> Descreva do porque você precisa desse tipo de parceria para seu projeto *</label>
                           <textarea name="message" id="message3" name="descricao_parceria" class="form-control h-px-144"></textarea>
                         </div>
                         <div class="col-12 mb-7">
-                          <label for="select2" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4"> 10 - Status do projeto *</label>
+                          <label for="select2" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4"> 9 - Status do projeto *</label>
                           <select id="select2" name="status" class="form-control nice-select pl-6 arrow-3 h-px-48 w-100 font-size-4">
+                            <option>Selecionar opção</option> 
                             <option value="Andamento">Andamento</option>
-                            <option value="Concluído">Concluído</option>
-                            <option value="Em criação">Em criação</option>
+                            <option value="Concluido">Concluído</option>
+                            <option value="Em_criacao">Em criação</option>
                           </select>
                         </div>
                         <!-- O segundo valor estará selecionado inicialmente -->
 
 
                         <div class="col-lg-12 mb-7">
-                          <label for="message3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">11 - Faça uma descrição do seu projeto *</label>
-                          <textarea name="message" id="message3" placeholder="" class="form-control h-px-144" name="descricao_parceria"></textarea>
+                          <label for="message3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">10 - Faça uma descrição do seu projeto *</label>
+                          <textarea id="message3" placeholder="" class="form-control h-px-144" name="descricao_projeto"></textarea>
                         </div>
                         <div class="col-12 mb-7"> 
-                          <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset"> 12 - Adicionar arquivos</label>
+                          <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset"> 11 - Adicionar arquivos</label>
                           <div id="col_mais2">
                             <input type="file" class="form-control" style="line-height: normal;" name="ckArquivos[]">
                           </div>
@@ -346,7 +348,7 @@
                           <input type="button" id="add_mais2" class="btn btn-dark" onclick="add_mais2()" value="Adicione mais">
                         </div>                         
                         <div class="col-12 mb-7">
-                          <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset"> Adicionar links relevantes do seu projeto</label>
+                          <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">12- Adicionar links relevantes do seu projeto</label>
                           <div id="col_mais3">
                             <input name="ckLinks[]" type="text" class="form-control">
                           </div>

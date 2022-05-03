@@ -1,13 +1,13 @@
 <?php
     session_start();
-    if(isset($_POST['submit']) && (!empty($_POST['nome']) || !empty($_POST['problema']) || !empty($_POST['solucao']) || !empty($_POST['objetivo']) || !empty($_POST['expectativa']) || !empty($_POST['publico_alvo']) || !empty($_POST['recursos']) || !empty($_POST['tipo_parceria']) || !empty($_POST['descricao_parceria']) || !empty($_POST['status']))){
+    if(isset($_POST['submit']) && (!empty($_POST['nome']) || !empty($_POST['problema']) || !empty($_POST['descricao_projeto']) || !empty($_POST['objetivo']) || !empty($_POST['expectativa']) || !empty($_POST['publico_alvo']) || !empty($_POST['recursos']) || !empty($_POST['tipo_parceria']) || !empty($_POST['descricao_parceria']) || !empty($_POST['status']))){
 
         include_once('configlocal.php');
         //include_once('configheroku.php');
 
         $nome = $_POST['nome'];
         $problema = $_POST['problema'];
-        //$solucao = $_POST['solucao'];
+        $descricao_projeto = $_POST['descricao_projeto'];
         $objetivo = $_POST['objetivo'];
         $expectativa = $_POST['expectativa'];
         $publico_alvo = $_POST['publico_alvo'];
@@ -33,16 +33,14 @@
         $pathImagemProjeto = $pastaImagemProjeto . $novoImagemProjeto . "." . $extensaoImagemProjeto;
 
         $ods_grupo = isset($_POST['ckOds']) ? $_POST['ckOds'] : null;
-        $imagens_grupo = isset($_FILES['ckImagens']) ? $_FILES['ckImagens'] : null;
-        $arquivos_grupo = isset($_FILES['ckArquivos']) ? $_FILES['ckArquivos'] : null;
         $colaboradores_grupo = isset($_POST['ckColaboradores']) ? $_POST['ckColaboradores'] : null;      
         $links_grupo = isset($_POST['ckLinks']) ? $_POST['ckLinks'] : null;   
 
-        $conexao->query("INSERT INTO projetos (cod_usuario, nome, problema, objetivo, expectativa, publico_alvo, recursos, `tipo_parceria`, descricao_parceria, `status`, imagem) VALUES ('$cod_usuario', '$nome', '$problema', '$objetivo', '$expectativa', '$publico_alvo', '$recursos', '$tipo_parceria', '$descricao_parceria', '$status', '$pathImagemProjeto')");
+        $conexao->query("INSERT INTO projetos (cod_usuario, nome, problema, descricao_projeto, objetivo, expectativa, publico_alvo, recursos, `tipo_parceria`, descricao_parceria, `status`, imagem) VALUES ('$cod_usuario', '$nome', '$problema', '$descricao_projeto', '$objetivo', '$expectativa', '$publico_alvo', '$recursos', '$tipo_parceria', '$descricao_parceria', '$status', '$pathImagemProjeto')");
         $cod_proj = $conexao->insert_id;
 
         if($conexao->error){
-            $mensagem = [mysqli_errno($conexao) . ":" . mysqli_error($conexao), "alert-danger"];
+            $mensagem = [mysqli_errno($conexao) . ":" . mysqli_error($conexao) . ". Verifique todos os campos.", "alert-danger"];
             $_SESSION['mensagem'] = $mensagem;
             header("location: ../cadProjects.php");
             exit();
@@ -55,57 +53,60 @@
             }
             if($links_grupo != null){
                 for($i = 0; $i < count($links_grupo); $i++){
-                    $conexao->query("INSERT INTO links_projeto (ods_tipo, codigo_projeto) VALUES ('$links_grupo[$i]', '$cod_proj')");
+                    if($links_grupo[$i] != null)
+                    $conexao->query("INSERT INTO links_projeto (link, codigo_projeto) VALUES ('$links_grupo[$i]', '$cod_proj')");
                 }
             }
-            if($imagens_grupo != null){
-                for($i = 0; $i < count($imagens_grupo); $i++){
-                    $nomeDaImagem = $imagens_grupo[$i]['name'];    
-                    $novoNomeDaImagem = uniqid();
-                    $extensao = strtolower(pathinfo($nomeDaImagem, PATHINFO_EXTENSION));
 
-                    if($extensao != "jpg" && $extensao != 'png'){
-                        $mensagem = ["Imagem não aceita" , "alert-danger"];
-                        $_SESSION['mensagem'] = $mensagem;
-                        header("location: ../cadProjects.php");
-                        exit();
+            $extensionImage = array('jpeg', 'jpg', 'png');
+            $extensionFile = 'pdf';
+            foreach ($_FILES['ckArquivos']['tmp_name'] as $key => $value){
+                $filename = $_FILES['ckArquivos']['name'][$key];
+                $filename_tmp = $_FILES['ckArquivos']['tmp_name'][$key];
+                $ext = pathinfo($filename, PATHINFO_EXTENSION);
+                $pathImage = '';
+
+                $finalimg='';
+                if(in_array($ext, $extensionImage)){
+                    if(!file_exists('../upload/imagens/projeto/relevantes/' .$filename)){
+                        $pathImage = '../upload/imagens/projeto/relevantes/' .$filename;
+                        move_uploaded_file($filename_tmp, $pathImage);
+                        $finalimg=$filename;
+                    } else {
+                        $filename = str_replace('.', '-', basename($filename, $ext));
+                        $newfilename = $filename.time().'.'.$ext;
+                        $pathImage = '../upload/imagens/projeto/relevantes/' .$newfilename;
+                        move_uploaded_file($filename_tmp, $pathImage);
+                        $finalimg=$newfilename;
                     }
-
-                    $pasta = "../upload/imagens/projeto/relevantes/";
-                    $path = $pasta . $novoNomeDaImagem . "." . $extensao;
-
-                    $conexao->query("INSERT INTO imagens_projetos (nome, cod_projetos, path) VALUES ('$nomeDaImagem', '$cod_proj', '$path')");
-                    $deu_certo = move_uploaded_file($imagens_grupo[$i]["tmp_name"], $path);
-                    $localImagemProjeto = move_uploaded_file($imagemProjeto["tmp_name"], $pathImagemProjeto);
-                }
-            }
-            if($arquivos_grupo != null){
-                for($i = 0; $i < count($arquivos_grupo); $i++){
-                    $nomeDoArquivo = $arquivos_grupo[$i]['name'];    
-                    $novoNomeDoArquivo = uniqid();
-                    $extensao = strtolower(pathinfo($nomeDoArquivo, PATHINFO_EXTENSION));
-
-                    if($extensao != "pdf"){
-                        $mensagem = ["Arquino não aceito" , "alert-danger"];
-                        $_SESSION['mensagem'] = $mensagem;
-                        header("location: ../cadProjects.php");
-                        exit();
+                    $conexao->query("INSERT INTO arquivos_projetos (nome, path ,cod_projetos) VALUES ('$finalimg', '$pathImage', '$cod_proj')");
+                } else if($ext == $extensionFile){
+                    if(!file_exists('../upload/arquivos_projeto/' .$filename)){
+                        $pathImage = '../upload/arquivos_projeto/' .$filename;
+                        move_uploaded_file($filename_tmp, $pathImage);
+                        $finalimg=$filename;
+                    } else {
+                        $filename = str_replace('.', '-', basename($filename, $ext));
+                        $newfilename = $filename.time().'.'.$ext;
+                        $pathImage = '../upload/arquivos_projeto/' .$newfilename;
+                        move_uploaded_file($filename_tmp, $pathImage);
+                        $finalimg=$newfilename;
                     }
-
-                    $pasta = "../upload/arquivos_projeto/";
-                    $path = $pasta . $novoNomeDoArquivo . "." . $extensao;
-
-                    $conexao->query("INSERT INTO arquivos_projetos (nome, path ,cod_projetos) VALUES ('$nomeDoArquivo', '$path', '$cod_proj')");
-                    $deu_certo = move_uploaded_file($arquivos_grupo[$i]["tmp_name"], $path);
+                    $conexao->query("INSERT INTO arquivos_projetos (nome, path ,cod_projetos) VALUES ('$finalimg', '$pathImage', '$cod_proj')");
+                } else {
+                    $mensagem = ["Arquivo ou imagem não aceitos" , "alert-danger"];
+                    $_SESSION['mensagem'] = $mensagem;
+                    header("location: ../cadProjects.php");
+                    exit();
                 }
             }
             if($colaboradores_grupo != null){
                 for($i = 0; $i < count($colaboradores_grupo); $i++){
+                    if($colaboradores_grupo[$i] != null)
                     $conexao->query("INSERT INTO colaboradores_projeto (nome, cod_projeto) VALUES ('$colaboradores_grupo[$i]', '$cod_proj')");
                 }
             }
-            
-            $mensagem = ["Projeto cadastrado com sucesso!" , "alert-success"];
+            $mensagem = ["Projeto cadastrado!" , "alert-success"];
             $_SESSION['mensagem'] = $mensagem;
             header("location: ../cadProjects.php");
             exit();
