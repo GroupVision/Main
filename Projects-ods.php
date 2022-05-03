@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Landing Page Template</title>
+  <title>Projetos ODS</title>
   <link rel="shortcut icon" href="image/Logo.svg" type="image/x-icon">
   <!-- Bootstrap , fonts & icons  -->
   <link rel="stylesheet" href="css/bootstrap.css">
@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="fonts/typography-font/typo.css">
   <link rel="stylesheet" href="fonts/fontawesome-5/css/all.css">
   <!-- Plugin'stylesheets  -->
+  
+  <link rel="stylesheet" href="css/projectsods.css">
   <link rel="stylesheet" href="plugins/aos/aos.min.css">
   <link rel="stylesheet" href="plugins/fancybox/jquery.fancybox.min.css">
   <link rel="stylesheet" href="plugins/nice-select/nice-select.min.css">
@@ -62,7 +64,7 @@
                   <a class="nav-link" href="#">Agenda 2030</a>
                 </li>
 
-                <li class=""nav-item dropdown active">
+                <li class=""nav-item dropdown active>
                   <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <?php
                     echo "<p><u>$logado</u></p>";
@@ -79,9 +81,10 @@
                         Editar perfil
                       </a>
                     </li>
-                    <li class="drop-menu-item">
+                    <li class="drop-menu-item" style="color: red;">
                       <a href="#">
-                        SAIR
+                            SAIR
+                        
                       </a>
                     </li>
                   </ul>
@@ -91,13 +94,12 @@
                 </li>
 
                 <li class=
-
-                <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">
+                button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">
                   
                 </button>
               </div>
               <div class="header-btn-devider ml-auto ml-lg-5 pl-2 d-none d-xs-flex align-items-center">
-                <div>
+                <div> 
                   
                    
                   
@@ -112,9 +114,9 @@
                       <i class="fas fa-chevron-down heading-default-color ml-6"></i>
                     </a>
                     <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">Settings </a>
-                      <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">Edit Profile</a>
-                      <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="back/sair.php">Log Out</a>
+                      <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">CONFIGURAÇÕES </a>
+                      <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">EDITAR PERFIL</a>
+                      <a style="color: red;" class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="back/sair.php">Sair</a>
                         
     
                     </div>
@@ -147,6 +149,7 @@
     <!-- Brand1Section Area -->
     <!-- category Area -->
     <!-- Category Area -->
+    <br><br>
     <div class="pt-11 pt-lg-26 pb-lg-16" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400" data-aos-once="true">
       <div class="container">
         <!-- Section Top -->
@@ -154,8 +157,15 @@
           <!-- Section Title -->
           <div class="col-12 col-lg-6">
             <div class="text-center text-lg-left mb-13 mb-lg-0">
-              <h2 class="font-size-9 font-weight-bold">Confira os projetos de cada Objetivo de desenvolvimento sustentável</h2>
-              <a class="btn btn-gray-home btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#signup-emp">Cadastre-se como empresa</a>
+              <li class="brand-logo" >
+                <a href="./index.html">
+                  <!-- light version logo (logo must be black)-->
+                 
+                </a>
+              </li>
+              <img src="image/Novo Projeto (2).png" class="font-size-4 font-weight-bold">PROJETOS ODS</p>
+              <h2 class="font-size-4 ">Confira os projetos de cada Objetivo de desenvolvimento sustentável</h2>
+              
             </div>
           </div>
           <!-- Section Button -->
@@ -169,347 +179,212 @@
         <div class="row justify-content-center">
           <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-blue bg-blue-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-briefcase"></i>
+            <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods1">
+              <div class=" ">
+                <img style="width: 100%; right: 150%;" src="ODS/ods1.jpg"></i>
               </div>
               <!-- Category Content -->
               <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Business Development</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>415</span> Vacancy</p>
               </div>
             </a>
           </div>
           <!-- End Single Category -->
-          <!-- Single Category -->
+                  <!-- Single Category -->
+                  <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
+                    <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods2">
+                      <div class=" ">
+                        <img style="width: 100%; right: 150%;" src="ODS/ods2.jpg"></i>
+                      </div>
+                      <!-- Category Content -->
+                      <div class="">
+                      </div>
+                    </a>
+                  </div>
+                  <!-- End Single Category -->
+                    <!-- Single Category -->
+                    <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
+                      <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods3">
+                        <div class=" ">
+                          <img style="width: 100%; right: 150%;" src="ODS/ods3.jpg"></i>
+                        </div>
+                        <!-- Category Content -->
+                        <div class="">
+                        </div>
+                      </a>
+                    </div>
+                    <!-- End Single Category -->
+                    <!-- Single Category -->
+                    <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
+                      <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods4">
+                        <div class=" ">
+                          <img style="width: 100%; right: 150%;" src="ODS/ods4.jpg"></i>
+                        </div>
+                        <!-- Category Content -->
+                        <div class="">
+                        </div>
+                      </a>
+                    </div>
+                    <!-- End Single Category -->
+                              <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-spray bg-spray-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-headset"></i>
+            <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods5">
+              <div class=" ">
+                <img style="width: 100%; right: 150%;" src="ODS/ods5.jpg"></i>
               </div>
               <!-- Category Content -->
               <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Customer Service</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>235</span> Vacancy</p>
               </div>
             </a>
           </div>
           <!-- End Single Category -->
-          <!-- Single Category -->
+                    <!-- Single Category -->
+                    <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
+                      <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods6">
+                        <div class=" ">
+                          <img style="width: 100%; right: 150%;" src="ODS/ods6.jpg"></i>
+                        </div>
+                        <!-- Category Content -->
+                        <div class="">
+                        </div>
+                      </a>
+                    </div>
+                    <!-- End Single Category -->
+                              <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-coral bg-coral-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-layer-group"></i>
+            <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods7">
+              <div class=" ">
+                <img style="width: 100%; right: 150%;" src="ODS/ods7.jpg"></i>
               </div>
               <!-- Category Content -->
               <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Development</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>624</span> Vacancy</p>
               </div>
             </a>
           </div>
           <!-- End Single Category -->
-          <!-- Single Category -->
+                    <!-- Single Category -->
+                    <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
+                      <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods1">
+                        <div class=" ">
+                          <img style="width: 100%; right: 150%;" src="ODS/ods1.jpg"></i>
+                        </div>
+                        <!-- Category Content -->
+                        <div class="">
+                        </div>
+                      </a>
+                    </div>
+                    <!-- End Single Category -->
+                              <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-red bg-red-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-pen-nib"></i>
+            <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods1">
+              <div class=" ">
+                <img style="width: 100%; right: 150%;" src="ODS/ods1.jpg"></i>
               </div>
               <!-- Category Content -->
               <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Design</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>174</span> Vacancy</p>
               </div>
             </a>
           </div>
           <!-- End Single Category -->
-          <!-- Single Category -->
+                    <!-- Single Category -->
+                    <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
+                      <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods1">
+                        <div class=" ">
+                          <img style="width: 100%; right: 150%;" src="ODS/ods1.jpg"></i>
+                        </div>
+                        <!-- Category Content -->
+                        <div class="">
+                        </div>
+                      </a>
+                    </div>
+                    <!-- End Single Category -->  
+
+                              <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-orange bg-orange-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-rocket"></i>
+            <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods1">
+              <div class=" ">
+                <img style="width: 100%; right: 150%;" src="ODS/ods1.jpg"></i>
               </div>
               <!-- Category Content -->
               <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Marketing &amp; Management</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>268</span> Vacancy</p>
               </div>
             </a>
           </div>
           <!-- End Single Category -->
-          <!-- Single Category -->
+                    <!-- Single Category -->
+                    <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
+                      <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods1">
+                        <div class=" ">
+                          <img style="width: 100%; right: 150%;" src="ODS/ods1.jpg"></i>
+                        </div>
+                        <!-- Category Content -->
+                        <div class="">
+                        </div>
+                      </a>
+                    </div>
+                    <!-- End Single Category -->
+                              <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-yellow bg-yellow-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-location-arrow"></i>
+            <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods1">
+              <div class=" ">
+                <img style="width: 100%; right: 150%;" src="ODS/ods1.jpg"></i>
               </div>
               <!-- Category Content -->
               <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Sales &amp; Communication</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>156</span> Vacancy</p>
               </div>
             </a>
           </div>
           <!-- End Single Category -->
-          <!-- Single Category -->
+                    <!-- Single Category -->
+                    <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
+                      <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods1">
+                        <div class=" ">
+                          <img style="width: 100%; right: 150%;" src="ODS/ods1.jpg"></i>
+                        </div>
+                        <!-- Category Content -->
+                        <div class="">
+                        </div>
+                      </a>
+                    </div>
+                    <!-- End Single Category -->
+                              <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-turquoise bg-turquoise-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="icon icon-sidebar-2"></i>
+            <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods1">
+              <div class=" ">
+                <img style="width: 100%; right: 150%;" src="ODS/ods1.jpg"></i>
               </div>
               <!-- Category Content -->
               <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Project Management</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>162</span> Vacancy</p>
               </div>
             </a>
           </div>
           <!-- End Single Category -->
-          <!-- Single Category -->
+                    <!-- Single Category -->
+                    <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
+                      <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods1">
+                        <div class=" ">
+                          <img style="width: 100%; right: 150%;" src="ODS/ods1.jpg"></i>
+                        </div>
+                        <!-- Category Content -->
+                        <div class="">
+                        </div>
+                      </a>
+                    </div>
+                    <!-- End Single Category -->
+                              <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-green bg-green-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-user"></i>
+            <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods1">
+              <div class=" ">
+                <img style="width: 100%; right: 150%;" src="ODS/ods1.jpg"></i>
               </div>
               <!-- Category Content -->
               <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Human Resource </h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>84</span> Vacancy</p>
               </div>
             </a>
           </div>
+          <!-- End Single Category -->
+
           <!-- End Section Top -->
-        <div class="row justify-content-center">
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-blue bg-blue-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-briefcase"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Business Development</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>415</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          <!-- End Single Category -->
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-spray bg-spray-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-headset"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Customer Service</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>235</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          <!-- End Single Category -->
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-coral bg-coral-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-layer-group"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Development</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>624</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          <!-- End Single Category -->
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-red bg-red-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-pen-nib"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Design</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>174</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          <!-- End Single Category -->
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-orange bg-orange-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-rocket"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Marketing &amp; Management</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>268</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          <!-- End Single Category -->
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-yellow bg-yellow-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-location-arrow"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Sales &amp; Communication</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>156</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          <!-- End Single Category -->
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-turquoise bg-turquoise-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="icon icon-sidebar-2"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Project Management</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>162</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          <!-- End Single Category -->
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-green bg-green-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-user"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Human Resource </h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>84</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          <!-- End Section Top -->
-        <div class="row justify-content-center">
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-blue bg-blue-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-briefcase"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Business Development</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>415</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          <!-- End Single Category -->
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-spray bg-spray-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-headset"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Customer Service</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>235</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          <!-- End Single Category -->
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-coral bg-coral-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-layer-group"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Development</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>624</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          <!-- End Single Category -->
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-red bg-red-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-pen-nib"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Design</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>174</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          <!-- End Single Category -->
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-orange bg-orange-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-rocket"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Marketing &amp; Management</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>268</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          <!-- End Single Category -->
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-yellow bg-yellow-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-location-arrow"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Sales &amp; Communication</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>156</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          <!-- End Single Category -->
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-turquoise bg-turquoise-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="icon icon-sidebar-2"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Project Management</h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>162</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          <!-- End Single Category -->
-          <!-- Single Category -->
-          <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="#" class="bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100">
-              <div class="text-green bg-green-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                <i class="fa fa-user"></i>
-              </div>
-              <!-- Category Content -->
-              <div class="">
-                <h5 class="font-size-5 font-weight-semibold text-black-2 line-height-1">Human Resource </h5>
-                <p class="font-size-4 font-weight-normal text-gray"><span>84</span> Vacancy</p>
-              </div>
-            </a>
-          </div>
-          
-          
-          <!-- End Single Category -->
-        </div>
-      </div>
-    </div>
+        
     <!-- End Category Area -->
 
 

@@ -285,13 +285,12 @@
                         </div>
                         <div class="col-lg-6 mb-7">
                           <label for="email3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">7 - Você tem colaboradores no projeto? *</label>
-                          <center>
-                              <input type="radio" name="radio1" onclick="text(0)" >
+                          
+                              <input  type="radio" name="radio1" onclick="text(0)" >
                               Sim
 
                               <input type="radio" name="radio1"  onclick="text(1)" checked>
                               Não
-                          </center>
                           <br>
                           <div id="col_mais">
                             <input id="email_colaborador" type="email" class="form-control" placeholder="example@gmail.com" name="ckColaboradores[]" style="display: none;">
