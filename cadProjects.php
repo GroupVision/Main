@@ -318,7 +318,7 @@
                           </div >
                         </div>
 
-                        <div class="col-lg-12 mb-7" id="select_descricao" style="display: none;">
+                        <div class="col-lg-12 mb-7" id="select_descricao" style="display: none; ">
                           <label for="message3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset"> Descreva do porque você precisa desse tipo de parceria para seu projeto *</label>
                           <textarea name="message" id="message3" name="descricao_parceria" class="form-control h-px-144"></textarea>
                         </div>
