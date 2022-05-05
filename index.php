@@ -247,7 +247,7 @@
               </div>
               <div class="form-group">
                 <label for="cnpj-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">CNPJ</label><label class="text-red">ㅤ*</label>
-                <input type="cnpj-empresa" class="form-control" placeholder="CNPJ da empresa" id="inp-empresa" name="cpf">
+                <input type="cnpj-empresa" class="form-control" placeholder="CNPJ da empresa" id="inp-empresa" name="cpf" minlength="14" maxlength="14">
               </div>              
               <div class="form-group">
                 <label for="tell-empresa" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Telefone</label><label class="text-red">ㅤ*</label>
@@ -334,8 +334,8 @@
                     <input type="nome-empresa" class="form-control" placeholder="Nome da pessoa" id="inp-user" name="nome">
                   </div>
                   <div class="form-group">
-                    <label for="cnpj-user" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">CPF</label><label class="text-red">ㅤ*</label>
-                    <input type="cnpj-empresa" class="form-control" placeholder="CPF" id="inp-user" name="cpf">
+                    <label for="cnpj-user" class="font-size-4 text-black-2 font-weight-semibold line-height-reset" >CPF</label><label class="text-red">ㅤ*</label>
+                    <input type="cnpj-empresa" class="form-control" placeholder="CPF" id="inp-user" name="cpf" minlength="11" maxlength="11">
                   </div>              
                   <div class="form-group">
                     <label for="tell-user" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Telefone</label><label class="text-red">ㅤ*</label>

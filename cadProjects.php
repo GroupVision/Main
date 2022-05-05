@@ -283,35 +283,36 @@
                           <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">6 - Quais são os recursos necessários para fazer esse projeto?</label>
                           <input id="name3" type="text" class="form-control" placeholder="" name="recursos">
                         </div>
-                        <div class="col-lg-6 mb-7">
+                        <div class="col-lg-5 mb-7">
                           <label for="email3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">7 - Você tem colaboradores no projeto? *</label>
-                          
-                              <input  type="radio" name="radio1" onclick="text(0)" >
+                          <div style="margin-left: 20px;" >
+                              <input   type="radio" name="radio1" onclick="text(0)" >
                               Sim
 
                               <input type="radio" name="radio1"  onclick="text(1)" checked>
                               Não
+                          </div>
                           <br>
                           <div id="col_mais">
                             <input id="email_colaborador" type="email" class="form-control" placeholder="example@gmail.com" name="ckColaboradores[]" style="display: none;">
                           </div>
                           <input type="button" id="add_mais" class="btn btn-dark float-right mt-2" onclick="add_mais()" value="Adicione mais" style="display: none;">
                         </div>
-                        <div class="col-lg-6 mb-7">
+                        <div class="col-lg-7 mb-7">
                           <label for="subject3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">8 - Você precisa de parceria para dar andamento ao projeto? *</label>
-                          <center>
+                            <div style="margin-left: 20px;" >
                                 <input id="sel" type="radio" name="radio2" onclick="text2(0)" >
                                 Sim
                             
                                 <input id="sel" type="radio" name="radio2"  onclick="text2(1)" checked>
                                 Não
-                            </center>
+                                </div>
                             <br>
                             <div id="select_parceria" style="display: none;"> 
                           <select id="select2" name="tipo_parceria" class="form-control nice-select pl-6 arrow-3 h-px-48 w-100 font-size-4" >
                             <option value="">Selecionar opção</option>
                             <option value="Aprendizagem">Aprendizagem</option>
-                            <option value="Financeira">Financeira</option>
+                            <option value="Financeira">Financeira</option> 
                             <option value="Material">Material</option>
                             <option value="Outros">Outros</option>
                           </select>
@@ -320,12 +321,12 @@
 
                         <div class="col-lg-12 mb-7" id="select_descricao" style="display: none; ">
                           <label for="message3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset"> Descreva do porque você precisa desse tipo de parceria para seu projeto *</label>
-                          <textarea name="message" id="message3" name="descricao_parceria" class="form-control h-px-144"></textarea>
+                          <textarea id="message3" name="descricao_parceria" class="form-control h-px-144"></textarea>
                         </div>
                         <div class="col-12 mb-7">
                           <label for="select2" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4"> 9 - Status do projeto *</label>
                           <select id="select2" name="status" class="form-control nice-select pl-6 arrow-3 h-px-48 w-100 font-size-4">
-                            <option>Selecionar opção</option> 
+                            <option value="">Selecionar opção</option> 
                             <option value="Andamento">Andamento</option>
                             <option value="Concluido">Concluído</option>
                             <option value="Em_criacao">Em criação</option>
