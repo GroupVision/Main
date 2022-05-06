@@ -51,17 +51,17 @@
             <div class="navbar-nav-wrapper">
               <ul class="navbar-nav main-menu">
                 <li class="nav-item dropdown active">
-                  <a class="nav-link"  href="#features" role="button" aria-haspopup="true" aria-expanded="false">• Projetos ODS </a>
+                  <a class="nav-link"  href="Projects-ods.php" role="button" aria-haspopup="true" aria-expanded="false">• Projetos ODS </a>
                   
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link " href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Meus Projetos</a>
+                  <a class="nav-link " href="myProjects-ods.php" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Meus Projetos</a>
                   
                     <li class="drop-menu-item dropdown">
                       
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Agenda 2030</a>
+                  <a class="nav-link" href="Projects-ods.php">Agenda 2030</a>
                 </li>
 
                 <li class=""nav-item dropdown active>
