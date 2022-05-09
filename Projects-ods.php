@@ -179,7 +179,7 @@
         <div class="row justify-content-center">
           <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a  class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods1">
+            <a href="listprojects-ods.php?ods=1" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods1">
               <div class=" ">
                 <img style="width: 100%; right: 150%;" src="ODS/ods1.jpg"></i>
               </div>

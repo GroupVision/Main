@@ -3,6 +3,9 @@
     include_once('back/configlocal.php');
 
     $logado = $_SESSION['nome'];
+    $codigo = $_SESSION['codigo'];
+    $queryFiltro=mysqli_query($conexao, "SELECT * FROM usuario_pessoa WHERE codigo != $codigo");
+    $queryImagem=mysqli_query($conexao, "SELECT * FROM imagens_pessoa WHERE codigo != $codigo");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -288,15 +291,24 @@
                           <div style="margin-left: 20px;" >
                               <input   type="radio" name="radio1" onclick="text(0)" >
                               Sim
-
                               <input type="radio" name="radio1"  onclick="text(1)" checked>
                               Não
                           </div>
                           <br>
-                          <div id="col_mais">
-                            <input id="email_colaborador" type="email" class="form-control" placeholder="example@gmail.com" name="ckColaboradores[]" style="display: none;">
+                          <div id="col_mais" >
+                            <div id="nome_colaborador" style="display: none;">
+                            <input type="search" list="dtlist" placeholder="Digite o nome" name="ckColaboradores[]">
+                            <datalist id="dtlist">
+                              <?php
+                                while ($row= $queryFiltro -> fetch_assoc()){
+                                  $rowImagem= $queryImagem;
+                                  echo "<option>$rowImagem[path] $row[nome]</option>";
+                                } 
+                              ?>
+                            </datalist>  
                           </div>
-                          <input type="button" id="add_mais" class="btn btn-dark float-right mt-2" onclick="add_mais()" value="Adicione mais" style="display: none;">
+                          <input type="button" id="add_mais" class="btn btn-dark float-right mt-2" onclick="add_mais()" value="Adicione mais" style="display: none; ">
+                          </div>
                         </div>
                         <div class="col-lg-7 mb-7">
                           <label for="subject3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">8 - Você precisa de parceria para dar andamento ao projeto? *</label>
