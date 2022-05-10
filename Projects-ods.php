@@ -164,7 +164,7 @@
                 </a>
               </li>
               <img src="image/Novo Projeto (2).png" class="bricon font-size-4 font-weight-bold pr-10">PROJETOS ODS</p>
-              <h2 class="font-size-4 ">Confira os projetos de cada Objetivo de desenvolvimento sustentável</h2>
+              <h2 class="font-size-4 ">Confira os projetos de cada <b>Objetivo de desenvolvimento sustentável</b></h2>
               
             </div>
           </div>
