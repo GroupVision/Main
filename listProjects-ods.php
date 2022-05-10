@@ -3,6 +3,12 @@
     include_once('back/configlocal.php');
 
     $logado = $_SESSION['nome'];
+    if(isset($_GET['ods'])){
+      $odsTipo = $_GET['ods'];
+      $queryODS=mysqli_query($conexao, "SELECT * FROM ods_projetos odsTipo WHERE odsTipo.ods_tipo = $odsTipo JOIN projetos proj ON odsTipo.codigo_projeto = proj.codigo");
+    }
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -188,7 +194,7 @@
                           <img style="width: 70px; right: 70px;" src="/ODS/1.png" alt="">
                         </div>
                         <div>
-                          <h3 class="mb-0"><a class="font-size-6 heading-default-color" href="#">Lorem Ipsum</a></h3>
+                          <h3 class='mb-0'><a class='font-size-6 heading-default-color' href='#'>Lorem Ipsum</a></h3>
                           <a href="#" class="font-size-3 text-default-color line-height-2">Lorem Ipsum</a>
                         </div>
                       </div>
