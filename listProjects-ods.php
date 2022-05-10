@@ -211,7 +211,7 @@
                         <li class="mt-2 mr-8 font-size-small text-black-2 d-flex">
                           <span class="mr-4" style="margin-top:1; "></span> 
                             <img style="margin-top:1; width: 30px; right: 30px;" src="./image/done.png" alt="" echo=".$user_data['imgstatus']">
-                          <span style="align-items: center; margin-left: 4px; margin-top: 4px;" class="font-weight-semibold" echo=".$user_data['status']">Status</span>
+                          <span style="align-items: center; margin-left: 4px; margin-top: 4px;" class="font-weight-semibold" echo=".$user_data['status']">Statuss</span>
                         </li>
                       </ul>
                     </div>
