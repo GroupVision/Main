@@ -5,9 +5,8 @@
     $logado = $_SESSION['nome'];
     if(isset($_GET['ods'])){
       $odsTipo = $_GET['ods'];
-      $queryODS=mysqli_query($conexao, "SELECT * FROM ods_projetos odsTipo WHERE odsTipo.ods_tipo = $odsTipo JOIN projetos proj ON odsTipo.codigo_projeto = proj.codigo");
+      $queryODS=mysqli_query($conexao, "SELECT projetos.nome FROM ods_projetos INNER JOIN projetos ON ods_projetos.codigo_projeto = projetos.codigo WHERE ods_projetos.ods_tipo = $odsTipo ");
     }
-
     
 ?>
 <!DOCTYPE html>
@@ -162,9 +161,9 @@
           <!-- Main Body -->
           <div class="col-12 col-xl-8 col-lg-8">
             <!-- form -->
-            <!--Botão criar-->>
+            <!--Botão criar-->
             <div class="button-block">
-              <button class="btn btn-primary line-height-reset h-100 btn-submit w-100 text-uppercase">Criar Projeto</button>
+              <button class="btn btn-primary line-height-reset h15 btn-submit w-100 text-uppercase">Criar Projeto</button>
             </div>
             <form action="/" class="search-form">
               <div class="filter-search-form-2 search-1-adjustment bg-white rounded-sm shadow-7 pr-6 py-6 pl-6">
@@ -180,86 +179,57 @@
 
               </div>
             </form>
+            <?php  while ($row = $queryODS -> fetch_assoc()){ ?>
             <div class="pt-12">
 
               <div class="mb-8">
-                <!-- Single Featured Job -->
-
-
-                <div class="pt-9 px-xl-9 px-lg-7 px-7 pb-7 light-mode-texts bg-white rounded hover-shadow-3 ">
+                <!--Listagem de ODS-->
+                
+                  <div class="pt-9 px-xl-9 px-lg-7 px-7 pb-7 light-mode-texts bg-white rounded hover-shadow-3 ">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="media align-items-center">
+                        <!-- start div -->
+                        
                         <div class="square-72 d-block mr-8">
-                          <img style="width: 70px; right: 70px;" src="/ODS/1.png" alt="">
+                          <img style="width: 70px; right: 70px;" src="/ODS/1.png" alt="" echo=".$user_data['imgODS']">
                         </div>
                         <div>
-                          <h3 class='mb-0'><a class='font-size-6 heading-default-color' href='#'>Lorem Ipsum</a></h3>
-                          <a href="#" class="font-size-3 text-default-color line-height-2">Lorem Ipsum</a>
-                        </div>
-                      </div>
-                    </div>
+                          <h3 class='mb-0'><a class='font-size-6 heading-default-color'><?php echo $row['nome']?></a></h3>
+                          <a href="#" class="font-size-3 text-default-color line-height-2" echo=".$user_data['problema']">problema</a>
 
-                  </div>
                   <div class="row pt-8">
                     <div class="col-md-7">
                       <ul class="d-flex list-unstyled mr-n3 flex-wrap">
                         <li>
-                          <a class=" min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2" href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</a>
+                          <a class=" min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2" href="#" echo=".$user_data['descricao']">Descrição</a>
                         </li>
-                        
                       </ul>
                     </div>
                     <div class="col-md-5">
                       <ul class="d-flex list-unstyled mr-n3 flex-wrap mr-n8 justify-content-md-end">
                         <li class="mt-2 mr-8 font-size-small text-black-2 d-flex">
                           <span class="mr-4" style="margin-top:1; "></span> 
-                            <img style="margin-top:1; width: 30px; right: 30px;" src="./image/done.png" alt="">
-                          <span style="align-items: center; margin-left: 4px; margin-top: 4px;" class="font-weight-semibold">Concluido</span>
+                            <img style="margin-top:1; width: 30px; right: 30px;" src="./image/done.png" alt="" echo=".$user_data['imgstatus']">
+                          <span style="align-items: center; margin-left: 4px; margin-top: 4px;" class="font-weight-semibold" echo=".$user_data['status']">Status</span>
                         </li>
-
                       </ul>
                     </div>
                   </div>
-                </div>
-                <!-- End Single Featured Job -->
-
-
-                
-              </div>
-              <div class="mb-8">
-                <!-- End Single Featured Job -->
-              </div>
-              <div class="text-center pt-5 pt-lg-13">
-                <a class="text-green font-weight-bold text-uppercase font-size-3" href="#">
-                  Load More <i class="fas fa-sort-down ml-3"></i>
-                </a>
-              </div>
+                </div> 
+                </div>              
             </div>
-            <!-- form end -->
           </div>
         </div>
       </div>
     </div>
+                <?php } ?>
+                <!--fechando lista -->
+
+
+
+
     <!-- Main Content end -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
