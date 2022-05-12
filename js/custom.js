@@ -218,3 +218,17 @@ $('.counter').counterUp({
     delay: 20,
     time: 2000
 });
+
+var search = document.getElementById('buscar');
+
+    search.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") 
+        {
+            searchData();
+        }
+    });
+
+    function searchData()
+    {
+        window.location = 'listProjects-ods.php?search='+search.value;
+    }

@@ -5,7 +5,14 @@
     $logado = $_SESSION['nome'];
     if(isset($_GET['ods'])){
       $odsTipo = $_GET['ods'];
-      $queryODS=mysqli_query($conexao, "SELECT projetos.nome FROM ods_projetos INNER JOIN projetos ON ods_projetos.codigo_projeto = projetos.codigo WHERE ods_projetos.ods_tipo = $odsTipo ");
+      $queryODS=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem FROM projetos INNER JOIN ods_projetos ON ods_projetos.codigo_projeto = projetos.codigo WHERE ods_projetos.ods_tipo = $odsTipo");
+    }
+    if(!empty($_GET['search'])){
+        $data = $_GET['search'];
+        $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id DESC";
+    }
+    else{
+        $sql = "SELECT * FROM usuarios ORDER BY id DESC";
     }
     
 ?>
@@ -163,17 +170,18 @@
             <!-- form -->
             <!--Botão criar-->
             <div class="button-block">
-              <button class="btn btn-primary line-height-reset h15 btn-submit w-100 text-uppercase">Criar Projeto</button>
+              <button onclick="window.location.href = 'cadProjects.php'" class="btn btn-primary line-height-reset h15 btn-submit w-100 text-uppercase">Criar Projeto</button>
             </div>
             <form action="/" class="search-form">
               <div class="filter-search-form-2 search-1-adjustment bg-white rounded-sm shadow-7 pr-6 py-6 pl-6">
                 <div class="filter-inputs">
                   <div class="form-group position-relative w-lg-45 w-xl-40 w-xxl-45">
-                    <input class="form-control focus-reset pl-13" type="text" id="keyword" placeholder="Nome do Projeto">
+                    <input class="form-control focus-reset pl-13" type="text" id="buscar" placeholder="Nome do Projeto">
                     <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
                     <i class="icon icon-zoom-2 text-primary font-weight-bold"></i>
                   </span>
                   </div>
+                  <button onclick="searchData()" class="btn btn-primary line-height-reset h15 btn-submit w-50 text-uppercase">Buscar</button>
 
                 </div>
 
@@ -192,17 +200,17 @@
                         <!-- start div -->
                         
                         <div class="square-72 d-block mr-8">
-                          <img style="width: 70px; right: 70px;" src="/ODS/1.png" alt="" echo=".$user_data['imgODS']">
+                          <img style="width: 70px; right: 70px;" src="<?php echo $row['imagem']?>" alt="">
                         </div>
                         <div>
                           <h3 class='mb-0'><a class='font-size-6 heading-default-color'><?php echo $row['nome']?></a></h3>
-                          <a href="#" class="font-size-3 text-default-color line-height-2" echo=".$user_data['problema']">problema</a>
+                          <a href="#" class="font-size-3 text-default-color line-height-2"><?php echo $row['problema']?></a>
 
                   <div class="row pt-8">
                     <div class="col-md-7">
                       <ul class="d-flex list-unstyled mr-n3 flex-wrap">
                         <li>
-                          <a class=" min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2" href="#" echo=".$user_data['descricao']">Descrição</a>
+                          <a class=" min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2" ><?php echo $row['descricao_projeto']?></a>
                         </li>
                       </ul>
                     </div>
@@ -211,7 +219,7 @@
                         <li class="mt-2 mr-8 font-size-small text-black-2 d-flex">
                           <span class="mr-4" style="margin-top:1; "></span> 
                             <img style="margin-top:1; width: 30px; right: 30px;" src="./image/done.png" alt="" echo=".$user_data['imgstatus']">
-                          <span style="align-items: center; margin-left: 4px; margin-top: 4px;" class="font-weight-semibold" echo=".$user_data['status']">Statuss</span>
+                          <span style="align-items: center; margin-left: 4px; margin-top: 4px;" class="font-weight-semibold"><?php echo $row['status']?></span>
                         </li>
                       </ul>
                     </div>

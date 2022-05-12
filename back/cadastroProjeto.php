@@ -29,8 +29,10 @@
             exit();
         }
 
-        $pastaImagemProjeto = "../upload/imagens/projeto/";
+        $pastaImagemProjetoLocal = "../upload/imagens/projeto/";
+        $pastaImagemProjeto = "upload/imagens/projeto/";
         $pathImagemProjeto = $pastaImagemProjeto . $novoImagemProjeto . "." . $extensaoImagemProjeto;
+        $pathImagemProjetoLocal = $pastaImagemProjetoLocal . $novoImagemProjeto . "." . $extensaoImagemProjeto;
 
         $ods_grupo = isset($_POST['ckOds']) ? $_POST['ckOds'] : null;
         $colaboradores_grupo = isset($_POST['ckColaboradores']) ? $_POST['ckColaboradores'] : null;      
@@ -45,6 +47,7 @@
         } else {
             $conexao->query("INSERT INTO projetos (cod_usuario, nome, problema, descricao_projeto, objetivo, expectativa, publico_alvo, recursos, `tipo_parceria`, descricao_parceria, `status`, imagem) VALUES ('$cod_usuario', '$nome', '$problema', '$descricao_projeto', '$objetivo', '$expectativa', '$publico_alvo', '$recursos', '$tipo_parceria', '$descricao_parceria', '$status', '$pathImagemProjeto')");
             $cod_proj = $conexao->insert_id;
+            move_uploaded_file($imagemProjeto["tmp_name"], $pathImagemProjetoLocal);
 
             if($ods_grupo != null){
                 for($i = 0; $i < count($ods_grupo); $i++){
