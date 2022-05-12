@@ -197,7 +197,7 @@
                           <input type="file" name="imagem">
                         </div> -->
                         
-                        <div align="center">
+                        <div style="align-items: center;">
                           <label>Selecione sua imagem de perfil</label>
                           <input type="file" name="imagemProjeto">
                         </div>
