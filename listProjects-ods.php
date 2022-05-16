@@ -1,21 +1,29 @@
 <?php
+ob_start();
     require "back/validacao.php";
     include_once('back/configlocal.php');
 
     $logado = $_SESSION['nome'];
-    if(isset($_GET['ods'])){
-      $odsTipo = $_GET['ods'];
-      $queryODS=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem FROM projetos INNER JOIN ods_projetos ON ods_projetos.codigo_projeto = projetos.codigo WHERE ods_projetos.ods_tipo = $odsTipo");
-    }
-    if(!empty($_GET['search'])){
-        $data = $_GET['search'];
-        $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id DESC";
-    }
-    else{
-        $sql = "SELECT * FROM usuarios ORDER BY id DESC";
-    }
+    $odsSelecionadas = null;
+    $ods = null;
     
+    if(isset($_GET['ods']) && isset($_GET['search'])){
+      $ods = $_GET['ods'];
+      $data = $_GET['search'];
+      $odsStr = implode($ods);
+      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem FROM projetos INNER JOIN ods_projetos ON ods_projetos.codigo_projeto = projetos.codigo WHERE ods_projetos.ods_tipo IN ($odsStr) AND (projetos.nome LIKE '%$data%' OR projetos.problema LIKE '%$data%')");
+    } else if(isset($_GET['ods'])){
+      $ods = $_GET['ods'];
+      $odsStr = implode($ods);
+      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem FROM projetos INNER JOIN ods_projetos ON ods_projetos.codigo_projeto = projetos.codigo WHERE ods_projetos.ods_tipo = $odsStr");
+    } else if(isset($_GET['search'])){
+      $data = $_GET['search'];
+      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem FROM projetos WHERE projetos.nome LIKE '%$data%' OR projetos.problema LIKE '%$data%'");
+    } else {
+      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem FROM projetos");
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,6 +38,7 @@
   <link rel="stylesheet" href="fonts/icon-font/css/style.css">
   <link rel="stylesheet" href="fonts/typography-font/typo.css">
   <link rel="stylesheet" href="fonts/fontawesome-5/css/all.css">
+  <link rel="stylesheet" href="css/cadProject.css">
   <!-- Plugin'stylesheets  -->
   <link rel="stylesheet" href="plugins/aos/aos.min.css">
   <link rel="stylesheet" href="plugins/fancybox/jquery.fancybox.min.css">
@@ -75,7 +84,7 @@
 
                 <li class=""nav-item dropdown active>
                   <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?php
+                    <?php 
                     echo "<p><u>$logado</u></p>";
                   ?> 
                   <i class="icon icon-small-down"></i></a>
@@ -157,42 +166,89 @@
     <!-- category Area -->
     <!-- Category Area -->
     <br><br>
+    <form method="post" action="">
     <div class="pt-11 pt-lg-26 pb-lg-10" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400" data-aos-once="true">
       <div class="container">
         <!-- Section Top -->
-        
-<!-- Main Content Start -->
-
-
+        <ul>                        
+          <li><input type="checkbox" id="cb1" name="ods[]" value="1" <?php if(isset($ods)){ if(in_array(1, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb1" ><img src="ODS/1.png"  /></label>
+          </li>
+          <li><input type="checkbox" id="cb2" name="ods[]" value="2" <?php if(isset($ods)){ if(in_array(2, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb2" ><img src="ODS/2.png"  /></label>
+          </li>
+          <li><input type="checkbox" id="cb3" name="ods[]" value="3" <?php if(isset($ods)){ if(in_array(3, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb3" ><img src="ODS/3.png"  /></label>
+          </li>
+          <li><input type="checkbox" id="cb4" name="ods[]" value="4" <?php if(isset($ods)){ if(in_array(4, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb4" ><img src="ODS/4.png"  /></label>
+          </li>
+          <li><input type="checkbox" id="cb5" name="ods[]" value="5" <?php if(isset($ods)){ if(in_array(5, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb5" ><img src="ODS/5.png"  /></label>
+          </li>
+          <li><input type="checkbox" id="cb6" name="ods[]" value="6" <?php if(isset($ods)){ if(in_array(6, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb6" ><img src="ODS/6.png"  /></label>
+          </li>
+          <li><input type="checkbox" id="cb7" name="ods[]" value="7" <?php if(isset($ods)){ if(in_array(7, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb7" ><img src="ODS/7.png"  /></label>
+          </li>
+          <li><input type="checkbox" id="cb8" name="ods[]" value="8" <?php if(isset($ods)){ if(in_array(8, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb8" ><img src="ODS/8.png"  /></label>
+          </li>                        </li>
+          <li><input type="checkbox" id="cb9" name="ods[]" value="9" <?php if(isset($ods)){ if(in_array(9, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb9" ><img src="ODS/9.png"  /></label>
+          </li>
+          <li><input type="checkbox" id="cb10" name="ods[]" value="10" <?php if(isset($ods)){ if(in_array(10, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb10" ><img src="ODS/10.png"  /></label>
+          </li>
+          <li><input type="checkbox" id="cb11" name="ods[]" value="11" <?php if(isset($ods)){ if(in_array(11, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb11" ><img src="ODS/11.png"  /></label>
+          </li>
+          <li><input type="checkbox" id="cb12" name="ods[]" value="12" <?php if(isset($ods)){ if(in_array(12, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb12" ><img src="ODS/12.png"  /></label>
+          </li>
+          <li><input type="checkbox" id="cb13" name="ods[]" value="13" <?php if(isset($ods)){ if(in_array(13, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb13" ><img src="ODS/13.png"  /></label>
+          </li>                        </li>
+          <li><input type="checkbox" id="cb14" name="ods[]" value="14" <?php if(isset($ods)){ if(in_array(14, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb14" ><img src="ODS/14.png"  /></label>
+          </li>
+          <li><input type="checkbox" id="cb15" name="ods[]" value="15" <?php if(isset($ods)){ if(in_array(15, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb15" ><img src="ODS/15.png"  /></label>
+          </li>
+          <li><input type="checkbox" id="cb16" name="ods[]" value="16" <?php if(isset($ods)){ if(in_array(16, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb16" ><img src="ODS/16.png"  /></label>
+          </li>
+          <li><input type="checkbox" id="cb17" name="ods[]" value="17" <?php if(isset($ods)){ if(in_array(17, $ods)) echo 'checked="checked"'; } ?>/>
+            <label for="cb17" ><img src="ODS/17.png"  /></label>
+          </li>
           
+        </ul>
+<!-- Main Content Start -->
           <!-- Main Body -->
           <div class="col-12 col-xl-8 col-lg-8">
             <!-- form -->
             <!--Botão criar-->
             <div class="button-block">
-              <button onclick="window.location.href = 'cadProjects.php'" class="btn btn-primary line-height-reset h15 btn-submit w-100 text-uppercase">Criar Projeto</button>
+              <input onclick="window.location.href = 'cadProjects.php'" class="btn btn-primary line-height-reset h15 btn-submit w-100 text-uppercase" value="Criar Projeto">
             </div>
-            <form action="/" class="search-form">
+            
               <div class="filter-search-form-2 search-1-adjustment bg-white rounded-sm shadow-7 pr-6 py-6 pl-6">
                 <div class="filter-inputs">
                   <div class="form-group position-relative w-lg-45 w-xl-40 w-xxl-45">
-                    <input class="form-control focus-reset pl-13" type="text" id="buscar" placeholder="Nome do Projeto">
+                    <input class="form-control focus-reset pl-13" type="search" id="buscar" name="buscar" placeholder="Nome do Projeto">
                     <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
                     <i class="icon icon-zoom-2 text-primary font-weight-bold"></i>
                   </span>
                   </div>
-                  <button onclick="searchData()" class="btn btn-primary line-height-reset h15 btn-submit w-50 text-uppercase">Buscar</button>
-
+                  <button type="submit" name="submit" class="btn btn-primary line-height-reset h15 btn-submit w-50 text-uppercase">Buscar</button>
                 </div>
-
               </div>
             </form>
-            <?php  while ($row = $queryODS -> fetch_assoc()){ ?>
+            <?php  while ($row = $queryBusca -> fetch_assoc()){ ?>
             <div class="pt-12">
-
               <div class="mb-8">
                 <!--Listagem de ODS-->
-                
                   <div class="pt-9 px-xl-9 px-lg-7 px-7 pb-7 light-mode-texts bg-white rounded hover-shadow-3 ">
                   <div class="row">
                     <div class="col-md-6">
@@ -256,9 +312,25 @@
   <script src="plugins/counter-up/jquery.counterup.min.js"></script>
   <script src="plugins/counter-up/jquery.waypoints.min.js"></script>
   <script src="plugins/ui-range-slider/jquery-ui.js"></script>
+  
+</body>
+
+
+
+<?php 
+  if(isset($_POST['submit'])){
+    $nome = $_POST['buscar'];
+    $odsSelecionadas = $_POST['ods'];
+    $queryOds = null;
+    for($i = 0 ; $i < count($odsSelecionadas) ; $i++){
+      if(!empty($odsSelecionadas[$i])){
+        $queryOds .= "&ods[]=".$odsSelecionadas[$i];
+      }
+    }
+    header("location: listProjects-ods.php?".$queryOds."&search=".$nome, true, 303);
+    ob_end_flush();
+  } ?>
   <!-- Activation Script -->
   <!-- <script src="js/drag-n-drop.js"></script> -->
   <script src="js/custom.js"></script>
-</body>
-
 </html>

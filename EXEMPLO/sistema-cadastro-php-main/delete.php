@@ -1,18 +1,18 @@
 <?php
 
-    if(!empty($_GET['id']))
+    if(!empty($_GET['codigo']))
     {
         include_once('config.php');
 
-        $id = $_GET['id'];
+        $codigo = $_GET['codigo'];
 
-        $sqlSelect = "SELECT *  FROM usuarios WHERE id=$id";
+        $sqlSelect = "SELECT *  FROM usuario_pessoa WHERE codigo=$codigo";
 
         $result = $conexao->query($sqlSelect);
 
         if($result->num_rows > 0)
         {
-            $sqlDelete = "DELETE FROM usuarios WHERE id=$id";
+            $sqlDelete = "DELETE FROM usuario_pessoa WHERE codigo=$codigo";
             $resultDelete = $conexao->query($sqlDelete);
         }
     }

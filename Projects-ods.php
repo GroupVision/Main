@@ -179,7 +179,7 @@
         <div class="row justify-content-center">
           <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="listprojects-ods.php?ods=1" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods1">
+            <a href="listprojects-ods.php?ods[]=1" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods1">
               <div class=" ">
                 <img style="width: 100%; right: 150%;" src="ODS/ods1.jpg"></i>
               </div>
@@ -191,7 +191,7 @@
           <!-- End Single Category -->
                   <!-- Single Category -->
                   <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                    <a href="listprojects-ods.php?ods=2" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods2">
+                    <a href="listprojects-ods.php?ods[]=2" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods2">
                       <div class=" ">
                         <img style="width: 100%; right: 150%;" src="ODS/ods2.jpg"></i>
                       </div>
@@ -203,7 +203,7 @@
                   <!-- End Single Category -->
                     <!-- Single Category -->
                     <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                      <a href="listprojects-ods.php?ods=3" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods3">
+                      <a href="listprojects-ods.php?ods[]=3" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods3">
                         <div class=" ">
                           <img style="width: 100%; right: 150%;" src="ODS/ods3.jpg"></i>
                         </div>
@@ -215,7 +215,7 @@
                     <!-- End Single Category -->
                     <!-- Single Category -->
                     <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                      <a href="listprojects-ods.php?ods=4" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods4">
+                      <a href="listprojects-ods.php?ods[]=4" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods4">
                         <div class=" ">
                           <img style="width: 100%; right: 150%;" src="ODS/ods4.jpg"></i>
                         </div>
@@ -227,7 +227,7 @@
                     <!-- End Single Category -->
                               <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="listprojects-ods.php?ods=5" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods5">
+            <a href="listprojects-ods.php?ods[]=5" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods5">
               <div class=" ">
                 <img style="width: 100%; right: 150%;" src="ODS/ods5.jpg"></i>
               </div>
@@ -239,7 +239,7 @@
           <!-- End Single Category -->
                     <!-- Single Category -->
                     <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                      <a href="listprojects-ods.php?ods=6" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods6">
+                      <a href="listprojects-ods.php?ods[]=6" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods6">
                         <div class=" ">
                           <img style="width: 100%; right: 150%;" src="ODS/ods6.jpg"></i>
                         </div>
@@ -251,7 +251,7 @@
                     <!-- End Single Category -->
                               <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="listprojects-ods.php?ods=7" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods7">
+            <a href="listprojects-ods.php?ods[]=7" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods7">
               <div class=" ">
                 <img style="width: 100%; right: 150%;" src="ODS/ods7.jpg"></i>
               </div>
@@ -263,7 +263,7 @@
           <!-- End Single Category -->
                     <!-- Single Category -->
                     <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                      <a href="listprojects-ods.php?ods=8" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods8">
+                      <a href="listprojects-ods.php?ods[]=8" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods8">
                         <div class=" ">
                           <img style="width: 100%; right: 150%;" src="ODS/ods8.jpg"></i>
                         </div>
@@ -275,7 +275,7 @@
                     <!-- End Single Category -->
                               <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="listprojects-ods.php?ods=9" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods9">
+            <a href="listprojects-ods.php?ods[]=9" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods9">
               <div class=" ">
                 <img style="width: 100%; right: 150%;" src="ODS/ods9.jpg"></i>
               </div>
@@ -287,7 +287,7 @@
           <!-- End Single Category -->
                     <!-- Single Category -->
                     <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                      <a href="listprojects-ods.php?ods=10" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods10">
+                      <a href="listprojects-ods.php?ods[]=10" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods10">
                         <div class=" ">
                           <img style="width: 100%; right: 150%;" src="ODS/ods10.jpg"></i>
                         </div>
@@ -300,7 +300,7 @@
 
                               <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="listprojects-ods.php?ods=11" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods11">
+            <a href="listprojects-ods.php?ods[]=11" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods11">
               <div class=" ">
                 <img style="width: 100%; right: 150%;" src="ODS/ods11.jpg"></i>
               </div>
@@ -312,7 +312,7 @@
           <!-- End Single Category -->
                     <!-- Single Category -->
                     <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                      <a href="listprojects-ods.php?ods=12" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods12">
+                      <a href="listprojects-ods.php?ods[]=12" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods12">
                         <div class=" ">
                           <img style="width: 100%; right: 150%;" src="ODS/ods12.jpg"></i>
                         </div>
@@ -324,7 +324,7 @@
                     <!-- End Single Category -->
                               <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="listprojects-ods.php?ods=13" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods13">
+            <a href="listprojects-ods.php?ods[]=13" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods13">
               <div class=" ">
                 <img style="width: 100%; right: 150%;" src="ODS/ods13.jpg"></i>
               </div>
@@ -336,7 +336,7 @@
           <!-- End Single Category -->
                     <!-- Single Category -->
                     <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                      <a href="listprojects-ods.php?ods=14" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods14">
+                      <a href="listprojects-ods.php?ods[]=14" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods14">
                         <div class=" ">
                           <img style="width: 100%; right: 150%;" src="ODS/ods14.jpg"></i>
                         </div>
@@ -348,7 +348,7 @@
                     <!-- End Single Category -->
                               <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="listprojects-ods.php?ods=15" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods15">
+            <a href="listprojects-ods.php?ods[]=15" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods15">
               <div class=" ">
                 <img style="width: 100%; right: 150%;" src="ODS/ods15.jpg"></i>
               </div>
@@ -360,7 +360,7 @@
           <!-- End Single Category -->
                     <!-- Single Category -->
                     <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                      <a href="listprojects-ods.php?ods=16" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods16">
+                      <a href="listprojects-ods.php?ods[]=16" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods16">
                         <div class=" ">
                           <img style="width: 100%; right: 150%;" src="ODS/ods16.jpg"></i>
                         </div>
@@ -372,7 +372,7 @@
                     <!-- End Single Category -->
                               <!-- Single Category -->
           <div class="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-            <a href="listprojects-ods.php?ods=17" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods17">
+            <a href="listprojects-ods.php?ods[]=17" class=" border border-color-2 rounded-4 pl- pt-7 pb-7 pr- mb-9 d-block w-100 corods17">
               <div class=" ">
                 <img style="width: 100%; right: 150%;" src="ODS/ods17.jpg"></i>
               </div>
