@@ -59,7 +59,7 @@ ob_start();
         <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
           <!-- Brand Logo-->
           <div class="brand-logo">
-            <a href="./index.html">
+            <a href="./index.php">
               <!-- light version logo (logo must be black)-->
               <img src="image/logo-main-black.png" alt="" class="light-version-logo default-logo">
               <!-- Dark version logo (logo must be White)-->
@@ -69,7 +69,7 @@ ob_start();
             <div class="navbar-nav-wrapper">
               <ul class="navbar-nav main-menu">
                 <li class="nav-item dropdown active">
-                  <a class="nav-link"  href="Projects-ods.html" role="button" aria-haspopup="true" aria-expanded="false">Projetos ODS </a>
+                  <a class="nav-link"  href="Projects-ods.php" role="button" aria-haspopup="true" aria-expanded="false">Projetos ODS </a>
                   
                 </li>
                 <li class="nav-item dropdown ">

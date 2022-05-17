@@ -61,7 +61,7 @@
                       
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Projects-ods.php">Agenda 2030</a>
+                  <a class="nav-link" href="https://odsbrasil.gov.br/home/agenda">Agenda 2030</a>
                 </li>
 
                 <li class=""nav-item dropdown active>
