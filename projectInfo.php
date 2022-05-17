@@ -3,6 +3,10 @@
     include_once('back/configlocal.php');
 
     $logado = $_SESSION['nome'];
+    
+    if(isset($_GET['projeto'])){
+      $queryBusca=mysqli_query($conexao, "SELECT * FROM projetos INNER JOIN ods_projetos ON ods_projetos.codigo_projeto = projetos.codigo WHERE ods_projetos.ods_tipo IN ($odsStr) AND (projetos.nome LIKE '%$data%' OR projetos.problema LIKE '%$data%')");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -153,10 +157,7 @@
         
 <!-- Main Content Start -->
 
-
-          
-          
-          <img src="image/Novo Projeto (2).png" class="bricon font-size-4 font-weight-bold pr-10">Projetos ODS > Erradicação da pobreza <b>> Informações</b></p>
+          <!--<img src="image/Novo Projeto (2).png" class="bricon font-size-4 font-weight-bold pr-10">Projetos ODS > Erradicação da pobreza <b>> Informações</b></p>-->
 
             <div class="border border-color-2 rounded-4  pt-7 pb-7  mb-9 bg-white" >
              <!-- Main Body ODS  
