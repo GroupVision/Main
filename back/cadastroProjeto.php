@@ -70,34 +70,39 @@
                     $filename_tmp = $_FILES['ckArquivos']['tmp_name'][$key];
                     $ext = pathinfo($filename, PATHINFO_EXTENSION);
                     $pathImage = '';
+                    $pathImageProj = '';
                 
                     $finalimg='';
                     if(in_array($ext, $extensionImage)){
                         if(!file_exists('../upload/imagens/projeto/relevantes/' .$filename)){
                             $pathImage = '../upload/imagens/projeto/relevantes/' .$filename;
+                            $pathImageProj = 'upload/imagens/projeto/relevantes/' .$filename;
                             move_uploaded_file($filename_tmp, $pathImage);
                             $finalimg=$filename;
                         } else {
                             $filename = str_replace('.', '-', basename($filename, $ext));
                             $newfilename = $filename.time().'.'.$ext;
                             $pathImage = '../upload/imagens/projeto/relevantes/' .$newfilename;
+                            $pathImageProj = 'upload/imagens/projeto/relevantes/' .$newfilename;
                             move_uploaded_file($filename_tmp, $pathImage);
                             $finalimg=$newfilename;
                         }
-                        $conexao->query("INSERT INTO arquivos_projetos (nome, path ,cod_projetos) VALUES ('$finalimg', '$pathImage', '$cod_proj')");
+                        $conexao->query("INSERT INTO arquivos_projetos (nome, path ,cod_projetos) VALUES ('$finalimg', '$pathImageProj', '$cod_proj')");
                     } else if($ext == $extensionFile){
                         if(!file_exists('../upload/arquivos_projeto/' .$filename)){
                             $pathImage = '../upload/arquivos_projeto/' .$filename;
+                            $pathImageProj = 'upload/arquivos_projeto/' .$filename;
                             move_uploaded_file($filename_tmp, $pathImage);
                             $finalimg=$filename;
                         } else {
                             $filename = str_replace('.', '-', basename($filename, $ext));
                             $newfilename = $filename.time().'.'.$ext;
                             $pathImage = '../upload/arquivos_projeto/' .$newfilename;
+                            $pathImageProj = 'upload/arquivos_projeto/' .$newfilename;
                             move_uploaded_file($filename_tmp, $pathImage);
                             $finalimg=$newfilename;
                         }
-                        $conexao->query("INSERT INTO arquivos_projetos (nome, path ,cod_projetos) VALUES ('$finalimg', '$pathImage', '$cod_proj')");
+                        $conexao->query("INSERT INTO arquivos_projetos (nome, path ,cod_projetos) VALUES ('$finalimg', '$pathImageProj', '$cod_proj')");
                     } else {
                         $mensagem = ["Arquivo ou imagem não aceitos" , "alert-danger"];
                         $_SESSION['mensagem'] = $mensagem;

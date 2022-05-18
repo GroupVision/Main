@@ -42,6 +42,7 @@
         }
         
         $pasta = "../upload/imagens/usuario/";
+        $pastaProj = "upload/imagens/usuario/";
         $nomeDaImagem = $imagem['name'];    
         $novoNomeDaImagem = uniqid();
         $extensao = strtolower(pathinfo($nomeDaImagem, PATHINFO_EXTENSION));
@@ -54,6 +55,7 @@
         }
 
         $path = $pasta . $novoNomeDaImagem . "." . $extensao;
+        $pathProj = $pastaProj . $novoNomeDaImagem . "." . $extensao;
 
         $deu_certo = move_uploaded_file($imagem["tmp_name"], $path);
         if($deu_certo){
@@ -68,7 +70,7 @@
                 header("location: ../index.php");
                 exit();
             } else {
-                $conexao->query("INSERT INTO imagens_pessoa (nome, path, cod_pessoa) VALUES ('$nomeDaImagem', '$path', '$cod_usuario')");
+                $conexao->query("INSERT INTO imagens_pessoa (nome, path, cod_pessoa) VALUES ('$nomeDaImagem', '$pathProj', '$cod_usuario')");
                 $mensagem = ["Cadastro realizado com sucesso!" , "alert-success"];
                 $_SESSION['mensagem'] = $mensagem;
                 header("location: ../index.php");

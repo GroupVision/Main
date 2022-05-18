@@ -1,11 +1,52 @@
 <?php
     require "back/validacao.php";
     include_once('back/configlocal.php');
-
+  
     $logado = $_SESSION['nome'];
-    
-    if(isset($_GET['projeto'])){
-      $queryBusca=mysqli_query($conexao, "SELECT * FROM projetos INNER JOIN ods_projetos ON ods_projetos.codigo_projeto = projetos.codigo WHERE ods_projetos.ods_tipo IN ($odsStr) AND (projetos.nome LIKE '%$data%' OR projetos.problema LIKE '%$data%')");
+    $arrayOds = null;
+    $arrayLinks = null;
+    $arrayArquivos = null;
+    $arrayCol = null;
+  
+    if(isset($_GET['projeto']) && isset($_GET['user'])){
+      $projetoCodigo = $_GET['projeto'];
+      $userCodigo = $_GET['user'];
+      $queryBusca=mysqli_query($conexao, "SELECT projetos.*, usuario_pessoa.nome FROM usuario_pessoa INNER JOIN projetos ON usuario_pessoa.codigo = projetos.cod_usuario WHERE usuario_pessoa.codigo = $userCodigo");
+
+      $queryBuscaImagem=mysqli_query($conexao, "SELECT imagens_pessoa.path FROM usuario_pessoa INNER JOIN imagens_pessoa ON usuario_pessoa.codigo = imagens_pessoa.cod_pessoa WHERE imagens_pessoa.cod_pessoa = $userCodigo");
+      
+      $sqlOds = "SELECT ods_projetos.ods_tipo FROM projetos INNER JOIN ods_projetos ON ods_projetos.codigo_projeto = projetos.codigo WHERE ods_projetos.codigo_projeto = $projetoCodigo";
+      $result = mysqli_query($conexao, $sqlOds);
+
+      $sqlColaboradores = "SELECT colaboradores_projeto.nome FROM projetos INNER JOIN colaboradores_projeto ON colaboradores_projeto.cod_projeto = projetos.codigo WHERE colaboradores_projeto.cod_projeto = $projetoCodigo";
+      $resultColaboradores = mysqli_query($conexao, $sqlColaboradores);
+
+      $sqlArquivos = "SELECT arquivos_projetos.path FROM projetos INNER JOIN arquivos_projetos ON arquivos_projetos.cod_projetos = projetos.codigo WHERE arquivos_projetos.cod_projetos = $projetoCodigo";
+      $resultArquivos = mysqli_query($conexao, $sqlArquivos);
+
+      $sqlLinks = "SELECT links_projeto.link FROM projetos INNER JOIN links_projeto ON links_projeto.codigo_projeto = projetos.codigo WHERE links_projeto.codigo_projeto = $projetoCodigo";
+      $resultLinks = mysqli_query($conexao, $sqlLinks);
+
+      while($rowTemp = mysqli_fetch_assoc($result)){
+        $arrayOds[] = $rowTemp['ods_tipo'];
+      }
+
+      while($rowCol = mysqli_fetch_assoc($resultColaboradores)){
+        $arrayCol[] = $rowCol['nome'];
+      }
+
+      while($rowLinks = mysqli_fetch_assoc($resultLinks)){
+        $arrayLinks[] = $rowLinks['link'];
+      }
+
+      while($rowArquivos = mysqli_fetch_assoc($resultArquivos)){
+        $arrayArquivos[] = $rowArquivos['path'];
+      }
+
+      $row = $queryBusca -> fetch_assoc();
+      $rowImagem = $queryBuscaImagem -> fetch_assoc();
+    } else {
+      header("location: listProjects-ods.php");
     }
 ?>
 <!DOCTYPE html>
@@ -188,9 +229,9 @@
               <!-- Top Start -->
               <div class="bg-white shadow-9 rounded-4">
                 <div class="px-5 py-11 text-center border-bottom border-mercury">
-                  <a class="mb-4" href="#"><img class="circle-54" src="./image/l3/png/pro-img.png" alt=""></a>
-                  <h4 class="mb-0"><a class="text-black-2 font-size-6 font-weight-semibold" href="#">Usuário</a></h4>
-                  <p class="mb-8"><a class="text-gray font-size-4" href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a></p>
+                  <a class="mb-4" href="#"><img class="circle-54" src="<?php echo $rowImagem['path'] ?>" alt=""></a>
+                  <h4 class="mb-0"><a class="text-black-2 font-size-6 font-weight-semibold" href="#"><?php echo $row['nome'] ?></a></h4>
+                  <p class="mb-8"><a class="text-gray font-size-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a></p>
                   <!-- Top End 
                   <div class="icon-link d-flex align-items-center justify-content-center flex-wrap">
                     <a class="text-smoke circle-32 bg-concrete mr-5 hover-bg-green" href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -221,11 +262,10 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                   <!-- Excerpt Start -->
                   <div class="pr-xl-0 pr-xxl-14 p-5 px-xs-12 pt-7 pb-5">
-                    <h4 class="font-size-6 mb-7 mt-5 text-black-2 font-weight-semibold">NOME DO PROJETO</h4>
+                    <h4 class="font-size-6 mb-7 mt-5 text-black-2 font-weight-semibold"><?php  ?></h4>
 
-                    <p class="font-size-4 mb-8">Descrição:
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has</p>
+                    <p class="font-size-4 mb-8">Descrição do Projeto:
+                      <?php echo $row['descricao_projeto'] ?></p>
                   </div>
                   <!-- Excerpt End -->
                   <!-- Skills -->
@@ -233,38 +273,105 @@
                     <h4 class="font-size-6 mb-7 mt-5 text-black-2 font-weight-semibold">ODS</h4>
                     <ul class="list-unstyled d-flex align-items-center flex-wrap">
                       <li>
-                        <img
-              style="width: 100px; right: 100px; margin: 20px; " src="ODS/1.png"></i>
+                        <?php if(in_array(1, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/1.png'></i>";
+                        } ?>
                       </li>
                       <li>
-                        <img
-              style="width: 100px; right: 100px; margin: 20px; " src="ODS/2.png"></i>
+                        <?php if(in_array(2, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/2.png'></i>";
+                        } ?>
                       </li>
                       <li>
-                        <img
-              style="width: 100px; right: 100px; margin: 20px; " src="ODS/3.png"></i>
+                        <?php if(in_array(3, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/3.png'></i>";
+                        } ?>
                       </li>
-                      
+                      <li>
+                        <?php if(in_array(4, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/4.png'></i>";
+                        } ?>
+                      </li>
+                      <li>
+                        <?php if(in_array(5, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/5.png'></i>";
+                        } ?>
+                      </li>
+                      <li>
+                        <?php if(in_array(6, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/6.png'></i>";
+                        } ?>
+                      </li>
+                      <li>
+                        <?php if(in_array(7, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/7.png'></i>";
+                        } ?>
+                      </li>
+                      <li>
+                        <?php if(in_array(8, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/8.png'></i>";
+                        } ?>
+                      </li>
+                      <li>
+                        <?php if(in_array(9, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/9.png'></i>";
+                        } ?>
+                      </li>
+                      <li>
+                        <?php if(in_array(10, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/10.png'></i>";
+                        } ?>
+                      </li>
+                      <li>
+                        <?php if(in_array(11, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/11.png'></i>";
+                        } ?>
+                      </li>
+                      <li>
+                        <?php if(in_array(12, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/12.png'></i>";
+                        } ?>
+                      </li>
+                      <li>
+                        <?php if(in_array(13, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/13.png'></i>";
+                        } ?>
+                      </li>
+                      <li>
+                        <?php if(in_array(14, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/14.png'></i>";
+                        } ?>
+                      </li>
+                      <li>
+                        <?php if(in_array(15, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/15.png'></i>";
+                        } ?>
+                      </li>
+                      <li>
+                        <?php if(in_array(16, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/16.png'></i>";
+                        } ?>
+                      </li>
+                      <li>
+                        <?php if(in_array(17, $arrayOds)){
+                          echo "<img style='width: 100px; right: 100px; margin: 20px; ' src='ODS/17.png'></i>";
+                        } ?>
+                      </li>
                     </ul>
                   </div>
                   <!-- Skills End -->
                   <!-- Skills -->
                   <div class="border-top pr-xl-0 pr-xxl-14 p-5 pl-xs-12 pt-7 pb-5">
-                    <h4 class="font-size-6 mb-7 mt-5 text-black-2 font-weight-semibold">ODS</h4>
+                    <h4 class="font-size-6 mb-7 mt-5 text-black-2 font-weight-semibold">Colaboradores</h4>
                     <ul class="list-unstyled d-flex align-items-center flex-wrap">
+                    <?php if(!empty($arrayCol)) foreach($arrayCol as $value){
+                      echo "
                       <li>
-                        <img class="circle-54" style="margin-left: 40px;margin-right: 40px; align-items: center;" src="./image/l3/png/pro-img.png"></i>
-              <p>USUARIOS 1    </p>
-                      </li>
-                      <li>
-                        <img class="circle-54" style="margin-left: 10%;margin-right: 10%; align-items: center; " src="./image/l3/png/pro-img.png"></i>
-              <p>USUARIOS 2    </p>
-                      </li>
-                      <li>
-                        <img class="circle-54" style="margin-left: 10%;margin-right: 10%; align-items: center;  " src="./image/l3/png/pro-img.png"></i>
-              <p>USUARIOS 3    </p>
-                      </li>
-                      
+                        <img class='circle-54' style='margin-left: 40px;margin-right: 40px; align-items: center;' src='./image/l3/png/pro-img.png'></i>
+                        <p>$value</p>
+                      </li>";
+                    } else echo "<a class='font-size-3 text-black-2 font-weight-semibold'>Não há Colaboradores neste projeto.</a>"?>
+
                     </ul>
                   </div>
                   <!-- Skills End -->
@@ -276,11 +383,10 @@
                       <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
                         <div class="w-100 mt-n2">
                           <h3 class="mb-0">
-                            <a class="font-size-6 text-black-2 font-weight-semibold" href="#">Problema</a>
+                            <a class="font-size-6 text-black-2 font-weight-semibold">Problema</a>
                           </h3>
                           <div class="d-flex align-items-center justify-content-md-between flex-wrap">
-                            <a href="" class="font-size-4 text-gray mr-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                            <a href="" class="font-size-4 text-gray mr-5"><?php echo $row['problema'] ?>
                               </a>
                           </div>
                         </div>
@@ -292,11 +398,10 @@
                       <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
                         <div class="w-100 mt-n2">
                           <h3 class="mb-0">
-                            <a class="font-size-6 text-black-2 font-weight-semibold" href="#">Objetivo</a>
+                            <a class="font-size-6 text-black-2 font-weight-semibold">Objetivo</a>
                           </h3>
                           <div class="d-flex align-items-center justify-content-md-between flex-wrap">
-                            <a href="" class="font-size-4 text-gray mr-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                            <a href="" class="font-size-4 text-gray mr-5"><?php echo $row['objetivo'] ?>
                               </a>
                           </div>
                         </div>
@@ -308,11 +413,10 @@
                       <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
                         <div class="w-100 mt-n2">
                           <h3 class="mb-0">
-                            <a class="font-size-6 text-black-2 font-weight-semibold" href="#">Resoltados esperados</a>
+                            <a class="font-size-6 text-black-2 font-weight-semibold">Resultados Esperados</a>
                           </h3>
                           <div class="d-flex align-items-center justify-content-md-between flex-wrap">
-                            <a href="" class="font-size-4 text-gray mr-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                            <a href="" class="font-size-4 text-gray mr-5"><?php echo $row['expectativa'] ?>
                               </a>
                           </div>
                         </div>
@@ -324,11 +428,10 @@
                       <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
                         <div class="w-100 mt-n2">
                           <h3 class="mb-0">
-                            <a class="font-size-6 text-black-2 font-weight-semibold" href="#">Publico alvo</a>
+                            <a class="font-size-6 text-black-2 font-weight-semibold">Público Alvo</a>
                           </h3>
                           <div class="d-flex align-items-center justify-content-md-between flex-wrap">
-                            <a href="" class="font-size-4 text-gray mr-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                            <a href="" class="font-size-4 text-gray mr-5"><?php echo $row['publico_alvo'] ?>
                               </a>
                           </div>
                         </div>
@@ -340,11 +443,10 @@
                       <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
                         <div class="w-100 mt-n2">
                           <h3 class="mb-0">
-                            <a class="font-size-6 text-black-2 font-weight-semibold" href="#">Resursos nescessarios</a>
+                            <a class="font-size-6 text-black-2 font-weight-semibold">Recursos Necessários</a>
                           </h3>
                           <div class="d-flex align-items-center justify-content-md-between flex-wrap">
-                            <a href="" class="font-size-4 text-gray mr-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                            <a href="" class="font-size-4 text-gray mr-5"><?php echo $row['recursos'] ?>
                               </a>
                           </div>
                         </div>
@@ -362,16 +464,32 @@
                     <div class="w-100">
                       <div class="">
                         <div class="   mr-8 mb-7 mb-sm-0">
-                          <img src="./image/svg/harvard.svg" alt="">
-                          <img src="./image/svg/harvard.svg" alt="">
-                          <img src="./image/svg/harvard.svg" alt="">
+                          <?php if(!empty($arrayArquivos)) foreach($arrayArquivos as $value){
+                            echo "<img src='$value'>";
+                          }?> 
                         </div>
-
                       </div>
                     </div>
                     <!-- Single Card End -->
 
                   </div>
+                  <div class="border-top p-5 pl-xs-12 pt-7 pb-5">
+                    <h4 class="font-size-6 mb-7 mt-5 text-black-2 font-weight-semibold">Links</h4>
+                    
+                    <!-- Single Card -->
+                    <div class="w-100">
+                      <div class="">
+                        <div class="   mr-8 mb-7 mb-sm-0">
+                          <?php if(!empty($arrayLinks)) foreach($arrayLinks as $value){
+                            echo "<a href='$value' class='font-size-4 text-gray mr-5'>$value</a>";
+                          }?> 
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Single Card End -->
+
+                  </div>
+                  
                   <!-- Card Section End -->
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">

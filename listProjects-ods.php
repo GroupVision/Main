@@ -11,16 +11,16 @@ ob_start();
       $ods = $_GET['ods'];
       $data = $_GET['search'];
       $odsStr = implode($ods);
-      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem, projetos.codigo FROM projetos INNER JOIN ods_projetos ON ods_projetos.codigo_projeto = projetos.codigo WHERE ods_projetos.ods_tipo IN ($odsStr) AND (projetos.nome LIKE '%$data%' OR projetos.problema LIKE '%$data%')");
+      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem, projetos.cod_usuario, projetos.codigo FROM projetos INNER JOIN ods_projetos ON ods_projetos.codigo_projeto = projetos.codigo WHERE ods_projetos.ods_tipo IN ($odsStr) AND (projetos.nome LIKE '%$data%' OR projetos.problema LIKE '%$data%')");
     } else if(isset($_GET['ods'])){
       $ods = $_GET['ods'];
       $odsStr = implode($ods);
-      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem, projetos.codigo FROM projetos INNER JOIN ods_projetos ON ods_projetos.codigo_projeto = projetos.codigo WHERE ods_projetos.ods_tipo = $odsStr");
+      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem, projetos.cod_usuario, projetos.codigo FROM projetos INNER JOIN ods_projetos ON ods_projetos.codigo_projeto = projetos.codigo WHERE ods_projetos.ods_tipo = $odsStr");
     } else if(isset($_GET['search'])){
       $data = $_GET['search'];
-      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem, projetos.codigo FROM projetos WHERE projetos.nome LIKE '%$data%' OR projetos.problema LIKE '%$data%'");
+      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem, projetos.cod_usuario, projetos.codigo FROM projetos WHERE projetos.nome LIKE '%$data%' OR projetos.problema LIKE '%$data%'");
     } else {
-      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem, projetos.codigo FROM projetos");
+      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem, projetos.cod_usuario, projetos.codigo FROM projetos");
     }
 ?>
 
@@ -247,8 +247,8 @@ ob_start();
             </form>
             <?php  while ($row = $queryBusca -> fetch_assoc()){ ?>
               
-              <?php $codigo = $row['codigo']; ?>
-              <div onclick= "window.location.href = 'projectInfo.php?projeto=<?php echo $codigo?>'" class='pt-12'>
+              <?php $cod_usuario = $row['cod_usuario']; $codigo = $row['codigo']; ?>
+              <div onclick= "window.location.href = 'projectInfo.php?projeto=<?php echo $codigo?>&user=<?php echo $cod_usuario ?>'" class='pt-12'>
               
               <div class="mb-8">
                 <!--Listagem de ODS-->
