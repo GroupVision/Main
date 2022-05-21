@@ -4,23 +4,35 @@ ob_start();
     include_once('back/configlocal.php');
 
     $logado = $_SESSION['nome'];
-    $odsSelecionadas = null;
+    $odsSelecionadas = null;  
     $ods = null;
+    $concat = false;
     
     if(isset($_GET['ods']) && isset($_GET['search'])){
       $ods = $_GET['ods'];
       $data = $_GET['search'];
-      $odsStr = implode($ods);
-      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem, projetos.cod_usuario, projetos.codigo FROM projetos INNER JOIN ods_projetos ON ods_projetos.codigo_projeto = projetos.codigo WHERE ods_projetos.ods_tipo IN ($odsStr) AND (projetos.nome LIKE '%$data%' OR projetos.problema LIKE '%$data%')");
+      $odsStr = implode(',', $ods);
+      $concat = true;
+      $queryBusca=mysqli_query($conexao, "SELECT projetos.*, group_concat( ods_tipo ) FROM projetos,ods_projetos WHERE projetos.codigo=ods_projetos.codigo_projeto AND ods_tipo IN ($odsStr)  AND (projetos.nome LIKE '%$data%' OR projetos.problema LIKE '%$data%')group by projetos.codigo");
+
+      //var_dump($queryBusca);
+      //var_dump($ods);
+      //var_dump($odsStr);
+
     } else if(isset($_GET['ods'])){
       $ods = $_GET['ods'];
-      $odsStr = implode($ods);
-      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem, projetos.cod_usuario, projetos.codigo FROM projetos INNER JOIN ods_projetos ON ods_projetos.codigo_projeto = projetos.codigo WHERE ods_projetos.ods_tipo = $odsStr");
+      $odsStr = implode(',', $ods);
+      $concat = true;
+      $queryBusca=mysqli_query($conexao, "SELECT projetos.*, group_concat( ods_tipo ) FROM projetos,ods_projetos WHERE projetos.codigo=ods_projetos.codigo_projeto AND ods_tipo IN ($odsStr) group by projetos.codigo");
+
     } else if(isset($_GET['search'])){
       $data = $_GET['search'];
-      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem, projetos.cod_usuario, projetos.codigo FROM projetos WHERE projetos.nome LIKE '%$data%' OR projetos.problema LIKE '%$data%'");
+      $concat = false;
+      $queryBusca=mysqli_query($conexao, "SELECT projetos.* FROM projetos WHERE projetos.nome LIKE '%$data%' OR projetos.problema LIKE '%$data%'");
+
     } else {
-      $queryBusca=mysqli_query($conexao, "SELECT projetos.nome, projetos.problema, projetos.status, projetos.descricao_projeto, projetos.imagem, projetos.cod_usuario, projetos.codigo FROM projetos");
+      $concat = false;
+      $queryBusca=mysqli_query($conexao, "SELECT * FROM projetos");
     }
 ?>
 
@@ -245,7 +257,18 @@ ob_start();
                 </div>
               </div>
             </form>
-            <?php  while ($row = $queryBusca -> fetch_assoc()){ ?>
+            <?php while ($row = $queryBusca -> fetch_assoc()){ if($concat){
+              $var = explode(',', $row['group_concat( ods_tipo )']);
+              $determinante = 0;
+              //print_r($var);
+              //print_r(count($ods));
+              for($i = 0 ; $i < count($ods) ; $i++){
+                for($j = 0 ; $j < count($var) ; $j++){
+                  if($ods[$i] == $var[$j]) $determinante += 1;
+                }
+              }
+              //print_r($determinante);
+              if($determinante != count($ods)) goto pular; } ?>
               
               <?php $cod_usuario = $row['cod_usuario']; $codigo = $row['codigo']; ?>
               <div onclick= "window.location.href = 'projectInfo.php?projeto=<?php echo $codigo?>&user=<?php echo $cod_usuario ?>'" class='pt-12'>
@@ -293,7 +316,7 @@ ob_start();
             </div>
           </div>
 
-                <?php } ?>
+                <?php pular: } ?>
                 <!--fechando lista -->
 
 
@@ -333,7 +356,8 @@ ob_start();
         $queryOds .= "&ods[]=".$odsSelecionadas[$i];
       }
     }
-    header("location: listProjects-ods.php?".$queryOds."&search=".$nome, true, 303);
+    if($nome == null) header("location: listProjects-ods.php?".$queryOds, true, 303);
+    else header("location: listProjects-ods.php?".$queryOds."&search=".$nome, true, 303);
     ob_end_flush();
   } ?>
   <!-- Activation Script -->

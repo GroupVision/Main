@@ -21,8 +21,11 @@
       $sqlColaboradores = "SELECT colaboradores_projeto.nome FROM projetos INNER JOIN colaboradores_projeto ON colaboradores_projeto.cod_projeto = projetos.codigo WHERE colaboradores_projeto.cod_projeto = $projetoCodigo";
       $resultColaboradores = mysqli_query($conexao, $sqlColaboradores);
 
-      $sqlArquivos = "SELECT arquivos_projetos.path FROM projetos INNER JOIN arquivos_projetos ON arquivos_projetos.cod_projetos = projetos.codigo WHERE arquivos_projetos.cod_projetos = $projetoCodigo";
+      $sqlArquivos = "SELECT arquivos_projetos.path FROM projetos INNER JOIN arquivos_projetos ON arquivos_projetos.cod_projetos = projetos.codigo WHERE arquivos_projetos.cod_projetos = $projetoCodigo AND (arquivos_projetos.path LIKE '%.png%')";
       $resultArquivos = mysqli_query($conexao, $sqlArquivos);
+
+      $sqlArquivosPdf = "SELECT arquivos_projetos.* FROM projetos INNER JOIN arquivos_projetos ON arquivos_projetos.cod_projetos = projetos.codigo WHERE arquivos_projetos.cod_projetos = $projetoCodigo AND (arquivos_projetos.path LIKE '%.pdf%')";
+      $resultArquivosPdf = mysqli_query($conexao, $sqlArquivosPdf);
 
       $sqlLinks = "SELECT links_projeto.link FROM projetos INNER JOIN links_projeto ON links_projeto.codigo_projeto = projetos.codigo WHERE links_projeto.codigo_projeto = $projetoCodigo";
       $resultLinks = mysqli_query($conexao, $sqlLinks);
@@ -41,6 +44,12 @@
 
       while($rowArquivos = mysqli_fetch_assoc($resultArquivos)){
         $arrayArquivos[] = $rowArquivos['path'];
+      }
+
+      while($rowArquivosPdf = mysqli_fetch_object($resultArquivosPdf)){
+        $pdf[] = $rowArquivosPdf->nome;
+        $path[] = $rowArquivosPdf->path;
+        $date[] = $rowArquivosPdf->data_upload;
       }
 
       $row = $queryBusca -> fetch_assoc();
@@ -466,7 +475,12 @@
                         <div class="   mr-8 mb-7 mb-sm-0">
                           <?php if(!empty($arrayArquivos)) foreach($arrayArquivos as $value){
                             echo "<img src='$value'>";
-                          }?> 
+                          } if(!empty($pdf)) foreach($pdf as $key => $value1){
+                            $value2 = $path[$key];
+                            $value3 = $date[$key];
+                            echo "<iframe src='$value2' width='90%' height='500px'>";
+                            echo "</iframe>";
+                          } ?> 
                         </div>
                       </div>
                     </div>
