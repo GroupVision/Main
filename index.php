@@ -173,25 +173,18 @@
               <span class="font-size-3 line-height-reset">ESCOLHA O TIPO DE USUARIO</span>
             </div>
             <form action="/">
-              <div class="form-group">
-
-
-              </div>
-              <div class="form-group">
-
-
-              </div>
-              <div class="form-group">
-
-
-              </div>
+              
               <div class="form-group d-flex flex-wrap justify-content-between mb-1">
                 <label for="terms-check2" class="gr-check-input d-flex  mr-3"></label>
               </div>
               <div class="form-group mb-8">
-                <img class="img-cadastro" src="image/img-emp.png" alt=""><br>
+              <center>
+                <img class="img-cadastro" src="Empresa.jpg" alt=""><br>
+              </center>
                 <a class="btn btn-gray-home btn-h-60 btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#signup-emp">Cadastre-se como empresa</a><br>
-                <img class="img-cadastro" src="image/imp-user.png" alt=""><br>
+                <center>
+                <img class="img-cadastro"  src="Pessoas.jpg" alt=""><br>
+              </center>
                 <a class="btn btn-gray-home btn-h-60 btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#signup-user">Cadastre-se como pessoa</a><br>
 
               </div>
