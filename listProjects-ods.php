@@ -278,7 +278,7 @@ ob_start();
                   <div class="pt-9 px-xl-9 px-lg-7 px-7 pb-7 light-mode-texts bg-white rounded hover-shadow-3 ">
                   <div class="row">
                   
-                    <div class="col-md-6">
+                    <div class="col-md-9">
                       <div class="media align-items-center">
                         <!-- start div -->
                         
@@ -287,30 +287,30 @@ ob_start();
                         </div>
                         <div>
                           <h3 class='mb-0'><a class='font-size-6 heading-default-color'><?php echo $row['nome']?></a></h3>
-                          <a class="font-size-3 text-default-color line-height-2"><?php echo $row['problema']?></a>
-
-                          <div class="row pt-8">
+                          <div class="col-md-10 font-size-3 text-default-color line-height-2" style="word-wrap: break-word;">
+                            <?php echo $row['problema']?>
+                          </div>
                             <div class="col-md-7">
                               <ul class="d-flex list-unstyled mr-n3 flex-wrap">
                                 <li>
-                                  <a class=" min-width-px-96 mr-3 text-center rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2" ><?php echo $row['descricao_projeto']?></a>
+                                  <div class="col-md-8 min-width-px-273 mr-3 rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2" style="word-wrap: break-word;">
+                                    <?php echo $row['descricao_projeto']?>
+                                  </div>
                                 </li>
                               </ul>
                           </div>
-                          <div class="col-md-5">
-                            <ul class="d-flex list-unstyled mr-n3 flex-wrap mr-n8 justify-content-md-end">
+                      </div> 
+                      </div>              
+                  </div>
+                  <div class="col-md-3" style="float: right;">
+                            <ul class="d-flex list-unstyled mr-n3 flex-wrap mr-n8 justify-content-md-right" >
                               <li class="mt-2 mr-8 font-size-small text-black-2 d-flex">
                                 <span class="mr-4" style="margin-top:1; "></span> 
                                   <img style="margin-top:1; width: 30px; right: 30px;" src="./image/done.png" alt="" echo=".$user_data['imgstatus']">
                                 <span style="align-items: center; margin-left: 4px; margin-top: 4px;" class="font-weight-semibold"><?php echo $row['status']?></span>
+                                </div>
                               </li>
                             </ul>
-                          </div>
-                        </div>
-                        
-                      </div> 
-                      </div>              
-                  </div>
                 </div>
               </div>
             </div>

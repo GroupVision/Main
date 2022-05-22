@@ -4,8 +4,9 @@
 
     $logado = $_SESSION['nome'];
     $codigo = $_SESSION['codigo'];
+
     $queryFiltro=mysqli_query($conexao, "SELECT * FROM usuario_pessoa WHERE codigo != $codigo");
-    $queryImagem=mysqli_query($conexao, "SELECT * FROM imagens_pessoa WHERE codigo != $codigo");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -300,9 +301,8 @@
                             <input type="search" list="dtlist" placeholder="Digite o nome" name="ckColaboradores[]">
                             <datalist id="dtlist">
                               <?php
-                                while ($row= $queryFiltro -> fetch_assoc()){
-                                  $rowImagem= $queryImagem;
-                                  echo "<option>$rowImagem[path] $row[nome]</option>";
+                                while ($row = $queryFiltro -> fetch_assoc()){
+                                  echo "<option>$row[nome]</option>";
                                 } 
                               ?>
                             </datalist>  
@@ -391,6 +391,7 @@
   <!-- <script src="js/drag-n-drop.js"></script> -->
   <script src="js/custom.js"></script>
   <script src="js/projeto.js"></script>
+
 </body>
 
 </html>
