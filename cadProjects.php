@@ -66,7 +66,7 @@
                 </li>
                 <li class="nav-item dropdown active">
                   
-                  <a class="nav-link"  href="#features" role="button" aria-haspopup="true" aria-expanded="false">• Projetos ODS </a>
+                  <a class="nav-link"  href="Projects-ods.php" role="button" aria-haspopup="true" aria-expanded="false">• Projetos ODS </a>
                   
                 </li>
                 <li class="nav-item dropdown">
