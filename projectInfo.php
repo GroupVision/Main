@@ -272,9 +272,11 @@
                 <li class="tab-menu-items nav-item pr-12">
                   <a class="active text-uppercase font-size-3 font-weight-bold text-default-color py-3" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">DESCRIÇÃO</a>
                 </li>
+                <?php if($logado != $row['nomeUser']){ ?>
                 <li class="tab-menu-items nav-item pr-12">
                   <a class="text-uppercase font-size-3 font-weight-bold text-default-color py-3" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">CONTATO</a>
                 </li>
+                <?php } ?>
               </ul>
               <!-- Tab Content -->
               <div class="tab-content" id="myTabContent">
@@ -553,7 +555,6 @@
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                   <!-- Excerpt Start -->
                   <div class="pr-xl-11 p-5 pl-xs-12 pt-9 pb-11">
-                    <form action="/">
                       <div class="row">
                         <div class="col-12 mb-7">
                           <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Seu Nome*</label>
@@ -569,13 +570,12 @@
                         </div>
                         <div class="col-lg-12 mb-7">
                           <label for="message3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Mensagem*</label>
-                          <textarea name="message" id="message3" placeholder="Escreva sua proposta" class="form-control h-px-144"></textarea>
+                          <textarea name="message" id="message3" placeholder="Escreva sua mensagem" class="form-control h-px-144"></textarea>
                         </div>
                         <div class="col-lg-12 pt-4">
-                          <button class="btn btn-primary text-uppercase w-100 h-px-48">Enviar Proposta</button>
+                          <button class="btn btn-primary text-uppercase w-100 h-px-48">Enviar Agora</button>
                         </div>
                       </div>
-                    </form>
                   </div>
                   <!-- Excerpt End -->
                 </div>
@@ -611,7 +611,7 @@
               </div>
               <div class="modal-body">
                 <div class="pr-xl-11 p-5 pl-xs-12 pt-9 pb-11">
-                    <form>
+                    <form method="POST" action="back/enviarSoliticacao.php?user=<?php echo $userCodigo;?>">
                       <div class="row">
                         <div class="col-12 mb-7">
                           <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Seu Nome*</label>
@@ -627,7 +627,7 @@
                         </div>
                         <div class="col-lg-12 mb-7">
                           <label for="message3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Mensagem*</label>
-                          <textarea name="message" id="message3" placeholder="Escreva sua proposta" class="form-control h-px-144"></textarea>
+                          <textarea id="message3" placeholder="Escreva sua proposta" class="form-control h-px-144"></textarea>
                         </div>
                         <div class="col-lg-12 mb-7"> 
                           <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Adicionar arquivos</label>
@@ -638,7 +638,7 @@
                           <input type="button" id="parceria" class="btn btn-dark" onclick="parceria()" value="Adicione mais">
                         </div>
                         <div class="col-lg-12 pt-4">
-                          <button class="btn btn-primary text-uppercase w-100 h-px-48">Enviar Proposta</button>
+                          <input class="btn btn-primary text-uppercase w-100 h-px-48" type="submit" value="Enviar Proposta" name="enviar">
                         </div>
                       </div>
                     </form>

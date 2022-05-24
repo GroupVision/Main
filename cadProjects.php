@@ -180,18 +180,18 @@
                   <div class="pr-xl-11 p-5 pl-xs-12 pt-9 pb-11">
                     <form enctype="multipart/form-data" action="back/cadastroProjeto.php" method="POST">
                     <?php
-                          if(isset($_SESSION['mensagem'])){
-                            $message = $_SESSION['mensagem']['0'];
-                            $bs_class=$_SESSION['mensagem']['1']; 
-                            ?>
-                            <div class="alert alert-dismissible <?= $bs_class ?>">
-                              <?= $message ?>
-                              <butto type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                            </div>
-                            <?php
-                            unset($_SESSION['mensagem']);
-                          }
+                      if(isset($_SESSION['mensagem'])){
+                        $message = $_SESSION['mensagem']['0'];
+                        $bs_class=$_SESSION['mensagem']['1']; 
                         ?>
+                        <div class="alert alert-dismissible <?= $bs_class ?>">
+                          <?= $message ?>
+                          <butto type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                        <?php
+                        unset($_SESSION['mensagem']);
+                      }
+                    ?>
                       <div class="row">
                         <!--<div class="col-lg-6 mb-7">
                           <label for="fileUpload" class="mb-0 font-size-4 text-smoke">Navege ou Arraste e Solte</label>
