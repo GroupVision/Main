@@ -372,7 +372,7 @@
     <!-- Header start end -->
       
     <!-- Hero Area correto -->
-    <div class="bg-gradient-1 pt-26 pt-md-32 pt-lg-33 pt-xl-35 position-relative z-index-1 overflow-hidden">
+    <div class="bg-gradient-1 pt-26 pt-md-32 pt-lg-33 pt-xl-10 position-relative z-index-1 overflow-hidden">
       <!-- .Hero pattern -->
       
       <div class="pos-abs-tr w-50 z-index-n2">
@@ -381,7 +381,7 @@
       <!-- ./Hero pattern -->
       <div class="container">
         <div class="row position-relative align-items-center">
-          <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-12 pt-lg-13 pb-lg-33 pb-xl-34 pb-md-33 pb-10" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
+          <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-12  pb-lg-33 pb-xl-34 pb-md-33 pb-10" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
           <img src="Logo.svg" alt="" class="w-100">
             <h1 class="font-size-11 ">Objetivos de Desenvolvimento Sustentável</h1>
             <p class="font-size-5">Projeto fabrica de projetos V - Facens.</p>
@@ -585,10 +585,6 @@
                 <p class="text-hit-gray font-size-5 mb-0"> Objetivos de Desenvolvimento Sustentável - Facens</p>
 
                 <br>
-            <a class="" href="projects-ods.html" >Tela 1</a><br>
-            <a class="" href="#" >Tela 2</a><br>
-            <a class="" href="#" >Tela 3</a><br>
-            <a class="" href="#" >Tela 4</a><br>
               </div>
               <!-- cta-content end -->
             </div>
