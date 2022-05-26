@@ -173,25 +173,18 @@
               <span class="font-size-3 line-height-reset">ESCOLHA O TIPO DE USUARIO</span>
             </div>
             <form action="/">
-              <div class="form-group">
-
-
-              </div>
-              <div class="form-group">
-
-
-              </div>
-              <div class="form-group">
-
-
-              </div>
+              
               <div class="form-group d-flex flex-wrap justify-content-between mb-1">
                 <label for="terms-check2" class="gr-check-input d-flex  mr-3"></label>
               </div>
               <div class="form-group mb-8">
-                <img class="img-cadastro" src="image/img-emp.png" alt=""><br>
+              <center>
+                <img class="img-cadastro" src="Empresa.jpg" alt=""><br>
+              </center>
                 <a class="btn btn-gray-home btn-h-60 btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#signup-emp">Cadastre-se como empresa</a><br>
-                <img class="img-cadastro" src="image/imp-user.png" alt=""><br>
+                <center>
+                <img class="img-cadastro"  src="Pessoas.jpg" alt=""><br>
+              </center>
                 <a class="btn btn-gray-home btn-h-60 btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#signup-user">Cadastre-se como pessoa</a><br>
 
               </div>
@@ -379,7 +372,7 @@
     <!-- Header start end -->
       
     <!-- Hero Area correto -->
-    <div class="bg-gradient-1 pt-26 pt-md-32 pt-lg-33 pt-xl-35 position-relative z-index-1 overflow-hidden">
+    <div class="bg-gradient-1 pt-26 pt-md-32 pt-lg-33 pt-xl-10 position-relative z-index-1 overflow-hidden">
       <!-- .Hero pattern -->
       
       <div class="pos-abs-tr w-50 z-index-n2">
@@ -388,7 +381,7 @@
       <!-- ./Hero pattern -->
       <div class="container">
         <div class="row position-relative align-items-center">
-          <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-12 pt-lg-13 pb-lg-33 pb-xl-34 pb-md-33 pb-10" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
+          <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-12  pb-lg-33 pb-xl-34 pb-md-33 pb-10" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
           <img src="Logo.svg" alt="" class="w-100">
             <h1 class="font-size-11 ">Objetivos de Desenvolvimento Sustentável</h1>
             <p class="font-size-5">Projeto fabrica de projetos V - Facens.</p>
@@ -592,10 +585,6 @@
                 <p class="text-hit-gray font-size-5 mb-0"> Objetivos de Desenvolvimento Sustentável - Facens</p>
 
                 <br>
-            <a class="" href="projects-ods.html" >Tela 1</a><br>
-            <a class="" href="#" >Tela 2</a><br>
-            <a class="" href="#" >Tela 3</a><br>
-            <a class="" href="#" >Tela 4</a><br>
               </div>
               <!-- cta-content end -->
             </div>

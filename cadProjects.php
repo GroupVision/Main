@@ -4,8 +4,9 @@
 
     $logado = $_SESSION['nome'];
     $codigo = $_SESSION['codigo'];
+
     $queryFiltro=mysqli_query($conexao, "SELECT * FROM usuario_pessoa WHERE codigo != $codigo");
-    $queryImagem=mysqli_query($conexao, "SELECT * FROM imagens_pessoa WHERE codigo != $codigo");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +66,7 @@
                 </li>
                 <li class="nav-item dropdown active">
                   
-                  <a class="nav-link"  href="#features" role="button" aria-haspopup="true" aria-expanded="false">• Projetos ODS </a>
+                  <a class="nav-link"  href="Projects-ods.php" role="button" aria-haspopup="true" aria-expanded="false">• Projetos ODS </a>
                   
                 </li>
                 <li class="nav-item dropdown">
@@ -179,18 +180,18 @@
                   <div class="pr-xl-11 p-5 pl-xs-12 pt-9 pb-11">
                     <form enctype="multipart/form-data" action="back/cadastroProjeto.php" method="POST">
                     <?php
-                          if(isset($_SESSION['mensagem'])){
-                            $message = $_SESSION['mensagem']['0'];
-                            $bs_class=$_SESSION['mensagem']['1']; 
-                            ?>
-                            <div class="alert alert-dismissible <?= $bs_class ?>">
-                              <?= $message ?>
-                              <butto type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                            </div>
-                            <?php
-                            unset($_SESSION['mensagem']);
-                          }
+                      if(isset($_SESSION['mensagem'])){
+                        $message = $_SESSION['mensagem']['0'];
+                        $bs_class=$_SESSION['mensagem']['1']; 
                         ?>
+                        <div class="alert alert-dismissible <?= $bs_class ?>">
+                          <?= $message ?>
+                          <butto type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                        <?php
+                        unset($_SESSION['mensagem']);
+                      }
+                    ?>
                       <div class="row">
                         <!--<div class="col-lg-6 mb-7">
                           <label for="fileUpload" class="mb-0 font-size-4 text-smoke">Navege ou Arraste e Solte</label>
@@ -300,9 +301,8 @@
                             <input type="search" list="dtlist" placeholder="Digite o nome" name="ckColaboradores[]">
                             <datalist id="dtlist">
                               <?php
-                                while ($row= $queryFiltro -> fetch_assoc()){
-                                  $rowImagem= $queryImagem;
-                                  echo "<option>$rowImagem[path] $row[nome]</option>";
+                                while ($row = $queryFiltro -> fetch_assoc()){
+                                  echo "<option>$row[nome]</option>";
                                 } 
                               ?>
                             </datalist>  
@@ -391,6 +391,7 @@
   <!-- <script src="js/drag-n-drop.js"></script> -->
   <script src="js/custom.js"></script>
   <script src="js/projeto.js"></script>
+
 </body>
 
 </html>

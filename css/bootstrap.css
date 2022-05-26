@@ -14943,6 +14943,10 @@ button.bg-conch:focus {
   width: 50% !important;
 }
 
+.w-70 {
+  width: 70% !important;
+}
+
 .w-75 {
   width: 75% !important;
 }

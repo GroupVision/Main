@@ -7062,11 +7062,11 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape, .light-mod
   justify-content: center;
 }
 
-.circle-79 {
-  max-width: 79px;
-  min-width: 79px;
-  max-height: 79px;
-  min-height: 79px;
+.circle-85 {
+  max-width: 85px;
+  min-width: 85px;
+  max-height: 85px;
+  min-height: 85px;
   border-radius: 500px;
   display: flex;
   align-items: center;
