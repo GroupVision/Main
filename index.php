@@ -382,8 +382,10 @@
       <div class="container">
         <div class="row position-relative align-items-center">
           <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-12  pb-lg-33 pb-xl-34 pb-md-33 pb-10" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
-          <img src="Logo.svg" alt="" class="w-100">
-            <h1 class="font-size-11 ">Objetivos de Desenvolvimento Sustentável</h1>
+         
+          <img  src="Logo.svg" alt="" class="w-100">
+
+          <h1 class="font-size-11 ">Objetivos de Desenvolvimento Sustentável</h1>
             <p class="font-size-5">Projeto fabrica de projetos V - Facens.</p>
             <br>
             <center>

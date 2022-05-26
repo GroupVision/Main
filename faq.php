@@ -113,7 +113,7 @@
                           </a>
                         </li>
                         <li class="drop-menu-item">
-                          <a href="./dashboard-settings.html">
+                          <a href="./notificacoesParceiros.php">
                             Settings
                           </a>
                         </li>

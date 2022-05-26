@@ -144,8 +144,8 @@ ob_start();
                       <i class="fas fa-chevron-down heading-default-color ml-6"></i>
                     </a>
                     <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="dashboard-settings.html">CONFIGURAÇÕES </a>
-                      <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">EDITAR PERFIL</a>
+                      <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="notificacoesParceiros.php">MINHAS PARCERIAS </a>
+                      <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppe rcase" href="candidate-profile-main.html">EDITAR PERFIL</a>
                       <a style="color: red;" class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="back/sair.php">Sair</a>
                         
     
@@ -238,7 +238,7 @@ ob_start();
         </ul>
 <!-- Main Content Start -->
           <!-- Main Body -->
-          <div class="col-12 col-xl-8 col-lg-8">
+          <div class="">
             <!-- form -->
             <!--Botão criar-->
             <div class="button-block">
