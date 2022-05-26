@@ -76,7 +76,7 @@
                       
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Agenda 2030</a>
+                  <a class="nav-link" href="#">Agenda 2030 </a>
                 </li>
 
                 <li class="nav-item dropdown active">
