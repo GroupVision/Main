@@ -87,7 +87,7 @@
                   <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown">
                     <li class="drop-menu-item">
                       <a href="#">
-                        Cofiguração
+                        Cofiguração.
                       </a>
                     </li>
                     <li class="drop-menu-item">
