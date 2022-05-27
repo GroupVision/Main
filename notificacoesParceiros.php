@@ -1,4 +1,5 @@
 <?php
+ob_start();
     require "back/validacao.php";
     include_once('back/configlocal.php');
     
@@ -15,6 +16,7 @@
 
     $codDe = $_SESSION['codigo'];
     $codPara = implode(',', $arrayCodPara);
+    $mensagem = null;
 
     //print_r($arrayCodPara);
     
@@ -107,7 +109,7 @@
                       
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Projects-ods.php">Agenda 2030</a>
+                  <a class="nav-link" href="https://odsbrasil.gov.br/home/agenda">Agenda 2030</a>
                 </li>
 
                 <li class=""nav-item dropdown active>
@@ -217,6 +219,7 @@
               </div>
             </div>
           </div>
+          <form method="POST">
           <div class="bg-white shadow-8 pt-7 rounded pb-8 px-11">
             <?php while ($row = $queryBusca -> fetch_assoc()){ 
               for($i = 0 ; $i < count($arrayCodPara) ; $i++){
@@ -224,17 +227,20 @@
                   $mensagem = ["Cancelar proposta", "btn btn-warning btn-sm"];
                   $_SESSION['mensagem'] = $mensagem;  
                   $_SESSION['codPara'] = $arrayCodPara[$i];
-                } else {
-                  if($row['codigo_de'] == $arrayCodPara[$i] && $row['codigo_para'] == $codDe && $row['status'] == 0){
+                } else if($row['codigo_de'] == $arrayCodPara[$i] && $row['codigo_para'] == $codDe && $row['status'] == 0) {
                     $mensagem = ["Aceitar", "btn btn-success btn-sm"];
                     $mensagem2 = ["Recusar", "btn btn-danger btn-sm"];
                     $_SESSION['mensagem'] = $mensagem;
                     $_SESSION['mensagem2'] = $mensagem2;
                     $_SESSION['codPara'] = $arrayCodPara[$i];
-                  }
-              } 
-              }?>
-            <form method="POST" action="">
+              } else if($row['status'] == 1) {
+                  $mensagem = ["Desfazer parceria", "btn btn-danger btn-sm"];
+                  $_SESSION['mensagem'] = $mensagem;
+                  $_SESSION['codPara'] = $arrayCodPara[$i];
+                }
+              } ?>
+             
+             <?php if(isset($mensagem)) { ?>
               <div class="table-responsive">
                 <table class="table table-striped">
                   <thead>
@@ -262,7 +268,7 @@
                         <a class="font-size-3 font-weight-bold text-black-2 text-uppercase"><?php echo $row['tipo_parceria'] ?></a>
                       </td>
                       <td class="table-y-middle py-7 min-width-px-170 pr-0">
-                        <a class="font-size-3 font-weight-bold text-green text-uppercase"><?php if($mensagem == ["Cancelar", "btn btn-warning btn-sm"] || $mensagem == ["Aceitar", "btn btn-success btn-sm"]) echo "Proposta pendente"?></a>
+                        <a class="font-size-3 font-weight-bold text-green text-uppercase"><?php if($mensagem == ["Aceitar", "btn btn-success btn-sm"]) echo "Proposta pendente"; if($mensagem == ["Desfazer parceria", "btn btn-danger btn-sm"]) echo "Parceiros"; if($mensagem == ["Cancelar proposta", "btn btn-warning btn-sm"]) echo "Proposta enviada"?></a>
                       </td>
                       <td class="table-y-middle py-7 min-width-px-170 pr-0">
                         <a class="font-size-3 font-weight-bold text-green text-uppercase"><?php
@@ -275,15 +281,13 @@
                               $bs_class2=$_SESSION['mensagem2']['1']; 
                             }
                             ?>
-                            <div class="alert alert-dismissible <?= $bs_class ?>">
-                              <?= $message ?>
-                              <input type="submit" onclick="submit($codigoPara)" name="submit" class="btn-close" data-bs-dismiss="alert">
+                            <div class="alert alert-dismissible ">  
+                              <input class="<?= $bs_class ?>" type="submit" name="submitAceitar" value="<?= $message ?>">
                             </div>
                             <?php
                             if(isset($_SESSION['mensagem2'])){ ?>
-                              <div class="alert alert-dismissible <?= $bs_class2 ?>">
-                              <?= $message2 ?>
-                              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                              <div class="alert alert-dismissible">
+                              <input class="<?= $bs_class2 ?>" type="submit" name="submitRecusar" value="<?= $message2 ?>">
                             </div>
                             <?php }
                             unset($_SESSION['mensagem']);
@@ -295,9 +299,10 @@
                   </tbody>
                 </table>
               </div>
-            </form>
-            <?php $c++; } ?>
+            <?php $c++; } }?>
           </div>
+          </form>
+          
         </div>
       </div>
               <!-- Right Sidebar End -->
@@ -323,34 +328,38 @@
 </body>
 
 <?php
-  function submit($codigoPara){
-    include_once('back/configlocal.php');
-    if($_POST('submit') != null ){
-      $sql = $conexao->prepare("SELECT * FROM parceiros WHERE codigo_de = ? AND codigo_para = ? AND status = 0");
-      $sql->bind_param("ss", $codDe, $codigoPara);
-      $sql->execute();
-      $get = $sql->get_result();
-      $total = $get->num_rows;
-  
-      if($total > 0){
-        $dados = $get->fetch_assoc();
-  
-        if($dados['codigo_para'] == $codigoPara){
-          $sqlStatus = $conexao->prepare("UPDATE parceiros SET status = 1 WHERE id_de = ? AND id_para = ?");
-          $sqlStatus->bind_param("ss", $id_de, $codigoPara);
-          $sqlStatus->execute();
-          if($sqlStatus->affected_rows > 0){
-            header("Location: notificacoesParceiros.php");
-          }else{
-            echo "erro ao atualizar;";
-          }
-          
-        }else{
-          return false;
-        }
+  if(isset($_POST["submitAceitar"]) && $mensagem != null){
+    if($mensagem == ["Aceitar", "btn btn-success btn-sm"]){
+      $sqlStatus = $conexao->prepare("UPDATE parceiros SET status = 1 WHERE codigo_para = ? AND codigo_de = ?");
+      $sqlStatus->bind_param("ss", $codDe, $codigoPara);
+      $sqlStatus->execute();
+      if($sqlStatus->affected_rows > 0){
+        header("Location: notificacoesParceiros.php");
       }
+    } else if($mensagem == ["Desfazer parceria", "btn btn-danger btn-sm"]){
+      $sql = $conexao->prepare("DELETE FROM parceiros WHERE codigo_para = ?");
+      $sql->bind_param("s", $codDe);
+      $sql->execute();
+      header("Location: notificacoesParceiros.php");
+    } else if($mensagem == ["Cancelar proposta", "btn btn-warning btn-sm"]){
+      $sql = $conexao->prepare("DELETE FROM parceiros WHERE codigo_para = ?");
+      $sql->bind_param("s", $codDe);
+      $sql->execute();
+      header("Location: notificacoesParceiros.php");
     }
   }
-?>
+  
+  if(isset($_POST['submitRecusar']) && $mensagem != null){
+    if($mensagem2 == ["Recusar", "btn btn-danger btn-sm"]){
+      $sql = $conexao->prepare("DELETE FROM parceiros WHERE codigo_para = ?");
+      $sql->bind_param("s", $codDe);
+      $sql->execute();
+      header("Location: notificacoesParceiros.php");
+    }
+  }
+  unset($_POST['submitRecusar']);
+  unset($_POST['submitAceitar']);
+  ob_end_flush();
+  ?>
 
 </html>
