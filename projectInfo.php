@@ -13,7 +13,7 @@
     if(isset($_GET['projeto']) && isset($_GET['user'])){
       $projetoCodigo = $_GET['projeto'];
       $userCodigo = $_GET['user'];
-      $queryBusca=mysqli_query($conexao, "SELECT projetos.*, usuario_pessoa.nome AS nomeUser  FROM usuario_pessoa INNER JOIN projetos ON usuario_pessoa.codigo = projetos.cod_usuario WHERE usuario_pessoa.codigo = $userCodigo AND projetos.codigo = $projetoCodigo");
+      $queryBusca=mysqli_query($conexao, "SELECT projetos.*, usuario_pessoa.nome AS nomeUser FROM usuario_pessoa INNER JOIN projetos ON usuario_pessoa.codigo = projetos.cod_usuario WHERE usuario_pessoa.codigo = $userCodigo AND projetos.codigo = $projetoCodigo");
 
       $queryBuscaImagem=mysqli_query($conexao, "SELECT imagens_pessoa.path FROM usuario_pessoa INNER JOIN imagens_pessoa ON usuario_pessoa.codigo = imagens_pessoa.cod_pessoa WHERE imagens_pessoa.cod_pessoa = $userCodigo");
       
