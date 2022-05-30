@@ -432,7 +432,7 @@
 
 
 
-
+ <!-- footer logo start -->
 <footer class="footer bg-ebony-clay dark-mode-texts">
       <div class="container">
         <!-- Cta section -->
@@ -459,7 +459,7 @@
       <div class="container  pt-12 pt-lg-19 pb-10 pb-lg-19">
         <div class="row">
           <div class="col-lg-4 col-sm-6 mb-lg-0 mb-9"> 
-            <!-- footer logo start -->
+           
 
             <!-- footer logo End -->
             <!-- media start -->
