@@ -106,11 +106,7 @@ ob_start();
                         Cofiguração
                       </a>
                     </li>
-                    <li class="drop-menu-item">
-                      <a href="#">
-                        Editar perfil
-                      </a>
-                    </li>
+ 
                     <li class="drop-menu-item" style="color: red;">
                       <a href="#">
                             SAIR
@@ -145,7 +141,7 @@ ob_start();
                     </a>
                     <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
                       <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="notificacoesParceiros.php">MINHAS PARCERIAS </a>
-                      <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppe rcase" href="candidate-profile-main.html">EDITAR PERFIL</a>
+                      <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppe rcase" href="candidate-profile-main.html"> </a>
                       <a style="color: red;" class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="back/sair.php">Sair</a>
                         
     
@@ -307,8 +303,8 @@ ob_start();
                             <ul class="d-flex list-unstyled mr-n3 flex-wrap mr-n8 justify-content-md-right" >
                               <li class="mt-2 mr-8 font-size-small text-black-2 d-flex">
                                 <span class="mr-4" style="margin-top:1; "></span> 
-                                  <img style="margin-top:1; width: 30px; right: 30px;" src="./image/done.png" alt="" echo=".$user_data['imgstatus']">
-                                <span style="align-items: center; margin-left: 4px; margin-top: 4px;" class="font-weight-semibold"><?php echo $row['status']?></span>
+                                  <?php if($row['status'] == "Andamento")  echo "<img style='margin-top:1; width: 30px; right: 30px;' src='./image/in_progress.png'"; else if($row['status'] == "Concluido") echo "<img style='margin-top:1; width: 30px; right: 30px;' src='./image/done.png'"; else if($row['status'] == "Em criacao") echo "<img style='margin-top:1; width: 30px; right: 30px;' src='./image/in_creation.png'";?>
+                                <span style="align-items: center; margin-left: 4px; margin-top: 4px;" class="font-weight-semibold"><b><?php echo $row['status']?></b></span>
                                 </div>
                               </li>
                             </ul>

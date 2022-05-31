@@ -10,7 +10,7 @@
         $sql->bind_param("ss", $_SESSION['codigo'], $id_para);
         $sql->execute();
 
-        if($sql->affected_rows > 0) echo "Solicitação enviada!";
+        if($sql->affected_rows > 0) header("Location: ../notificacoesParceiros.php");
         else echo "Erro ao enviar a solicitação!";
     }
 ?>

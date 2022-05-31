@@ -23,7 +23,7 @@
       $sqlColaboradores = "SELECT colaboradores_projeto.nome FROM projetos INNER JOIN colaboradores_projeto ON colaboradores_projeto.cod_projeto = projetos.codigo WHERE colaboradores_projeto.cod_projeto = $projetoCodigo";
       $resultColaboradores = mysqli_query($conexao, $sqlColaboradores);
 
-      $sqlArquivos = "SELECT arquivos_projetos.path FROM projetos INNER JOIN arquivos_projetos ON arquivos_projetos.cod_projetos = projetos.codigo WHERE arquivos_projetos.cod_projetos = $projetoCodigo AND (arquivos_projetos.path LIKE '%.png%')";
+      $sqlArquivos = "SELECT arquivos_projetos.path FROM projetos INNER JOIN arquivos_projetos ON arquivos_projetos.cod_projetos = projetos.codigo WHERE arquivos_projetos.cod_projetos = $projetoCodigo AND (arquivos_projetos.path LIKE '%.png%' OR arquivos_projetos.path LIKE '%.jpg%')";
       $resultArquivos = mysqli_query($conexao, $sqlArquivos);
 
       $sqlArquivosPdf = "SELECT arquivos_projetos.* FROM projetos INNER JOIN arquivos_projetos ON arquivos_projetos.cod_projetos = projetos.codigo WHERE arquivos_projetos.cod_projetos = $projetoCodigo AND (arquivos_projetos.path LIKE '%.pdf%')";
@@ -131,11 +131,7 @@
                         Cofiguração
                       </a>
                     </li>
-                    <li class="drop-menu-item">
-                      <a href="#">
-                        Editar perfil
-                      </a>
-                    </li>
+ 
                     <li class="drop-menu-item" style="color: red;">
                       <a href="#">
                             SAIR
@@ -170,7 +166,7 @@
                     </a>
                     <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
                       <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="notificacoesParceiros.php">MINHAS PARCERIAS </a>
-                      <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">EDITAR PERFIL</a>
+                      <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html"> </a>
                       <a style="color: red;" class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="back/sair.php">Sair</a>
                         
     
@@ -504,7 +500,7 @@
                       <div class="">
                         <div class="   mr-8 mb-7 mb-sm-0">
                           <?php if(!empty($arrayArquivos)) foreach($arrayArquivos as $value){
-                            echo "<img src='$value'>";
+                            echo "<img style='width: 50%' src='$value'>";
                           } else echo "<a class='font-size-3 text-black-2 font-weight-semibold'>Não há imagens neste projeto.</a>"?>
                         </div>
                       </div>

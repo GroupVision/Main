@@ -91,11 +91,7 @@
                         Cofiguração
                       </a>
                     </li>
-                    <li class="drop-menu-item">
-                      <a href="#">
-                        Editar perfil
-                      </a>
-                    </li>
+ 
                     <li class="drop-menu-item">
                       <a href="#">
                         SAIR
@@ -341,7 +337,7 @@
                             <option value="">Selecionar opção</option> 
                             <option value="Andamento">Andamento</option>
                             <option value="Concluido">Concluído</option>
-                            <option value="Em_criacao">Em criação</option>
+                            <option value="Em criacao">Em criação</option>
                           </select>
                         </div>
                         <!-- O segundo valor estará selecionado inicialmente -->

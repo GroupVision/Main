@@ -4,12 +4,11 @@
     $dbUsername = 'root';
     $dbPassword = '';
     $dbName = 'ods_db';
-
     $conexao = new mysqli($dbHost,$dbUsername,$dbPassword,$dbName);
 
     // if($conexao->connect_errno)
     // {
-    //     echo "Erro";
+    //     echo "Erro";dadasdas
     // }
     // else
     // {
