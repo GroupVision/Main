@@ -535,7 +535,7 @@
                     <!-- Single Card -->
                     <div class="w-100">
                       <div class="">
-                        <div class="   mr-8 mb-7 mb-sm-0">
+                        <div class="mr-8 mb-7 mb-sm-0" style="word-break: break-all;">
                           <?php if(!empty($arrayLinks)) foreach($arrayLinks as $value){
                             echo "<a href='$value' class='font-size-4 text-gray mr-5'>$value</a><br>";
                           } else echo "<a class='font-size-3 text-black-2 font-weight-semibold'>Não há links neste projeto.</a>"?> 
@@ -608,7 +608,7 @@
               <div class="modal-body">
                 <div class="pr-xl-11 p-5 pl-xs-12 pt-9 pb-11">
                     <form method="POST" action="back/enviarSoliticacao.php?projeto=<?php echo $row['codigo'];?>">
-                      <div class="row">
+                      <!-- <div class="row">
                         <div class="col-12 mb-7">
                           <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Seu Nome*</label>
                           <input id="name3" type="text" class="form-control" placeholder="">
@@ -620,19 +620,19 @@
                         <div class="col-lg-6 mb-7">
                           <label for="subject3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Tipo de Parceria*</label>
                           <input id="subject3" type="text" class="form-control" placeholder="">
-                        </div>
+                        </div> -->
                         <div class="col-lg-12 mb-7">
                           <label for="message3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Mensagem*</label>
                           <textarea id="message3" placeholder="Escreva sua proposta" class="form-control h-px-144"></textarea>
                         </div>
-                        <div class="col-lg-12 mb-7"> 
+                        <!-- <div class="col-lg-12 mb-7"> 
                           <label for="name3" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">Adicionar arquivos</label>
                           <div id="arquivoParceria">
                             <input type="file" class="form-control" style="line-height: normal;">
                           </div>
                           <br>
                           <input type="button" id="parceria" class="btn btn-dark" onclick="parceria()" value="Adicione mais">
-                        </div>
+                        </div> -->
                         <div class="col-lg-12 pt-4">
                           <input class="btn btn-primary text-uppercase w-100 h-px-48" type="submit" value="Enviar Proposta" name="enviar">
                         </div>

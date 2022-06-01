@@ -287,14 +287,10 @@ ob_start();
                           <div class="col-md-10 font-size-3 text-default-color line-height-2" style="word-wrap: break-word;">
                             <?php echo $row['problema']?>
                           </div>
-                            <div class="col-md-7">
-                              <ul class="d-flex list-unstyled mr-n3 flex-wrap">
-                                <li>
-                                  <div class="col-md-8 min-width-px-273 mr-3 rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2" style="word-wrap: break-word;">
-                                    <?php echo $row['descricao_projeto']?>
-                                  </div>
-                                </li>
-                              </ul>
+                            <div class="col-md-12">
+                              <div class="min-width-px-273 mr-3 rounded-3 px-6 py-1 font-size-3 text-black-2 mt-2" style="word-wrap: break-word;">
+                                <?php echo $row['descricao_projeto']?>
+                              </div>
                           </div>
                       </div> 
                       </div>              
