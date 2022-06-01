@@ -385,7 +385,7 @@
               <img src="image/l1/png/message.png" class="align-self-center mr-3" alt="">
               <div class="media-body pl-5">
                 <p class="mb-0 font-size-4 text-white">Contato</p>
-                <a class="mb-0 font-size-4 font-weight-bold" href="https://github.com/GroupVision/ODS-PARA-TODOS">GroupVision</a>
+                <a class="mb-0 font-size-4 font-weight-bold" href="https://github.com/GroupVision/ODS-PARA-TODOS">GroupVision - Facens</a>
               </div>
             </div>
             <!-- media start -->
