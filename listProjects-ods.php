@@ -106,11 +106,7 @@ ob_start();
                         Cofiguração
                       </a>
                     </li>
-                    <li class="drop-menu-item">
-                      <a href="#">
-                        Editar perfil
-                      </a>
-                    </li>
+ 
                     <li class="drop-menu-item" style="color: red;">
                       <a href="#">
                             SAIR
@@ -145,7 +141,7 @@ ob_start();
                     </a>
                     <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
                       <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="notificacoesParceiros.php">MINHAS PARCERIAS </a>
-                      <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppe rcase" href="candidate-profile-main.html">EDITAR PERFIL</a>
+                      <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppe rcase" href="candidate-profile-main.html"> </a>
                       <a style="color: red;" class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="back/sair.php">Sair</a>
                         
     
@@ -242,7 +238,8 @@ ob_start();
             <!-- form -->
             <!--Botão criar-->
             <div class="button-block">
-              <input onclick="window.location.href = 'cadProjects.php'" class="btn btn-primary line-height-reset h15 btn-submit w-100 text-uppercase" value="Criar Projeto">
+            <h2><h2>
+            Desenvolva projetos para as ODS 2030ㅤㅤ<input onclick="window.location.href = 'cadProjects.php'" class="btn btn-primary line-height-reset h15 btn-submittext-uppercase" value="Criar Projeto">
             </div>
             
               <div class="filter-search-form-2 search-1-adjustment bg-white rounded-sm shadow-7 pr-6 py-6 pl-6">
@@ -306,8 +303,8 @@ ob_start();
                             <ul class="d-flex list-unstyled mr-n3 flex-wrap mr-n8 justify-content-md-right" >
                               <li class="mt-2 mr-8 font-size-small text-black-2 d-flex">
                                 <span class="mr-4" style="margin-top:1; "></span> 
-                                  <img style="margin-top:1; width: 30px; right: 30px;" src="./image/done.png" alt="" echo=".$user_data['imgstatus']">
-                                <span style="align-items: center; margin-left: 4px; margin-top: 4px;" class="font-weight-semibold"><?php echo $row['status']?></span>
+                                  <?php if($row['status'] == "Andamento")  echo "<img style='margin-top:1; width: 30px; right: 30px;' src='./image/in_progress.png'"; else if($row['status'] == "Concluido") echo "<img style='margin-top:1; width: 30px; right: 30px;' src='./image/done.png'"; else if($row['status'] == "Em criacao") echo "<img style='margin-top:1; width: 30px; right: 30px;' src='./image/in_creation.png'";?>
+                                <span style="align-items: center; margin-left: 4px; margin-top: 4px;" class="font-weight-semibold"><b><?php echo $row['status']?></b></span>
                                 </div>
                               </li>
                             </ul>
@@ -331,6 +328,58 @@ ob_start();
 
 
   </div>
+  
+ <!-- footer logo start -->
+<footer class="footer bg-ebony-clay dark-mode-texts">
+      <div class="container">
+        <!-- Cta section -->
+        <div class="pt-11 pt-lg-20 pb-13 pb-lg-20 border-bottom border-width-1 border-default-color-2">
+          <div class="row justify-content-center ">
+            <div class="col-xl-7 col-lg-12" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
+              <!-- cta-content start -->
+              <div class="pb-xl-0 pb-9 text-xl-left text-center">
+                <h2 class="text-white font-size-8 mb-4"> Objetivos de Desenvolvimento Sustentável</h2>
+                <p class="text-hit-gray font-size-5 mb-0"> Objetivos de Desenvolvimento Sustentável - Facens</p>
+
+                <br>
+              </div>
+              <!-- cta-content end -->
+            </div>
+            <div class="col-xl-5 col-lg-12" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
+              <!-- cta-btns start -->
+              <div class="btns d-flex justify-content-xl-end justify-content-center align-items-xl-center flex-wrap h-100  mx-n4">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container  pt-12 pt-lg-19 pb-10 pb-lg-19">
+        <div class="row">
+          <div class="col-lg-4 col-sm-6 mb-lg-0 mb-9"> 
+           
+
+            <!-- footer logo End -->
+            <!-- media start -->
+            <div class="media mb-11">
+              <img src="image/l1/png/message.png" class="align-self-center mr-3" alt="">
+              <div class="media-body pl-5">
+                <p class="mb-0 font-size-4 text-white">Contato</p>
+                <a class="mb-0 font-size-4 font-weight-bold" href="https://github.com/GroupVision/ODS-PARA-TODOS">GroupVision</a>
+              </div>
+            </div>
+            <!-- media start -->
+            <!-- widget social icon start -->
+
+            <!-- widget social icon end -->
+          </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- footer area function start -->
   <!-- Vendor Scripts -->
   <script src="js/vendor.min.js"></script>
   <!-- Plugin's Scripts -->

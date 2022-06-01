@@ -1,57 +1,61 @@
 <?php
+  ob_start();
     require "back/validacao.php";
     include_once('back/configlocal.php');
     
+    $codDe = $_SESSION['codigo'];
+    $mensagem = null;
+    $mensagemB = null;
     $logado = $_SESSION['nome'];
-    $_SESSION['mensagem'][] = null;
-    $arrayCodPara = null;
-    $c = 0;
+    $arrayCodDeNomeUser = [];
+    $arrayCodParaNomeUser = [];
+    $arrayNomeUser = [];
+    $arrayNomeUser2 = [];
+    $arrayCodPara = [];
+    $arrayCodDe = [];
+    $codigoPara = null;
+    $c = 0; $a = 0; $v = 0;
 
-    $sqlCodPara = mysqli_query($conexao, "SELECT codigo_para FROM parceiros");
+    $sqlCodPara = mysqli_query($conexao, "SELECT codigo_para, codigo FROM parceiros GROUP BY codigo_para ");
+    $sqlCodDe = mysqli_query($conexao, "SELECT codigo_de, codigo FROM parceiros GROUP BY codigo_de");
     
     while($rowCodPara = mysqli_fetch_assoc($sqlCodPara)){
       $arrayCodPara[] = $rowCodPara['codigo_para'];
     }
 
-    $codDe = $_SESSION['codigo'];
-    $codPara = implode(',', $arrayCodPara);
+    while($rowCodDe = mysqli_fetch_assoc($sqlCodDe)){
+      $arrayCodDe[] = $rowCodDe['codigo_de'];
+    }
 
-    //print_r($arrayCodPara);
-    
-    /*$sql = $conexao->prepare("SELECT * FROM parceiros WHERE (codigo_de = ? AND codigo_para = ?) OR (codigo_para = ? AND codigo_de = ?)");
-    $sql->bind_param("ssss", $codDe, $codPara, $codDe, $codPara);
-    $sql->execute();
-    $get = $sql->get_result();
-    $total = $get->num_rows;
-    */
-    $queryBusca = mysqli_query($conexao, "SELECT projetos.*, parceiros.*, usuario_pessoa.codigo FROM projetos, usuario_pessoa, parceiros WHERE projetos.codigo IN ($codPara) AND usuario_pessoa.codigo = $codDe AND ((codigo_de = $codDe AND codigo_para IN ($codPara)) OR (codigo_para = $codDe AND codigo_de IN ($codPara))) AND (projetos.codigo = codigo_para) ORDER BY parceiros.codigo DESC");
-    
-    /*if($total > 0){
-			$dados = $get->fetch_assoc();
+    $queryBuscaEnviando = mysqli_query($conexao,"SELECT projetos.*, parceiros.*, COUNT(parceiros.codigo) FROM projetos, parceiros WHERE codigo_de = $codDe AND codigo_para = projetos.codigo GROUP BY parceiros.codigo ORDER BY parceiros.codigo DESC");
 
-			if($dados['status'] == 1){
-				$mensagem = ["Desfazer parceria", "btn btn-danger btn-sm"];
-        $_SESSION['mensagem'] = $mensagem;
-			}
+    $queryBuscaRecebendo = mysqli_query($conexao,"SELECT projetos.*, parceiros.*, COUNT(parceiros.codigo) FROM parceiros INNER JOIN projetos ON codigo_para = projetos.codigo, usuario_pessoa WHERE projetos.cod_usuario = $codDe GROUP BY parceiros.codigo ORDER BY parceiros.codigo DESC");
 
-      for($i = 0 ; $i < count($arrayCodPara) ; $i++){
-        if($dados['codigo_para'] == $arrayCodPara[$i] && $dados['codigo_de'] == $codDe && $dados['status'] == 0){
-          $mensagem = ["Cancelar proposta", "btn btn-warning btn-sm"];
-          $_SESSION['mensagem'][$i] = $mensagem;  
-        }
+    foreach($queryBuscaEnviando as $row){
+      $arrayCodParaNomeUser[] = $row['codigo_para'];
+    }
+
+    foreach($queryBuscaRecebendo as $row){
+        $arrayCodDeNomeUser[] = $row['codigo_de'];
+    }
+
+    $codDeNomeUser = implode(",", $arrayCodDeNomeUser);
+    $codParaNomeUser = implode(",", $arrayCodParaNomeUser);
+    if($codDeNomeUser != null){
+      $queryBuscaNomeUser= mysqli_query($conexao,"SELECT parceiros.codigo_de, usuario_pessoa.nome, usuario_pessoa.codigo FROM parceiros, usuario_pessoa WHERE usuario_pessoa.codigo IN ($codDeNomeUser) GROUP BY usuario_pessoa.codigo");
+
+      foreach($queryBuscaNomeUser as $row){
+        $arrayNomeUser[] = $row['nome'];
       }
+    }
 
-			if($dados['codigo_de'] == $codPara && $dados['codigo_para'] == $codDe && $dados['status'] == 0){
-        $mensagem = ["Aceitar proposta", "btn btn-success btn-sm"];
-        $mensagem2 = ["Recusar proposta", "btn btn-danger btn-sm"];
-        $_SESSION['mensagem'] = $mensagem;
-        $_SESSION['mensagem2'] = $mensagem2;
-			}
-		}/*else if($total <= 0  && $codPara != $codDe){
-      $mensagem = ["Pendente. Desfazer proposta", "btn btn-danger btn-sm"];
-			echo "<a href='?pagina=solicitar-amizade&id={$codPara}' class='btn btn-success btn-sm'>Adicionar Amigo</a>";
-		}*/
+    if($codParaNomeUser != null){
+      $queryBuscaNomeUser2 = mysqli_query($conexao,"SELECT codigo_para, usuario_pessoa.nome, usuario_pessoa.codigo, projetos.codigo, projetos.cod_usuario FROM parceiros, projetos, usuario_pessoa WHERE projetos.codigo IN ($codParaNomeUser) AND usuario_pessoa.codigo = cod_usuario GROUP BY projetos.codigo");
 
+      foreach($queryBuscaNomeUser2 as $row){
+        $arrayNomeUser2[] = $row['nome'];
+      }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +87,7 @@
   <div class="site-wrapper overflow-hidden bg-default-2">
     <!-- Header Area -->
     <header class="site-header site-header--menu-right dynamic-sticky-bg py-7 py-lg-0 site-header--absolute site-header--sticky">
-      <div class="container">
+      <div class="container-fluid">
         <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
           <!-- Brand Logo-->
           <div class="brand-logo">
@@ -107,7 +111,7 @@
                       
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Projects-ods.php">Agenda 2030</a>
+                  <a class="nav-link" href="https://odsbrasil.gov.br/home/agenda">Agenda 2030</a>
                 </li>
 
                 <li class=""nav-item dropdown active>
@@ -122,11 +126,7 @@
                         Cofiguração
                       </a>
                     </li>
-                    <li class="drop-menu-item">
-                      <a href="#">
-                        Editar perfil
-                      </a>
-                    </li>
+
                     <li class="drop-menu-item" style="color: red;">
                       <a href="#">
                             SAIR
@@ -161,7 +161,6 @@
                     </a>
                     <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
                       <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="notificacoesParceiros.php">MINHAS PARCERIAS </a>
-                      <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="candidate-profile-main.html">EDITAR PERFIL</a>
                       <a style="color: red;" class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="back/sair.php">Sair</a>
                         
     
@@ -189,20 +188,11 @@
         </nav>
       </div>
     </header>
-      <div class="container">
+      <div class="container-fluid" style="width: 80%;">
         <div class="mb-14 pt-11 pt-lg-26 pb-lg-16">
           <div class="row mb-11 align-items-center">
             <div class="col-lg-4 mb-lg-0 mb-4">
               <h3 class="font-size-6 mb-0">Minhas parcerias</h3>
-              <p>
-                - Troca de listagem do usuario > Lista de projetos!
-              </p>
-              <p>
-                - Botão de pesquisa!
-              </p>
-              <p>
-                - 
-              </p>
             </div>
             <div class="col-lg-8">
               <div class="d-flex flex-wrap align-items-center justify-content-lg-end">
@@ -218,85 +208,157 @@
             </div>
           </div>
           <div class="bg-white shadow-8 pt-7 rounded pb-8 px-11">
-            <?php while ($row = $queryBusca -> fetch_assoc()){ 
-              for($i = 0 ; $i < count($arrayCodPara) ; $i++){
-                if($row['codigo_para'] == $arrayCodPara[$i] && $row['codigo_de'] == $codDe && $row['status'] == 0){
-                  $mensagem = ["Cancelar proposta", "btn btn-warning btn-sm"];
-                  $_SESSION['mensagem'] = $mensagem;  
-                  $_SESSION['codPara'] = $arrayCodPara[$i];
-                } else {
-                  if($row['codigo_de'] == $arrayCodPara[$i] && $row['codigo_para'] == $codDe && $row['status'] == 0){
-                    $mensagem = ["Aceitar", "btn btn-success btn-sm"];
-                    $mensagem2 = ["Recusar", "btn btn-danger btn-sm"];
-                    $_SESSION['mensagem'] = $mensagem;
-                    $_SESSION['mensagem2'] = $mensagem2;
-                    $_SESSION['codPara'] = $arrayCodPara[$i];
-                  }
-              } 
-              }?>
-            <form method="POST" action="">
               <div class="table-responsive">
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th scope="col" class="pl-0  border-0 font-size-4 font-weight-normal">Foto</th>
-                      <th scope="col" class="border-0 font-size-4 font-weight-normal">Nome</th>
+                      <th scope="col" class="border-0 font-size-4 font-weight-normal">Usuário</th>
+                      <th scope="col" class="pl-0  border-0 font-size-4 font-weight-normal">Foto do projeto</th>
+                      <th scope="col" class="border-0 font-size-4 font-weight-normal">Nome do projeto</th>
                       <th scope="col" class="border-0 font-size-4 font-weight-normal">Tipo de Parceria</th>
                       <th scope="col" class="border-0 font-size-4 font-weight-normal">Status</th>
                       <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
                     </tr>
                   </thead>
+                  <?php foreach ($queryBuscaEnviando as $row){ 
+                    echo "<form method='POST' action='back/aceitarOuRecusar.php'>";
+                    for($i = 0 ; $i < count($arrayCodPara) ; $i++){
+                      if($row['status'] == 0){
+                        $mensagem = ["Cancelar proposta", "btn btn-warning btn-sm"];
+                        $_SESSION['mensagem'] = $mensagem;  
+                      } else if($row['status'] == 1) {
+                        $mensagem = ["Desfazer parceria", "btn btn-danger btn-sm"];
+                        $_SESSION['mensagem'] = $mensagem;
+                    }
+                    } ?>
+                  <?php if($c > 0){ ?> 
+                    <table class='table table-striped'>
+                      <thead>
+                      <tr>
+                        <th scope="col" class="pl-0  border-0 font-size-4 font-weight-normal"></th>
+                        <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
+                        <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
+                        <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
+                        <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
+                        <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
+                      </tr>
+                    </thead>
+                  <?php }  ?> 
                   <tbody>
                     <tr class="border border-color-2">
+                      <td class="table-y-middle py-7 min-width-px-235 pr-0"><input type="hidden" name="nomeUser" value="<?php echo $arrayNomeUser2[$v] ?>">
+                      <h4 class="font-size-4 mb-0 font-weight-semibold text-black-2"><?php echo $arrayNomeUser2[$v]; $v++ ?></h4>
+                      </td>
                       <th scope="row" class="pl-6 border-0 py-7 pr-0">
-                        <a href="candidate-profile.html" class="media min-width-px-235 align-items-center">
+                        <a class="media min-width-px-235 align-items-center">
                           <div class="circle-85 mr-6">
                             <img src="<?php echo $row['imagem'] ?>" alt="" class="w-100" />
                           </div>
                         </a>
                       </th>
                       <td class="table-y-middle py-7 min-width-px-235 pr-0">
+                      <input type="hidden" name="nomeProjeto" value="<?php echo $row['nome'] ?>">
                       <h4 class="font-size-4 mb-0 font-weight-semibold text-black-2"><?php echo $row['nome'] ?></h4>
                       </td>
                       <td class="table-y-middle py-7 min-width-px-170 pr-0">
                         <a class="font-size-3 font-weight-bold text-black-2 text-uppercase"><?php echo $row['tipo_parceria'] ?></a>
                       </td>
                       <td class="table-y-middle py-7 min-width-px-170 pr-0">
-                        <a class="font-size-3 font-weight-bold text-green text-uppercase"><?php if($mensagem == ["Cancelar", "btn btn-warning btn-sm"] || $mensagem == ["Aceitar", "btn btn-success btn-sm"]) echo "Proposta pendente"?></a>
+                        <a class="font-size-3 font-weight-bold text-green text-uppercase"><?php if($mensagem == ["Aceitar", "btn btn-success btn-sm"]) echo "Proposta pendente"; if($mensagem == ["Desfazer parceria", "btn btn-danger btn-sm"]) echo "Parceiros"; if($mensagem == ["Cancelar proposta", "btn btn-warning btn-sm"]) echo "Proposta enviada"?></a>
                       </td>
                       <td class="table-y-middle py-7 min-width-px-170 pr-0">
                         <a class="font-size-3 font-weight-bold text-green text-uppercase"><?php
                           if(isset($_SESSION['mensagem'])){
-                            $message = $_SESSION['mensagem']['0'];
-                            $bs_class=$_SESSION['mensagem']['1']; 
-                            $codigoPara = $_SESSION['codPara'];
-                            if(isset($_SESSION['mensagem2'])){
-                              $message2 = $_SESSION['mensagem2']['0'];
-                              $bs_class2=$_SESSION['mensagem2']['1']; 
-                            }
+                            $mensagemBtn = $_SESSION['mensagem']['0'];
+                            $bs_class=$_SESSION['mensagem']['1'];                           
                             ?>
-                            <div class="alert alert-dismissible <?= $bs_class ?>">
-                              <?= $message ?>
-                              <input type="submit" onclick="submit($codigoPara)" name="submit" class="btn-close" data-bs-dismiss="alert">
-                            </div>
+                              <input type="hidden" name="mensagem" value="<?php echo $mensagemBtn ?>">  
+                              <button class="<?= $bs_class ?>" type="submit" name="submitAceitarB"><?= $mensagemBtn ?></button>
+                          </form>
                             <?php
-                            if(isset($_SESSION['mensagem2'])){ ?>
-                              <div class="alert alert-dismissible <?= $bs_class2 ?>">
-                              <?= $message2 ?>
-                              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                            </div>
-                            <?php }
-                            unset($_SESSION['mensagem']);
-                            unset($_SESSION['mensagem2']);
                           }?>
                         </a>
                       </td>
                     </tr>
                   </tbody>
                 </table>
-              </div>
-            </form>
-            <?php $c++; } ?>
+            <?php $c++; }?>
+            <?php foreach ($queryBuscaRecebendo as $row){ 
+              echo "<form method='POST' action='back/aceitarOuRecusar.php'>";
+                    for($i = 0 ; $i < count($arrayCodDe) ; $i++){
+                      if($row['status'] == 0) {
+                          $mensagemB = ["Aceitar", "btn btn-success btn-sm"];
+                          $mensagem2B = ["Recusar", "btn btn-danger btn-sm"];
+                          $_SESSION['mensagemB'] = $mensagemB;
+                          $_SESSION['mensagem2B'] = $mensagem2B;
+                      } else if($row['status'] == 1) {
+                          $mensagemB = ["Desfazer parceria", "btn btn-danger btn-sm"];
+                          $_SESSION['mensagemB'] = $mensagemB;
+                      }
+                    }
+                   ?>
+                  <?php if($c > 0){ ?> 
+                    <table class='table table-striped'>
+                      <thead>
+                      <tr>
+                        <th scope="col" class="pl-0  border-0 font-size-4 font-weight-normal"></th>
+                        <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
+                        <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
+                        <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
+                        <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
+                        <th scope="col" class="border-0 font-size-4 font-weight-normal"></th>
+                      </tr>
+                    </thead>
+                  <?php }  ?> 
+                  <tbody>
+                    <tr class="border border-color-2">
+                    <td class="table-y-middle py-7 min-width-px-235 pr-0"><input type="hidden" name="nomeUser" value="<?php echo $arrayNomeUser[$a] ?>">
+                      <h4 class="font-size-4 mb-0 font-weight-semibold text-black-2" ><?php echo $arrayNomeUser[$a]; $a++ ?></h4>
+                      </td>
+                      <th scope="row" class="pl-6 border-0 py-7 pr-0">
+                        <a class="media min-width-px-235 align-items-center">
+                          <div class="circle-85 mr-6">
+                            <img src="<?php echo $row['imagem'] ?>" alt="" class="w-100" />
+                          </div>
+                        </a>
+                      </th>
+                      <td class="table-y-middle py-7 min-width-px-235 pr-0"><input type="hidden" name="nomeProjeto" value="<?php echo $row['nome'] ?>">
+                      <h4 class="font-size-4 mb-0 font-weight-semibold text-black-2"><?php echo $row['nome'] ?></h4>
+                      </td>
+                      <td class="table-y-middle py-7 min-width-px-170 pr-0">
+                        <a class="font-size-3 font-weight-bold text-black-2 text-uppercase"><?php echo $row['tipo_parceria']; ?></a>
+                      </td>
+                      <td class="table-y-middle py-7 min-width-px-170 pr-0">
+                        <a class="font-size-3 font-weight-bold text-green text-uppercase"><?php if($mensagemB == ["Aceitar", "btn btn-success btn-sm"]) echo "Proposta pendente"; if($mensagemB == ["Desfazer parceria", "btn btn-danger btn-sm"]) echo "Parceiros"; if($mensagemB == ["Cancelar proposta", "btn btn-warning btn-sm"]) echo "Proposta enviada"?></a>
+                      </td>
+                      <td class="table-y-middle py-7 min-width-px-170 pr-0">
+                        <a class="font-size-3 font-weight-bold text-green text-uppercase"><?php
+                          if(isset($_SESSION['mensagemB'])){
+                            $mensagemBBtn = $_SESSION['mensagemB']['0'];
+                            $bs_classB=$_SESSION['mensagemB']['1']; 
+                            if(isset($_SESSION['mensagem2B'])){
+                              $mensagem2BBtn = $_SESSION['mensagem2B']['0'];
+                              $bs_class2B=$_SESSION['mensagem2B']['1']; 
+                            }
+                            ?>
+                              <input type="hidden" name="mensagem" value="<?php echo $mensagemBBtn ?>">  
+                              <button class="<?= $bs_classB ?>" type="submit" name="submitAceitarB"><?= $mensagemBBtn ?></button>
+                            <?php
+                            if(isset($_SESSION['mensagem2B'])){ ?>
+                              <input type="hidden" name="mensagem2" value="<?php echo $mensagem2BBtn ?>">  
+                              <button class="<?= $bs_class2B ?>" type="submit" name="submitRecusarB"><?= $mensagem2BBtn ?></button>
+                            </form>
+                            <?php }
+                          }?>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              
+            <?php $c++; unset($_SESSION['mensagemB']); unset($_SESSION['mensagem2B']); }?>
+            </div>
+          </div>
           </div>
         </div>
       </div>
@@ -321,36 +383,5 @@
   <!-- <script src="js/drag-n-drop.js"></script> -->
   <script src="js/custom.js"></script>
 </body>
-
-<?php
-  function submit($codigoPara){
-    include_once('back/configlocal.php');
-    if($_POST('submit') != null ){
-      $sql = $conexao->prepare("SELECT * FROM parceiros WHERE codigo_de = ? AND codigo_para = ? AND status = 0");
-      $sql->bind_param("ss", $codDe, $codigoPara);
-      $sql->execute();
-      $get = $sql->get_result();
-      $total = $get->num_rows;
-  
-      if($total > 0){
-        $dados = $get->fetch_assoc();
-  
-        if($dados['codigo_para'] == $codigoPara){
-          $sqlStatus = $conexao->prepare("UPDATE parceiros SET status = 1 WHERE id_de = ? AND id_para = ?");
-          $sqlStatus->bind_param("ss", $id_de, $codigoPara);
-          $sqlStatus->execute();
-          if($sqlStatus->affected_rows > 0){
-            header("Location: notificacoesParceiros.php");
-          }else{
-            echo "erro ao atualizar;";
-          }
-          
-        }else{
-          return false;
-        }
-      }
-    }
-  }
-?>
 
 </html>

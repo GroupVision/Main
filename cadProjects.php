@@ -91,11 +91,7 @@
                         Cofiguração.
                       </a>
                     </li>
-                    <li class="drop-menu-item">
-                      <a href="#">
-                        Editar perfil
-                      </a>
-                    </li>
+ 
                     <li class="drop-menu-item">
                       <a href="#">
                         SAIR
@@ -341,7 +337,7 @@
                             <option value="">Selecionar opção</option> 
                             <option value="Andamento">Andamento</option>
                             <option value="Concluido">Concluído</option>
-                            <option value="Em_criacao">Em criação</option>
+                            <option value="Em criacao">Em criação</option>
                           </select>
                         </div>
                         <!-- O segundo valor estará selecionado inicialmente -->
@@ -377,6 +373,59 @@
 
       </div>
     </div>
+
+    
+ <!-- footer logo start -->
+<footer class="footer bg-ebony-clay dark-mode-texts">
+      <div class="container">
+        <!-- Cta section -->
+        <div class="pt-11 pt-lg-20 pb-13 pb-lg-20 border-bottom border-width-1 border-default-color-2">
+          <div class="row justify-content-center ">
+            <div class="col-xl-7 col-lg-12" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
+              <!-- cta-content start -->
+              <div class="pb-xl-0 pb-9 text-xl-left text-center">
+                <h2 class="text-white font-size-8 mb-4"> Objetivos de Desenvolvimento Sustentável</h2>
+                <p class="text-hit-gray font-size-5 mb-0"> Objetivos de Desenvolvimento Sustentável - Facens</p>
+
+                <br>
+              </div>
+              <!-- cta-content end -->
+            </div>
+            <div class="col-xl-5 col-lg-12" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
+              <!-- cta-btns start -->
+              <div class="btns d-flex justify-content-xl-end justify-content-center align-items-xl-center flex-wrap h-100  mx-n4">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container  pt-12 pt-lg-19 pb-10 pb-lg-19">
+        <div class="row">
+          <div class="col-lg-4 col-sm-6 mb-lg-0 mb-9"> 
+           
+
+            <!-- footer logo End -->
+            <!-- media start -->
+            <div class="media mb-11">
+              <img src="image/l1/png/message.png" class="align-self-center mr-3" alt="">
+              <div class="media-body pl-5">
+                <p class="mb-0 font-size-4 text-white">Contato</p>
+                <a class="mb-0 font-size-4 font-weight-bold" href="https://github.com/GroupVision/ODS-PARA-TODOS">GroupVision</a>
+              </div>
+            </div>
+            <!-- media start -->
+            <!-- widget social icon start -->
+
+            <!-- widget social icon end -->
+          </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- footer area function start -->
   <!-- Vendor Scripts -->
   <script src="js/vendor.min.js"></script>
   <!-- Plugin's Scripts -->
