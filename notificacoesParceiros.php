@@ -42,7 +42,7 @@
     $codDeNomeUser = implode(",", $arrayCodDeNomeUser);
     $codParaNomeUser = implode(",", $arrayCodParaNomeUser);
     if($codDeNomeUser != null){
-      $queryBuscaNomeUser= mysqli_query($conexao,"SELECT parceiros.codigo_de, usuario_pessoa.nome, usuario_pessoa.codigo FROM parceiros, usuario_pessoa WHERE usuario_pessoa.codigo IN ($codDeNomeUser) GROUP BY usuario_pessoa.codigo");
+      $queryBuscaNomeUser= mysqli_query($conexao,"SELECT parceiros.codigo, parceiros.codigo_de, usuario_pessoa.nome, usuario_pessoa.codigo FROM parceiros, usuario_pessoa WHERE usuario_pessoa.codigo IN ($codDeNomeUser) GROUP BY parceiros.codigo DESC");
 
       foreach($queryBuscaNomeUser as $row){
         $arrayNomeUser[] = $row['nome'];
@@ -50,7 +50,7 @@
     }
 
     if($codParaNomeUser != null){
-      $queryBuscaNomeUser2 = mysqli_query($conexao,"SELECT codigo_para, usuario_pessoa.nome, usuario_pessoa.codigo, projetos.codigo, projetos.cod_usuario FROM parceiros, projetos, usuario_pessoa WHERE projetos.codigo IN ($codParaNomeUser) AND usuario_pessoa.codigo = cod_usuario GROUP BY projetos.codigo");
+      $queryBuscaNomeUser2 = mysqli_query($conexao,"SELECT parceiros.codigo, codigo_para, usuario_pessoa.nome, usuario_pessoa.codigo, projetos.codigo, projetos.cod_usuario FROM parceiros, projetos, usuario_pessoa WHERE projetos.codigo IN ($codParaNomeUser) AND usuario_pessoa.codigo = cod_usuario GROUP BY parceiros.codigo DESC");
 
       foreach($queryBuscaNomeUser2 as $row){
         $arrayNomeUser2[] = $row['nome'];
@@ -87,7 +87,7 @@
   <div class="site-wrapper overflow-hidden bg-default-2">
     <!-- Header Area -->
     <header class="site-header site-header--menu-right dynamic-sticky-bg py-7 py-lg-0 site-header--absolute site-header--sticky">
-      <div class="container-fluid">
+      <div class="container">
         <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
           <!-- Brand Logo-->
           <div class="brand-logo">
@@ -355,7 +355,6 @@
                     </tr>
                   </tbody>
                 </table>
-              
             <?php $c++; unset($_SESSION['mensagemB']); unset($_SESSION['mensagem2B']); }?>
             </div>
           </div>
