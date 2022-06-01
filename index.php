@@ -385,7 +385,7 @@
                       <a class="mb-0 font-size-4 font-weight-bold" href="https://github.com/GroupVision/ODS-PARA-TODOS">GroupVision</a>
                     </div>
                     <h1 class="font-size-11 mb-9 text-black-2">Objetivos de Desenvolvimento Sustentável</h1>
-                    <p class="font-size-5">Projeto fabrica de projetos V - Facens</p>
+                    <p class="font-size-5">Projeto fabrica de projetos V - Facens </p>
                   </div>
                 </div>
               </div>
