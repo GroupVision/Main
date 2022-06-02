@@ -2,8 +2,8 @@
     session_start();
     if(isset($_POST['submit']) && (!empty($_POST['nome']) || !empty($_POST['ckOds']) || !empty($_POST['problema']) || !empty($_POST['descricao_projeto']) || !empty($_POST['objetivo']) || !empty($_POST['expectativa']) || !empty($_POST['publico_alvo']) || !empty($_POST['recursos']) || !empty($_POST['tipo_parceria']) || !empty($_POST['status']))){
 
-        include_once('configlocal.php');
-        //include_once('configheroku.php');
+        //include_once('configlocal.php');
+        include_once('configheroku.php');
 
         $nome = $_POST['nome'];
         $problema = $_POST['problema'];

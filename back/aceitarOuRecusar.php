@@ -1,8 +1,8 @@
 <?php 
     session_start();
     if(isset($_POST['submitAceitarB']) && $_POST['mensagem']){
-        include_once('configlocal.php');
-        //include_once('configheroku.php');
+        //include_once('configlocal.php');
+        include_once('configheroku.php');
 
         $codDeRow = null;
         $codProjRow = null;

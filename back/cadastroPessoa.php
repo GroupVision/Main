@@ -15,8 +15,8 @@
         //print_r('Imagem: ' . $_POST['imagemPessoaCadastro']);
         
         
-        include_once('configlocal.php');
-        //include_once('configheroku.php');
+        //include_once('configlocal.php');
+        include_once('configheroku.php');
 
         $nome = $_POST['nome'];
         $email = $_POST['email'];

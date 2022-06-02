@@ -1,8 +1,8 @@
 <?php 
     session_start();
     if(isset($_POST['enviar'])){
-        include_once('configlocal.php');
-        //include_once('configheroku.php');
+        //include_once('configlocal.php');
+        include_once('configheroku.php');
         
         $id_para = $_GET['projeto'];
 

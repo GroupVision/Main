@@ -3,8 +3,8 @@
     if(isset($_POST['login']) && !empty($_POST['email']) && !empty($_POST['senha']))
     {
         // Acessa
-        include_once('configlocal.php');
-        //include_once('configheroku.php');
+        //include_once('configlocal.php');
+        include_once('configheroku.php');
 
         $usuario = mysqli_real_escape_string($conexao, $_POST['email']);
         $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
