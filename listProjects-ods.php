@@ -1,7 +1,8 @@
 <?php
 ob_start();
     require "back/validacao.php";
-    include_once('back/configlocal.php');
+    //include_once('back/configlocal.php');
+include_once('back/configheroku.php');
 
     $logado = $_SESSION['nome'];
     $odsSelecionadas = null;  

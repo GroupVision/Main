@@ -1,6 +1,7 @@
 <?php
     if (!isset($_SESSION)) session_start();
-    include_once('back/configlocal.php');
+    //include_once('back/configlocal.php');
+include_once('back/configheroku.php');
     // print_r($_SESSION);
     if (!isset($_SESSION['codigo'])) {
       // Destrói a sessão por segurança
