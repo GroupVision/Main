@@ -55,10 +55,7 @@
                   
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link " href="myProjects-ods.php" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Meus Projetos</a>
-                  
-                    <li class="drop-menu-item dropdown">
-                      
+                  <a class="nav-link " href="myprojects.php" role="button" aria-haspopup="true" aria-expanded="false">Meus Projetos</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="https://odsbrasil.gov.br/home/agenda">Agenda 2030</a>

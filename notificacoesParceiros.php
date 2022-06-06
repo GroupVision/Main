@@ -42,7 +42,7 @@
     $codDeNomeUser = implode(",", $arrayCodDeNomeUser);
     $codParaNomeUser = implode(",", $arrayCodParaNomeUser);
     if($codDeNomeUser != null){
-      $queryBuscaNomeUser= mysqli_query($conexao,"SELECT parceiros.codigo, parceiros.codigo_de, usuario_pessoa.nome, usuario_pessoa.codigo FROM parceiros, usuario_pessoa WHERE usuario_pessoa.codigo IN ($codDeNomeUser) GROUP BY parceiros.codigo DESC");
+      $queryBuscaNomeUser= mysqli_query($conexao,"SELECT parceiros.codigo_de, usuario_pessoa.nome, usuario_pessoa.codigo FROM parceiros, usuario_pessoa WHERE usuario_pessoa.codigo IN ($codDeNomeUser) GROUP BY usuario_pessoa.codigo DESC");
 
       foreach($queryBuscaNomeUser as $row){
         $arrayNomeUser[] = $row['nome'];
@@ -50,7 +50,7 @@
     }
 
     if($codParaNomeUser != null){
-      $queryBuscaNomeUser2 = mysqli_query($conexao,"SELECT parceiros.codigo, codigo_para, usuario_pessoa.nome, usuario_pessoa.codigo, projetos.codigo, projetos.cod_usuario FROM parceiros, projetos, usuario_pessoa WHERE projetos.codigo IN ($codParaNomeUser) AND usuario_pessoa.codigo = cod_usuario GROUP BY parceiros.codigo DESC");
+      $queryBuscaNomeUser2 = mysqli_query($conexao,"SELECT codigo_para, usuario_pessoa.nome, usuario_pessoa.codigo, projetos.codigo, projetos.cod_usuario FROM parceiros, projetos, usuario_pessoa WHERE projetos.codigo IN ($codParaNomeUser) AND usuario_pessoa.codigo = cod_usuario GROUP BY projetos.codigo DESC");
 
       foreach($queryBuscaNomeUser2 as $row){
         $arrayNomeUser2[] = $row['nome'];
@@ -104,8 +104,8 @@
                   <a class="nav-link"  href="Projects-ods.php" role="button" aria-haspopup="true" aria-expanded="false">Projetos ODS </a>
                   
                 </li>
-                <li class="nav-item dropdown active">
-                  <a class="nav-link " href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">• Meus Projetos</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link " href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Meus Projetos</a>
                   
                     <li class="drop-menu-item dropdown">
                       

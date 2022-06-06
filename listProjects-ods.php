@@ -85,10 +85,7 @@ ob_start();
                   
                 </li>
                 <li class="nav-item dropdown ">
-                  <a class="nav-link " href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">• Meus Projetos</a>
-                  
-                    <li class="drop-menu-item dropdown">
-                      
+                  <a class="nav-link " href="myprojects.php" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Meus Projetos</a>                     
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="https://odsbrasil.gov.br/home/agenda">Agenda 2030</a>
@@ -296,14 +293,14 @@ ob_start();
                       </div>              
                   </div>
                   <div class="col-md-3" style="float: right;">
-                            <ul class="d-flex list-unstyled mr-n3 flex-wrap mr-n8 justify-content-md-right" >
-                              <li class="mt-2 mr-8 font-size-small text-black-2 d-flex">
-                                <span class="mr-4" style="margin-top:1; "></span> 
-                                  <?php if($row['status'] == "Andamento")  echo "<img style='margin-top:1; width: 30px; right: 30px;' src='./image/in_progress.png'"; else if($row['status'] == "Concluido") echo "<img style='margin-top:1; width: 30px; right: 30px;' src='./image/done.png'"; else if($row['status'] == "Em criacao") echo "<img style='margin-top:1; width: 30px; right: 30px;' src='./image/in_creation.png'";?>
-                                <span style="align-items: center; margin-left: 4px; margin-top: 4px;" class="font-weight-semibold"><b><?php echo $row['status']?></b></span>
-                                </div>
-                              </li>
-                            </ul>
+                    <ul class="d-flex list-unstyled mr-n3 flex-wrap mr-n8 justify-content-md-right" >
+                      <li class="mt-2 mr-8 font-size-small text-black-2 d-flex">
+                        <span class="mr-4" style="margin-top:1; "></span> 
+                          <?php if($row['status'] == "Andamento")  echo "<img style='margin-top:1; width: 30px; right: 30px;' src='./image/in_progress.png'"; else if($row['status'] == "Concluido") echo "<img style='margin-top:1; width: 30px; right: 30px;' src='./image/done.png'"; else if($row['status'] == "Em criacao") echo "<img style='margin-top:1; width: 30px; right: 30px;' src='./image/in_creation.png'";?>
+                        <span style="align-items: center; margin-left: 4px; margin-top: 4px;" class="font-weight-semibold"><b><?php echo $row['status']?></b></span>
+                        </div>
+                      </li>
+                    </ul>
                 </div>
               </div>
             </div>
